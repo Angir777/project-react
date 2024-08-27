@@ -1,5 +1,6 @@
-import { Suspense } from 'react'
-import './App.css'
+import React from 'react';
+import { Suspense } from 'react';
+import './App.css';
 
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import Login from './app/views/public/auth/Login/Login';
@@ -30,7 +31,7 @@ function App() {
           </BrowserRouter>
       </QueryClientProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

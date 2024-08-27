@@ -1,7 +1,5 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 
-interface LoginProps {}
-
-const Login: FC<LoginProps> = () => <div>Login Component</div>;
+const Login: FC = () => <div>Login Component</div>;
 
 export default Login;

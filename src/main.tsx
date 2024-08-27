@@ -1,15 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.tsx';
 
-import "./index.css";
-import "./i18n";
-import { t } from "i18next";
+import './index.css';
+import './i18n';
+import { t } from 'i18next';
 
 // Główny title strony
-document.title = t("appName");
+document.title = t('appName');
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>

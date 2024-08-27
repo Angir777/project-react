@@ -35,4 +35,8 @@ Generate React CLI: npx generate-react-cli component Box
 
 https://dev.to/tsamaya/eslint-and-prettier-configuration-for-react-project-2gij
 
+Prosty server do testowania:
+npm install -g serve
+I w disc serve -s
+
 

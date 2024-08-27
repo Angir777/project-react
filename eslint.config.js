@@ -16,6 +16,7 @@ export default [
     },
     rules: {
       semi: ["error", "always"],  // Dodaj regułę wymagającą średnika
+      "react/react-in-jsx-scope": "off"
     }
   },
   pluginJs.configs.recommended,

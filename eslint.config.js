@@ -14,12 +14,14 @@ export default [
         version: "detect"  // Automatyczne wykrywanie wersji Reacta
       }
     },
-    rules: {
-      semi: ["error", "always"],  // Dodaj regułę wymagającą średnika
-      "react/react-in-jsx-scope": "off"
-    }
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
+  {
+    rules: {
+      semi: ["error", "always"],  // Dodaj regułę wymagającą średnika
+      "react/react-in-jsx-scope": "off"
+    }
+  }
 ];

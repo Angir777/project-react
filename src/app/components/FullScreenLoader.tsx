@@ -1,13 +1,19 @@
 export const FullScreenLoader = () => {
   return (
-    <div className="fixed top-0 left-0 right-0 bottom-0 bg-opacity-40 bg-indigo-500 z-30 flex justify-center items-center">
-      <div className="sk-chase">
-        <div className="sk-chase-dot before:bg-indigo-500" />
-        <div className="sk-chase-dot before:bg-indigo-500" />
-        <div className="sk-chase-dot before:bg-indigo-500" />
-        <div className="sk-chase-dot before:bg-indigo-500" />
-        <div className="sk-chase-dot before:bg-indigo-500" />
-        <div className="sk-chase-dot before:bg-indigo-500" />
+    <div className="mat-table-custom-loading-shade inset-0">
+      <div className="sk-circle">
+        <div className="sk-circle1 sk-child"></div>
+        <div className="sk-circle2 sk-child"></div>
+        <div className="sk-circle3 sk-child"></div>
+        <div className="sk-circle4 sk-child"></div>
+        <div className="sk-circle5 sk-child"></div>
+        <div className="sk-circle6 sk-child"></div>
+        <div className="sk-circle7 sk-child"></div>
+        <div className="sk-circle8 sk-child"></div>
+        <div className="sk-circle9 sk-child"></div>
+        <div className="sk-circle10 sk-child"></div>
+        <div className="sk-circle11 sk-child"></div>
+        <div className="sk-circle12 sk-child"></div>
       </div>
     </div>
   );

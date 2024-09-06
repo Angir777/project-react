@@ -10,3 +10,4 @@ export const PublicLayout = () => {
     </div>
   );
 };
+

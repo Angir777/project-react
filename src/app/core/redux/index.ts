@@ -4,6 +4,7 @@ import configReducer from './config';
 import layoutReducer from './layout';
 import leftMenuReducer from './leftMenu';
 
+// TODO: Tutaj pytanie czy będzie potrzebne layoutReducer i leftMenuReducer
 export const store = configureStore({
   reducer: {
     auth: authReducer,

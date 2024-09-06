@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import * as yup from 'yup';
 import { APP_IS_REGISTER_ENABLED } from '../../../../envrionment';
-import { useAppDispatch } from '../../../core/redux/hooks/reduxHooks';
+import { setGlobalState } from '../../../core/redux/hooks/reduxHooks';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -26,7 +26,7 @@ const schema = yup.object().shape({
 // const registerEnabled = APP_IS_REGISTER_ENABLED;
 
 const Login: FC = () => {
-//   const dispatch = useAppDispatch();
+//   const dispatch = setGlobalState();
   const { t } = useTranslation();
 //   const navigate = useNavigate();
 

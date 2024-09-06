@@ -16,7 +16,7 @@ const authSlice = createSlice({
   name: 'authentication',
   initialState: initialState,
   reducers: {
-    login(state, action: PayloadAction<any>) {
+    login(state, action: PayloadAction<Credentials>) {
       localStorage.setItem(`${APP_STORAGE_KEY}-currentUser`, JSON.stringify(action.payload));
       state.currentUser = action.payload;
     },
@@ -24,11 +24,11 @@ const authSlice = createSlice({
       localStorage.removeItem(`${APP_STORAGE_KEY}-currentUser`);
       state.currentUser = null;
     },
-    register(state, action: PayloadAction<any>) {
+    register(state, action: PayloadAction<Credentials>) {
       localStorage.setItem(`${APP_STORAGE_KEY}-currentUser`, JSON.stringify(action.payload));
       state.currentUser = action.payload;
     },
-    restoreUser(state, action: PayloadAction<any>) {
+    restoreUser(state, action: PayloadAction<Credentials>) {
       state.currentUser = action.payload;
     },
   },

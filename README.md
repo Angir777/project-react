@@ -39,4 +39,14 @@ Prosty server do testowania:
 npm install -g serve
 I w disc serve -s
 
+## Projekt:
 
+1. Instalacja poprzez Vite: npm create vite@latest
+2. Podstawowa konfiguracja projektu pod eslinta i prettiera + budowanie aplikacji prod i dev
+3. Routing, core logowania, redux do stanów globalnych
+4. Widoki
+
+## TODO:
+
+1. Zamienić TailwindCSS na Boostrapa w komponentach
+2. Zrobić formularz logowania

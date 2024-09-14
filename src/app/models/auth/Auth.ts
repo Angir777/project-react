@@ -1,22 +1,9 @@
-import { Permission } from './Permission';
+import { User } from '../user/User';
 
-export interface Credentials {
-  id: number;
-  email: string;
-  firstName: string;
-  lastName: string;
-  active: boolean;
-  confirmed: boolean;
-  permissions: Permission[];
-  token: UserToken;
-  tokenType: string;
-  localAccount: boolean;
-  avatarUrl?: string;
-}
-
-export interface UserToken {
-  accessToken: string;
-  expiresAt: string;
-  revoked: string;
-  updatedAt: string;
+/**
+ * Model użytkownika z dodatkiem informacji o tokenie.
+ */
+export class AuthUser extends User {
+  token: string | null = null;
+  tokenType: string | null = null;
 }

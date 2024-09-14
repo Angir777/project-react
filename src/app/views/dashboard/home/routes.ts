@@ -7,6 +7,6 @@ export const HOME_ROUTES: RouteElement[] = [
     {
         path: '/home',
         element: Home,
-        permissions: ['GENERAL_ACCESS']
+        permissions: ['USER']
     },
 ];

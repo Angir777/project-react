@@ -8,6 +8,7 @@ interface HasPermissionProps {
 }
 
 export const HasPermission = ({ children, permissions }: HasPermissionProps) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const currentUser = getGlobalState((state: { auth: { currentUser: any } }) => state.auth.currentUser);
 
   if (currentUser == null) {
@@ -16,7 +17,7 @@ export const HasPermission = ({ children, permissions }: HasPermissionProps) => 
 
   if (
     hasPermissions(
-      currentUser.permissions.map((p: { name: any }) => p.name),
+      currentUser.permissions.map((p: { name: string }) => p.name),
       permissions
     )
   ) {

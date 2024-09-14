@@ -1,8 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { setGlobalState, getGlobalState } from './redux/hooks/reduxHooks';
-import { Credentials } from '../models/auth/Auth';
+import { AuthUser } from '../models/auth/Auth';
 import { PropsWithChildren, useEffect } from 'react';
-import { DateTime } from 'luxon';
 import { APP_STORAGE_KEY } from '../../envrionment';
 import { authActions } from './redux/auth';
 import { configActions } from './redux/config';
@@ -21,7 +20,7 @@ export const CoreAppWrapper = ({ children }: PropsWithChildren<any>) => {
   // Wczytanie usera z localstorage przy starcie aplikacji
   useEffect(() => {
     const bootstrapAsync = () => {
-      let currentUser: Credentials | null = null;
+      let currentUser: AuthUser | null = null;
 
       try {
         const storageData = localStorage.getItem(`${APP_STORAGE_KEY}-currentUser`);
@@ -32,15 +31,8 @@ export const CoreAppWrapper = ({ children }: PropsWithChildren<any>) => {
         return;
       }
 
-      if (currentUser == null) {
+      if (currentUser === null) {
         return;
-      } else {
-        // Sprawdzenie, czy token jest ok na podstawie daty ważności tokenu
-        const tokenExpireDate = DateTime.fromISO(currentUser.token.expiresAt);
-        const now = DateTime.now();
-        if (now > tokenExpireDate) {
-          return;
-        }
       }
 
       // Przywrócenie zalogowania usera z localstorage
@@ -50,10 +42,12 @@ export const CoreAppWrapper = ({ children }: PropsWithChildren<any>) => {
     bootstrapAsync();
   }, []);
 
-  // Zmiana języka w aplikacji
+  // TODO: Zmiana języka w aplikacji
   useEffect(() => {
     const changeLanguage = async (lang: string) => {
-      await i18n.changeLanguage(lang);
+      if (i18n.language !== lang) {
+        await i18n.changeLanguage(lang);
+      }
     };
 
     if (isInit) {

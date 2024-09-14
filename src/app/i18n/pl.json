@@ -1,3 +1,19 @@
 {
-  "appName": "Project PL"
+  "appName": "Project PL",
+
+  "login": {
+        "title": "Logowanie",
+        "email": "Email",
+        "password": "Hasło",
+        "rememberMe": "Zapamiętaj mnie",
+        "forgotPassword": "Zapomniałeś hasła?",
+        "logIn": "Zaloguj się",
+        "dontHaveAccount": "Nie posiadasz konta w naszej aplikacji? Utwórz je już teraz.",
+        "messages": {
+            "loginSuccess": "Witaj, {{name}}!",
+            "wrongEmailOrPassword": "Błędny login lub hasło.",
+            "loginInfo": "Jeśli posiadasz konto w myCOM/EOD, aby się zalogować należy podać dane do logowania identyczne z tymi wykorzystywanymi w myCOM/EOD. Jeśli nie posiadasz konta w myCOM/EOD, zaloguj się używając danych do logowania, które uzyskałeś dla tej aplikacji.",
+            "noPermissions": "Brak uprawnień!"
+        }
+    }
 }

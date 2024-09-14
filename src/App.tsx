@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useRef } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { FullScreenLoader } from './app/components/FullScreenLoader';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -7,10 +7,16 @@ import { CoreAppWrapper } from './app/core/CoreAppWrapper';
 import { PrimeReactProvider } from 'primereact/api';
 import { PublicLayout } from './app/layout/public/PublicLayout';
 import { ErrorLayout } from './app/layout/error/ErrorLayout';
+import { Toast } from 'primereact/toast';
+import { setGlobalState } from './app/core/redux/hooks/reduxHooks';
+import { useSelector } from 'react-redux';
+import { RootState } from './app/core/redux';
+import { toastActions } from './app/core/redux/toast';
 import Login from './app/views/public/auth/Login';
 import ForgotPassword from './app/views/public/auth/ForgotPassword';
 import ResetPassword from './app/views/public/auth/ResetPassword';
 import Register from './app/views/public/auth/Register';
+import Page403 from './app/views/error/Page403';
 import Page404 from './app/views/error/Page404';
 import './assets/layout/themes/lara/lara-light/indigo/theme.scss';
 import './App.scss';
@@ -24,10 +30,23 @@ const registerEnabled = APP_IS_REGISTER_ENABLED;
 const queryClient = new QueryClient();
 
 function App() {
+  const dispatch = setGlobalState();
+
   // Ustawienia Prime'a
   const value = {
     ripple: true,
   };
+
+  // Wyświetlanie globalne toast
+  const { severity, summary, detail, isVisible } = useSelector((state: RootState) => state.toast);
+  const toastRef = useRef<Toast | null>(null);
+
+  React.useEffect(() => {
+    if (isVisible && toastRef.current) {
+      toastRef.current.show({ severity, summary, detail });
+      dispatch(toastActions.hideToast());
+    }
+  }, [isVisible, severity, summary, detail, dispatch]);
 
   return (
     <>
@@ -35,6 +54,7 @@ function App() {
         <QueryClientProvider client={queryClient}>
           <BrowserRouter>
             <CoreAppWrapper>
+              <Toast ref={toastRef} />
               <Suspense fallback={<FullScreenLoader />}>
                 <Routes>
                   <Route path="/" element={<PublicLayout />}>
@@ -49,6 +69,7 @@ function App() {
                   </Route>
 
                   <Route path={'/error/*'} element={<ErrorLayout />}>
+                    <Route path="403" element={<Page403 />} />
                     <Route path="404" element={<Page404 />} />
                   </Route>
 
@@ -63,6 +84,7 @@ function App() {
                     }
                   />
 
+                  <Route path="403" element={<Page403 />} />
                   <Route path="*" element={<Page404 />} />
                 </Routes>
               </Suspense>

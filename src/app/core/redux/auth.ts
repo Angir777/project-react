@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Credentials } from '../../models/auth/Auth';
+import { AuthUser } from '../../models/auth/Auth';
 import { APP_STORAGE_KEY } from '../../../envrionment';
 
 interface AuthSliceState {
-  currentUser: Credentials | null;
+  currentUser: AuthUser | null;
   isLoading: boolean;
 }
 
@@ -16,7 +16,7 @@ const authSlice = createSlice({
   name: 'authentication',
   initialState: initialState,
   reducers: {
-    login(state, action: PayloadAction<Credentials>) {
+    login(state, action: PayloadAction<AuthUser>) {
       localStorage.setItem(`${APP_STORAGE_KEY}-currentUser`, JSON.stringify(action.payload));
       state.currentUser = action.payload;
     },
@@ -24,11 +24,11 @@ const authSlice = createSlice({
       localStorage.removeItem(`${APP_STORAGE_KEY}-currentUser`);
       state.currentUser = null;
     },
-    register(state, action: PayloadAction<Credentials>) {
+    register(state, action: PayloadAction<AuthUser>) {
       localStorage.setItem(`${APP_STORAGE_KEY}-currentUser`, JSON.stringify(action.payload));
       state.currentUser = action.payload;
     },
-    restoreUser(state, action: PayloadAction<Credentials>) {
+    restoreUser(state, action: PayloadAction<AuthUser>) {
       state.currentUser = action.payload;
     },
   },

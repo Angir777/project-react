@@ -5,6 +5,7 @@ import { getGlobalState } from '../redux/hooks/reduxHooks';
 /**
  * Komponent zabezpieczający trasy. Wymaga zalogowania. Inaczej kieruje na stronę logowania.
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const RequireAuth = ({ children }: PropsWithChildren<any>) => {
   const currentUser = getGlobalState((state) => state.auth.currentUser);
   const location = useLocation();

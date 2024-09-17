@@ -1,0 +1,17 @@
+.p-icon-field > .p-input-icon {
+  position: absolute;
+  top: 40%;
+  margin-top: -0.5rem;
+}
+
+.custom-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .p-button-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

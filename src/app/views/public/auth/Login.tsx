@@ -1,24 +1,26 @@
 import { FC, useState } from 'react';
 import * as yup from 'yup';
-import { APP_IS_REGISTER_ENABLED } from '../../../../envrionment';
+import { APP_IS_REGISTER_ENABLED, APP_VERSION } from '../../../../envrionment';
 import { setGlobalState } from '../../../core/redux/hooks/reduxHooks';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-// import { Button } from 'primereact/button';
-// import { Ripple } from 'primereact/ripple';
-// import { toast } from 'react-toastify';
 import { AuthUser } from '../../../models/auth/Auth';
 import { LoginInterface } from '../../../interfaces/login.interface';
 import AuthService from '../../../services/auth/auth.service';
 import { authActions } from '../../../core/redux/auth';
-import { classNames } from 'primereact/utils';
 import { toastActions } from '../../../core/redux/toast';
+import { Button } from 'primereact/button';
+import { PrimeButtonLabel } from '../../../components/PrimeButtonLabel';
+import { Checkbox } from 'primereact/checkbox';
+import { InputText } from 'primereact/inputtext';
+import { Password } from 'primereact/password';
+import './Login.scss';
 
 const schema = yup.object().shape({
   email: yup.string().required('validation.required').email('validation.email'),
-  password: yup.string().required({ msg: 'validation.required' }),
+  password: yup.string().required('validation.required'),
   remember: yup.boolean().nullable(),
 });
 
@@ -34,17 +36,22 @@ const Login: FC = () => {
   const {
     register,
     handleSubmit,
+    setValue,
+    watch,
     formState: { errors },
   } = useForm<LoginInterface>({
     resolver: yupResolver(schema),
     defaultValues: {
       email: process.env.NODE_ENV === 'development' ? 'superadmin@mail.com' : '',
       password: process.env.NODE_ENV === 'development' ? 'root12' : '',
+      remember: false,
     },
   });
 
   const onSubmit = async (formData: LoginInterface) => {
     setIsLogging(true);
+
+    console.log(formData);
 
     try {
       const res = await AuthService.login(formData);
@@ -87,93 +94,65 @@ const Login: FC = () => {
             <h3 className="mt-4 mb-4 text-center">{t('appName')}</h3>
           </div>
           <div className="col-12">
-            <form className="mt-8 space-y-6" onSubmit={handleSubmit(onSubmit)}>
+            <form className="" onSubmit={handleSubmit(onSubmit)}>
               <input type="hidden" name="remember" defaultValue="true" />
-              <div className="rounded-md shadow-sm -space-y-px">
-                <div>
-                  <label htmlFor="email-address" className="sr-only">
-                    {t('login.email')}
-                  </label>
-                  <input
-                    id="email-address"
-                    type="email"
-                    autoComplete="email"
-                    className={classNames(
-                      errors.email ? 'border-red-400 bg-red-100 placeholder-red-400' : 'border-gray-300',
-                      'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
-                    )}
-                    placeholder={t('login.email')}
-                    {...register('email')}
-                  />
+
+              <div>
+                <div className="field p-fluid">
+                  <label htmlFor="email-address">{t('login.email')}</label>
+                  <InputText id="email" {...register('email')} className={errors.email ? 'p-invalid' : ''} placeholder={t('login.email')} />
+                  {errors.email && <small className="p-error">{t(errors.email.message || '')}</small>}
                 </div>
-                <div>
-                  <label htmlFor="password" className="sr-only">
-                    {t('login.password')}
-                  </label>
-                  <input
+                <div className="field p-fluid mt-3">
+                  <label htmlFor="password">{t('login.password')}</label>
+                  <Password
                     id="password"
-                    type="password"
-                    autoComplete="current-password"
-                    className={classNames(
-                      errors.password ? 'border-red-400 bg-red-100 placeholder-red-400' : 'border-gray-300',
-                      'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
-                    )}
+                    value={watch('password')} // Ustawienie wartości z formularza
+                    onChange={(e) => setValue('password', e.target.value)} // Ustawienie wartości w formularzu
+                    feedback={false}
+                    toggleMask
+                    className={errors.password ? 'p-invalid' : ''}
                     placeholder={t('login.password')}
-                    {...register('password')}
                   />
+                  {errors.password && <small className="p-error">{t(errors.password.message || '')}</small>}
                 </div>
               </div>
 
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <input
-                    id="remember"
-                    type="checkbox"
-                    className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-                    {...register('remember')}
+              <div className="mt-3 d-flex align-items-center justify-content-between">
+                <div className="d-flex align-items-center mb-2">
+                  <Checkbox
+                    inputId="remember"
+                    checked={!!watch('remember')} // Ensure the value is always a boolean
+                    onChange={(e) => setValue('remember', e.checked)} // Update the form value
                   />
-                  <label htmlFor="remember" className="ml-2 block text-sm text-gray-900">
+                  <label htmlFor="remember" className="ms-2">
                     {t('login.rememberMe')}
                   </label>
                 </div>
-
-                <div className="text-sm">
-                  <Link to="/forgot-password" className="font-normal text-sm text-gray-500 hover:text-gray-600">
+                <div>
+                  <Link to="/forgot-password" className="link-secondary link-underline-opacity-0">
                     {t('login.forgotPassword')}
                   </Link>
                 </div>
               </div>
 
-              <div>
-                <button
-                  type="submit"
-                  className="group relative w-full flex justify-center py-2 px-4 border border-transparent
-                          text-sm font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-400
-                          focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                  <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                    {!isLogging ? (
-                      <p>HiOutlineLogin</p>
-                    ) : (
-                      // <HiOutlineLogin
-                      //     className="h-5 w-5 text-indigo-100 group-hover:text-indigo-100"
-                      //     aria-hidden="true"/>
-                      <p>FiLoader</p>
-                      // <FiLoader
-                      //     className="h-5 w-5 text-indigo-100 group-hover:text-indigo-100 animate-spin"
-                      //     aria-hidden="true"/>
-                    )}
-                  </span>
-                  {t('login.logIn')}
-                </button>
+              <div className="mt-2 text-center">
+                <Button severity="success" className="w-100 custom-button" disabled={isLogging}>
+                  <PrimeButtonLabel text={t('login.logIn')} loader={isLogging} />
+                </Button>
               </div>
             </form>
+
             {registerEnabled && (
-              <div className="mt-8 text-center">
-                <Link to="/register" className="font-normal text-sm text-gray-500 hover:text-gray-600">
-                  {t('login.dontHaveAccount')}
+              <div className="mt-2 text-center">
+                <Link to="/register">
+                  <Button label={t('login.registration')} severity="secondary" className="w-100" />
                 </Link>
               </div>
             )}
+          </div>
+          <div className="col-12 mt-3 text-center">
+            <small>{APP_VERSION}</small>
           </div>
         </div>
       </div>

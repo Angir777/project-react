@@ -2,7 +2,7 @@ import React, { Suspense, useRef } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { FullScreenLoader } from './app/components/FullScreenLoader';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { APP_VERSION, APP_IS_REGISTER_ENABLED } from './envrionment';
+import { APP_IS_REGISTER_ENABLED } from './envrionment';
 import { CoreAppWrapper } from './app/core/CoreAppWrapper';
 import { PrimeReactProvider } from 'primereact/api';
 import { PublicLayout } from './app/layout/public/PublicLayout';
@@ -20,8 +20,6 @@ import Page403 from './app/views/error/Page403';
 import Page404 from './app/views/error/Page404';
 import './assets/layout/themes/lara/lara-light/indigo/theme.scss';
 import './App.scss';
-
-console.log("APP version: " + APP_VERSION);
 
 // Dashboard musi być jako lazy load bo inaczej nie ładuje currentUser z local storage przy refresh'u
 const DashboardRouting = React.lazy(() => import('./app/views/dashboard/DashboardRouting'));

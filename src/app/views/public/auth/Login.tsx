@@ -51,8 +51,6 @@ const Login: FC = () => {
   const onSubmit = async (formData: LoginInterface) => {
     setIsLogging(true);
 
-    console.log(formData);
-
     try {
       const res = await AuthService.login(formData);
       const data = res.data;

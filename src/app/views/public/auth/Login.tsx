@@ -120,8 +120,8 @@ const Login: FC = () => {
                 <div className="d-flex align-items-center mb-2">
                   <Checkbox
                     inputId="remember"
-                    checked={!!watch('remember')} // Ensure the value is always a boolean
-                    onChange={(e) => setValue('remember', e.checked)} // Update the form value
+                    checked={!!watch('remember')}
+                    onChange={(e) => setValue('remember', e.checked)}
                   />
                   <label htmlFor="remember" className="ms-2">
                     {t('login.rememberMe')}

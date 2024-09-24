@@ -1,5 +1,6 @@
 {
   "appName": "Project PL",
+  "appVersion": "Wersja aplikacji:",
 
   "validation": {
     "required": "Pole jest wymagane.",
@@ -22,6 +23,35 @@
       "wrongEmailOrPassword": "Błędny login lub hasło.",
       "loginInfo": "Jeśli posiadasz konto w myCOM/EOD, aby się zalogować należy podać dane do logowania identyczne z tymi wykorzystywanymi w myCOM/EOD. Jeśli nie posiadasz konta w myCOM/EOD, zaloguj się używając danych do logowania, które uzyskałeś dla tej aplikacji.",
       "noPermissions": "Brak uprawnień!"
+    }
+  },
+
+  "register": {
+    "title": "Rejestracja",
+    "name": "Nazwa użytkownika",
+    "email": "E-mail",
+    "password": "Hasło",
+    "passwordConfirmation": "Powtórz hasło",
+    "acceptanceRegulations": "Akceptuję regulamin",
+    "iHaveAccount": "Mam już konto",
+    "register": "Potwierdzam",
+    "messages": {
+      "accountCreatedNeedConfirmation": "Konto zostało utworzone pomyślnie, na adres email został wysłany link aktywacyjny.",
+      "cantCreateAccount": "Nie udało się utworzyć konta."
+    }
+  },
+
+  "accountConfirmation": {
+    "loading": "Trwa sprawdzanie konta...",
+    "messages": {
+      "success": {
+        "accountConfirmationSuccessText": "Twoje konto zostało potwierdzone! Zaloguj się i w pełni korzystaj z serwisu!"
+      },
+      "errors": {
+        "codeInvalidText": "Nie poprawny kod potwierdzenia!",
+        "alreadyConfirmedText": "Konto zostało już potwierdzone!",
+        "anotherErrorText": "Wystąpił problem z potwierdzeniem konta. Spróbuj ponownie."
+      }
     }
   }
 }

@@ -15,6 +15,7 @@ import { toastActions } from './app/core/redux/toast';
 import Login from './app/views/public/auth/Login';
 import ForgotPassword from './app/views/public/auth/ForgotPassword';
 import ResetPassword from './app/views/public/auth/ResetPassword';
+import AccountConfirmation from './app/views/public/auth/AccountConfirmation';
 import Register from './app/views/public/auth/Register';
 import Page403 from './app/views/error/Page403';
 import Page404 from './app/views/error/Page404';
@@ -63,7 +64,12 @@ function App() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/forgot-password" element={<ForgotPassword />} />
                     <Route path="/reset-password/:token" element={<ResetPassword />} />
-                    {registerEnabled && <Route path="/register" element={<Register />} />}
+                    {registerEnabled && (
+                      <>
+                        <Route path="/register" element={<Register />} />
+                        <Route path="/account-confirmation/:code" element={<AccountConfirmation />} />
+                      </>
+                    )}
                   </Route>
 
                   <Route path={'/error/*'} element={<ErrorLayout />}>

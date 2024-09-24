@@ -93,23 +93,21 @@ const Login: FC = () => {
           </div>
           <div className="col-12">
             <form className="" onSubmit={handleSubmit(onSubmit)}>
-              <input type="hidden" name="remember" defaultValue="true" />
-
               <div>
                 <div className="field p-fluid">
-                  <label htmlFor="email-address">{t('login.email')}</label>
-                  <InputText id="email" {...register('email')} className={errors.email ? 'p-invalid' : ''} placeholder={t('login.email')} />
+                  <label htmlFor="email-address">{t('login.email')}*</label>
+                  <InputText id="email" {...register('email')} className={`${errors.email ? 'p-invalid' : ''} p-inputtext-sm`} placeholder={t('login.email')} />
                   {errors.email && <small className="p-error">{t(errors.email.message || '')}</small>}
                 </div>
                 <div className="field p-fluid mt-3">
-                  <label htmlFor="password">{t('login.password')}</label>
+                  <label htmlFor="password">{t('login.password')}*</label>
                   <Password
                     id="password"
                     value={watch('password')} // Ustawienie wartości z formularza
                     onChange={(e) => setValue('password', e.target.value)} // Ustawienie wartości w formularzu
                     feedback={false}
                     toggleMask
-                    className={errors.password ? 'p-invalid' : ''}
+                    className={`${errors.password ? 'p-invalid' : ''} p-inputtext-sm`}
                     placeholder={t('login.password')}
                   />
                   {errors.password && <small className="p-error">{t(errors.password.message || '')}</small>}
@@ -150,7 +148,7 @@ const Login: FC = () => {
             )}
           </div>
           <div className="col-12 mt-3 text-center">
-            <small>{APP_VERSION}</small>
+            <small>{t('appVersion')}{APP_VERSION}</small>
           </div>
         </div>
       </div>

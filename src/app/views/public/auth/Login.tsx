@@ -70,15 +70,26 @@ const Login: FC = () => {
 
       // Witaj, {{name}}!
       dispatch(
-        toastActions.showToast({ severity: 'success', summary: 'Sukces', detail: t('login.messages.loginSuccess', { name: `${currentUser.name}` }) })
+        toastActions.showToast({ 
+          severity: 'success', 
+          summary: t('toast.summary.success'), 
+          detail: t('login.messages.success.loginSuccess', { name: `${currentUser.name}` }) })
       );
+
       // Ustawienie zalogowania
       dispatch(authActions.login(currentUser));
+      
       // Przekierowanie na dashboard
       navigate('/dashboard/home', { replace: true });
     } catch {
       // Błędny login lub hasło.
-      dispatch(toastActions.showToast({ severity: 'error', summary: 'Error', detail: t('login.messages.wrongEmailOrPassword') }));
+      dispatch(
+        toastActions.showToast({ 
+          severity: 'error', 
+          summary: t('toast.summary.error'), 
+          detail: t('login.messages.errors.wrongEmailOrPassword') 
+        })
+      );
     }
 
     setIsLogging(false);
@@ -92,15 +103,16 @@ const Login: FC = () => {
             <h3 className="mt-4 mb-4 text-center">{t('appName')}</h3>
           </div>
           <div className="col-12">
-            <form className="" onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div>
                 <div className="field p-fluid">
-                  <label htmlFor="email-address">{t('login.email')}*</label>
+                  <label htmlFor="email-address">{t('login.form.email')}*</label>
                   <InputText id="email" {...register('email')} className={`${errors.email ? 'p-invalid' : ''} p-inputtext-sm`} placeholder={t('login.email')} />
                   {errors.email && <small className="p-error">{t(errors.email.message || '')}</small>}
                 </div>
+
                 <div className="field p-fluid mt-3">
-                  <label htmlFor="password">{t('login.password')}*</label>
+                  <label htmlFor="password">{t('login.form.password')}*</label>
                   <Password
                     id="password"
                     value={watch('password')} // Ustawienie wartości z formularza
@@ -108,7 +120,7 @@ const Login: FC = () => {
                     feedback={false}
                     toggleMask
                     className={`${errors.password ? 'p-invalid' : ''} p-inputtext-sm`}
-                    placeholder={t('login.password')}
+                    placeholder={t('login.form.password')}
                   />
                   {errors.password && <small className="p-error">{t(errors.password.message || '')}</small>}
                 </div>
@@ -122,19 +134,20 @@ const Login: FC = () => {
                     onChange={(e) => setValue('remember', e.checked)}
                   />
                   <label htmlFor="remember" className="ms-2">
-                    {t('login.rememberMe')}
+                    {t('login.form.rememberMe')}
                   </label>
                 </div>
+
                 <div>
                   <Link to="/forgot-password" className="link-secondary link-underline-opacity-0">
-                    {t('login.forgotPassword')}
+                    {t('login.buttons.forgotPassword')}
                   </Link>
                 </div>
               </div>
 
-              <div className="mt-2 text-center">
+              <div className="mt-4 text-center">
                 <Button severity="success" className="w-100 custom-button" disabled={isLogging}>
-                  <PrimeButtonLabel text={t('login.logIn')} loader={isLogging} />
+                  <PrimeButtonLabel text={t('login.buttons.logIn')} loader={isLogging} />
                 </Button>
               </div>
             </form>
@@ -142,7 +155,7 @@ const Login: FC = () => {
             {registerEnabled && (
               <div className="mt-2 text-center">
                 <Link to="/register">
-                  <Button label={t('login.registration')} severity="secondary" className="w-100" />
+                  <Button label={t('login.buttons.registration')} severity="secondary" className="w-100" />
                 </Link>
               </div>
             )}

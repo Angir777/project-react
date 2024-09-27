@@ -1,3 +1,122 @@
 {
-  "appName": "Project EN"
+  "appName": "Project EN",
+  "appVersion": "App Version:",
+
+  "toast": {
+    "summary": {
+      "success": "Success",
+      "error": "Error"
+    }
+  },
+
+  "validation": {
+    "required": "This field is required.",
+    "email": "The email address is not valid.",
+    "minLength": "The value entered should be longer than {{min}} characters.",
+    "maxLength": "The value entered should be shorter than {{max}} characters.",
+    "passwordMustMatch": "The password and its confirmation do not match."
+  },
+
+  "login": {
+    "title": "Login",
+    "form": {
+      "email": "Email",
+      "password": "Password",
+      "rememberMe": "Remember me"
+    },
+    "buttons": {
+      "forgotPassword": "Forgot password",
+      "logIn": "Log In",
+      "registration": "Register"
+    },
+    "messages": {
+      "success": {
+        "loginSuccess": "Welcome, {{name}}!"
+      },
+      "errors": {
+        "wrongEmailOrPassword": "Incorrect email or password.",
+        "noPermissions": "No permissions!"
+      }
+    }
+  },
+
+  "register": {
+    "title": "Registration",
+    "form": {
+      "name": "Username",
+      "email": "Email",
+      "password": "Password",
+      "passwordConfirmation": "Confirm password",
+      "acceptanceRegulations": "I accept the terms and conditions"
+    },
+    "buttons": {
+      "iHaveAccount": "I already have an account",
+      "register": "Confirm"
+    },
+    "messages": {
+      "success": {
+        "accountCreatedNeedConfirmation": "Account created successfully, an activation link has been sent to your email."
+      },
+      "errors": {
+        "cantCreateAccount": "Failed to create the account."
+      }
+    }
+  },
+
+  "accountConfirmation": {
+    "loading": "Checking your account...",
+    "messages": {
+      "success": {
+        "accountConfirmationSuccessText": "Your account has been confirmed! Log in and enjoy the service!"
+      },
+      "errors": {
+        "codeInvalidText": "Invalid confirmation code!",
+        "alreadyConfirmedText": "The account has already been confirmed!",
+        "anotherErrorText": "There was a problem confirming the account. Please try again."
+      }
+    }
+  },
+
+  "forgotPassword": {
+    "title": "Reset Password",
+    "form": {
+      "email": "Email"
+    },
+    "buttons": {
+      "resetPassword": "Send password reset link",
+      "goBackToLogIn": "I remember my password"
+    },
+    "messages": {
+      "success": {
+        "sendResetLinkSuccess": "The password reset link has been successfully sent."
+      },
+      "errors": {
+        "userNotFoundText": "No user found with the provided email address.",
+        "tokenExistsText": "A password reset link has already been sent to this email. Please check your inbox.",
+        "anotherErrorText": "There was a problem resetting the password. Please try again."
+      }
+    }
+  },
+
+  "resetPassword": {
+    "title": "Reset Password",
+    "form": {
+      "email": "Email",
+      "password": "Password",
+      "passwordConfirmation": "Confirm password"
+    },
+    "buttons": {
+      "resetPassword": "Change password",
+      "goBackToLogIn": "Go back to login"
+    },
+    "messages": {
+      "success": {
+        "passwordResetSuccess": "Password reset successfully."
+      },
+      "errors": {
+        "tokenInvalid": "Cannot reset the password. Invalid token.",
+        "cantResetPassword": "There was an error resetting the password. Please try again."
+      }
+    }
+  }
 }

@@ -2,6 +2,13 @@
   "appName": "Project PL",
   "appVersion": "Wersja aplikacji:",
 
+  "toast": {
+    "summary": {
+      "success": "Sukces",
+      "error": "Błąd"
+    }
+  },
+
   "validation": {
     "required": "Pole jest wymagane.",
     "email": "E-mail nie jest poprawny.",
@@ -12,32 +19,47 @@
 
   "login": {
     "title": "Logowanie",
-    "email": "E-mail",
-    "password": "Hasło",
-    "rememberMe": "Zapamiętaj mnie",
-    "forgotPassword": "Nie pamiętam hasła",
-    "logIn": "Zaloguj",
-    "registration": "Rejestracja",
+    "form": {
+      "email": "E-mail",
+      "password": "Hasło",
+      "rememberMe": "Zapamiętaj mnie"
+    },
+    "buttons": {
+      "forgotPassword": "Nie pamiętam hasła",
+      "logIn": "Zaloguj",
+      "registration": "Rejestracja"
+    },
     "messages": {
-      "loginSuccess": "Witaj, {{name}}!",
-      "wrongEmailOrPassword": "Błędny login lub hasło.",
-      "loginInfo": "Jeśli posiadasz konto w myCOM/EOD, aby się zalogować należy podać dane do logowania identyczne z tymi wykorzystywanymi w myCOM/EOD. Jeśli nie posiadasz konta w myCOM/EOD, zaloguj się używając danych do logowania, które uzyskałeś dla tej aplikacji.",
-      "noPermissions": "Brak uprawnień!"
+      "success": {
+        "loginSuccess": "Witaj, {{name}}!"
+      },
+      "errors": {
+        "wrongEmailOrPassword": "Błędny login lub hasło.",
+        "noPermissions": "Brak uprawnień!"
+      }
     }
   },
 
   "register": {
     "title": "Rejestracja",
-    "name": "Nazwa użytkownika",
-    "email": "E-mail",
-    "password": "Hasło",
-    "passwordConfirmation": "Powtórz hasło",
-    "acceptanceRegulations": "Akceptuję regulamin",
-    "iHaveAccount": "Mam już konto",
-    "register": "Potwierdzam",
+    "form": {
+      "name": "Nazwa użytkownika",
+      "email": "E-mail",
+      "password": "Hasło",
+      "passwordConfirmation": "Powtórz hasło",
+      "acceptanceRegulations": "Akceptuję regulamin"
+    },
+    "buttons": {
+      "iHaveAccount": "Mam już konto",
+      "register": "Potwierdzam"
+    },
     "messages": {
-      "accountCreatedNeedConfirmation": "Konto zostało utworzone pomyślnie, na adres email został wysłany link aktywacyjny.",
-      "cantCreateAccount": "Nie udało się utworzyć konta."
+      "success": {
+        "accountCreatedNeedConfirmation": "Konto zostało utworzone pomyślnie, na adres email został wysłany link aktywacyjny."
+      },
+      "errors": {
+        "cantCreateAccount": "Nie udało się utworzyć konta."
+      }
     }
   },
 
@@ -51,6 +73,49 @@
         "codeInvalidText": "Nie poprawny kod potwierdzenia!",
         "alreadyConfirmedText": "Konto zostało już potwierdzone!",
         "anotherErrorText": "Wystąpił problem z potwierdzeniem konta. Spróbuj ponownie."
+      }
+    }
+  },
+
+  "forgotPassword": {
+    "title": "Resetowanie hasła",
+    "form": {
+      "email": "E-mail"
+    },
+    "buttons": {
+      "resetPassword": "Wyślij link do resetu hasła",
+      "goBackToLogIn": "Pamiętam swoje hasło"
+    },
+    "messages": {
+      "success": {
+        "sendResetLinkSuccess": "Wiadomość email z linkiem została wysłana pomyślnie."
+      },
+      "errors": {
+        "userNotFoundText": "Nie odnaleziono użytkownika o podanym adresie e-mail.",
+        "tokenExistsText": "Link do resetowania hasła został już wysłany na podany adres e-mail. Sprawdź swoją pocztę.",
+        "anotherErrorText": "Wystąpił problem podczas resetowania hasła. Spróbuj ponownie."
+      }
+    }
+  },
+
+  "resetPassword": {
+    "title": "Resetowanie hasła",
+    "form": {
+      "email": "E-mail",
+      "password": "Hasło",
+      "passwordConfirmation": "Powtórz hasło"
+    },
+    "buttons": {
+      "resetPassword": "Zmień hasło",
+      "goBackToLogIn": "Wróć do logowania"
+    },
+    "messages": {
+      "success": {
+        "passwordResetSuccess": "Hasło zresetowane pomyślnie."
+      },
+      "errors": {
+        "tokenInvalid": "Nie można zresetować hasła. Nieprawidłowy token.",
+        "cantResetPassword": "Wystapił błąd podczas resetowania hasła. Spróbuj ponownie."
       }
     }
   }

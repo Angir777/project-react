@@ -40,13 +40,12 @@ const Register: FC = () => {
   const { t } = useTranslation();
   const [isRegistering, setIsRegistering] = useState(false);
 
-  // Utworzenie formularza i wstawienie przykładowych danych jeśli dev
   const {
     register,
     handleSubmit,
     setValue,
     watch,
-    formState: { errors },
+    formState: { errors }
   } = useForm<RegisterInterface>({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -66,7 +65,14 @@ const Register: FC = () => {
       const data = res.data;
 
       if (!data.confirmed) {
-        dispatch(toastActions.showToast({ severity: 'success', summary: 'Sukces', detail: t('register.messages.accountCreatedNeedConfirmation') }));
+        // Konto zostało utworzone pomyślnie, na adres email został wysłany link aktywacyjny.
+        dispatch(
+          toastActions.showToast({ 
+            severity: 'success', 
+            summary: t('toast.summary.success'), 
+            detail: t('register.messages.success.accountCreatedNeedConfirmation') 
+          })
+        );
         navigate('/login', { replace: true });
         return;
       }
@@ -84,15 +90,27 @@ const Register: FC = () => {
 
       // Witaj, {{name}}!
       dispatch(
-        toastActions.showToast({ severity: 'success', summary: 'Sukces', detail: t('login.messages.loginSuccess', { name: `${currentUser.name}` }) })
+        toastActions.showToast({ 
+          severity: 'success', 
+          summary: t('toast.summary.success'), 
+          detail: t('login.messages.success.loginSuccess', { name: `${currentUser.name}` }) 
+        })
       );
+
       // Ustawienie zalogowania
       dispatch(authActions.login(currentUser));
+
       // Przekierowanie na dashboard
       navigate('/dashboard/home', { replace: true });
     } catch {
-      // Błędny login lub hasło.
-      dispatch(toastActions.showToast({ severity: 'error', summary: 'Error', detail: t('register.messages.cantCreateAccount') }));
+      // Nie udało się utworzyć konta.
+      dispatch(
+        toastActions.showToast({ 
+          severity: 'error', 
+          summary: t('toast.summary.error'), 
+          detail: t('register.messages.error.cantCreateAccount') 
+        })
+      );
     }
 
     setIsRegistering(false);
@@ -106,30 +124,32 @@ const Register: FC = () => {
             <h3 className="mt-4 mb-4 text-center">{t('register.title')}</h3>
           </div>
           <div className="col-12">
-            <form className="" onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div>
                 <div className="field p-fluid">
-                  <label htmlFor="name">{t('register.name')}*</label>
+                  <label htmlFor="name">{t('register.form.name')}*</label>
                   <InputText
                     id="name"
                     {...register('name')}
                     className={`${errors.name ? 'p-invalid' : ''} p-inputtext-sm`}
-                    placeholder={t('register.name')}
+                    placeholder={t('register.form.name')}
                   />
                   {errors.name && <small className="p-error">{t(errors.name.message || '')}</small>}
                 </div>
+
                 <div className="field p-fluid mt-3">
-                  <label htmlFor="email-address">{t('register.email')}*</label>
+                  <label htmlFor="email-address">{t('register.form.email')}*</label>
                   <InputText
                     id="email"
                     {...register('email')}
                     className={`${errors.email ? 'p-invalid' : ''} p-inputtext-sm`}
-                    placeholder={t('register.email')}
+                    placeholder={t('register.form.email')}
                   />
                   {errors.email && <small className="p-error">{t(errors.email.message || '')}</small>}
                 </div>
+
                 <div className="field p-fluid mt-3">
-                  <label htmlFor="password">{t('register.password')}*</label>
+                  <label htmlFor="password">{t('register.form.password')}*</label>
                   <Password
                     id="password"
                     value={watch('password')}
@@ -137,12 +157,13 @@ const Register: FC = () => {
                     feedback={false}
                     toggleMask
                     className={`${errors.password ? 'p-invalid' : ''} p-inputtext-sm`}
-                    placeholder={t('register.password')}
+                    placeholder={t('register.form.password')}
                   />
                   {errors.password && <small className="p-error">{t(errors.password.message || '')}</small>}
                 </div>
+
                 <div className="field p-fluid mt-3">
-                  <label htmlFor="password_confirmation">{t('register.passwordConfirmation')}*</label>
+                  <label htmlFor="password_confirmation">{t('register.form.passwordConfirmation')}*</label>
                   <Password
                     id="password_confirmation"
                     value={watch('password_confirmation')}
@@ -150,7 +171,7 @@ const Register: FC = () => {
                     feedback={false}
                     toggleMask
                     className={`${errors.password_confirmation ? 'p-invalid' : ''} p-inputtext-sm`}
-                    placeholder={t('register.passwordConfirmation')}
+                    placeholder={t('register.form.passwordConfirmation')}
                   />
                   {errors.password_confirmation && <small className="p-error">{t(errors.password_confirmation.message || '')}</small>}
                 </div>
@@ -164,20 +185,21 @@ const Register: FC = () => {
                     onChange={(e) => setValue('acceptance_regulations', !!e.checked)}
                   />
                   <label htmlFor="acceptance_regulations" className="ms-2">
-                    {t('register.acceptanceRegulations')}
+                    {t('register.form.acceptanceRegulations')}
                   </label>
                   <div>{errors.acceptance_regulations && <small className="p-error">{t(errors.acceptance_regulations.message || '')}</small>}</div>
                 </div>
+
                 <div className="mb-1">
                   <Link to="/" className="link-secondary link-underline-opacity-0">
-                    {t('register.iHaveAccount')}
+                    {t('register.buttons.iHaveAccount')}
                   </Link>
                 </div>
               </div>
 
-              <div className="mt-2 text-center">
+              <div className="mt-4 text-center">
                 <Button severity="success" className="w-100 custom-button" disabled={isRegistering}>
-                  <PrimeButtonLabel text={t('register.register')} loader={isRegistering} />
+                  <PrimeButtonLabel text={t('register.buttons.register')} loader={isRegistering} />
                 </Button>
               </div>
             </form>

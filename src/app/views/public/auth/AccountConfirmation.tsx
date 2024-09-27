@@ -12,7 +12,6 @@ const AccountConfirmation: FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { code } = useParams(); // Pobranie parametru z url'a
   const currentUser = getGlobalState((state) => state.auth.currentUser); // Jeśli użytkownik jest zalogowany to kierujemy go na dashboard
-
   const hasExecuted = useRef(false); // Zabezpieczenie przed podwójnym wywołaniem
 
   useEffect(() => {
@@ -36,7 +35,7 @@ const AccountConfirmation: FC = () => {
           dispatch(
             toastActions.showToast({
               severity: 'success',
-              summary: 'Sukces',
+              summary: t('toast.summary.success'),
               detail: t('accountConfirmation.messages.success.accountConfirmationSuccessText'),
             })
           );
@@ -47,7 +46,7 @@ const AccountConfirmation: FC = () => {
             dispatch(
               toastActions.showToast({
                 severity: 'error',
-                summary: 'Error',
+                summary: t('toast.summary.error'),
                 detail: t('accountConfirmation.messages.errors.codeInvalidText'),
               })
             );
@@ -56,7 +55,7 @@ const AccountConfirmation: FC = () => {
             dispatch(
               toastActions.showToast({
                 severity: 'error',
-                summary: 'Error',
+                summary: t('toast.summary.error'),
                 detail: t('accountConfirmation.messages.errors.alreadyConfirmedText'),
               })
             );
@@ -65,7 +64,7 @@ const AccountConfirmation: FC = () => {
             dispatch(
               toastActions.showToast({
                 severity: 'error',
-                summary: 'Error',
+                summary: t('toast.summary.error'),
                 detail: t('accountConfirmation.messages.errors.anotherErrorText'),
               })
             );

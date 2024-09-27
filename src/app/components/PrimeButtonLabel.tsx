@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface PrimeButtonLabelProps {
   text: string;
-  loader: boolean;
+  loader?: boolean;
   icon?: JSX.Element | null;
 }
 

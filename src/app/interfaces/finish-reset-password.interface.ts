@@ -5,5 +5,5 @@ export interface FinishResetPasswordInterface {
   email: string;
   password: string;
   password_confirmation: string;
-  token: string;
+  token?: string;
 }

@@ -1,7 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 import authReducer from './auth';
 import toastReducer from './toast';
-import configReducer from './config';
+import languageReducer from './language';
+import motywReducer from './motyw';
+
 import layoutReducer from './layout';
 import leftMenuReducer from './leftMenu';
 
@@ -10,8 +12,9 @@ export const store = configureStore({
   reducer: {
     auth: authReducer,
     toast: toastReducer,
-    
-    config: configReducer,
+    language: languageReducer,
+    motyw: motywReducer,
+
     layout: layoutReducer,
     leftMenu: leftMenuReducer,
   },

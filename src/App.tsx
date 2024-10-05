@@ -1,4 +1,4 @@
-import React, { Suspense, useRef } from 'react';
+import React, { Suspense, useEffect, useRef } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { FullScreenLoader } from './app/components/FullScreenLoader';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -19,8 +19,8 @@ import AccountConfirmation from './app/views/public/auth/AccountConfirmation';
 import Register from './app/views/public/auth/Register';
 import Page403 from './app/views/error/Page403';
 import Page404 from './app/views/error/Page404';
-import './assets/layout/themes/lara/lara-light/indigo/theme.scss';
 import './App.scss';
+import { motywActions } from './app/core/redux/motyw';
 
 // Dashboard musi być jako lazy load bo inaczej nie ładuje currentUser z local storage przy refresh'u
 const DashboardRouting = React.lazy(() => import('./app/views/dashboard/DashboardRouting'));
@@ -46,6 +46,42 @@ function App() {
       dispatch(toastActions.hideToast());
     }
   }, [isVisible, severity, summary, detail, dispatch]);
+
+  // Pobranie aktualnego motywu
+  const currentMotyw = useSelector((state: RootState) => state.motyw.currentMotyw);
+  // Funkcja zmieniająca motyw
+  const changeTheme = (theme: string) => {
+    // Tworzymy nowy element <link> do motywu
+    const themeLink = document.createElement('link');
+    themeLink.rel = 'stylesheet';
+    themeLink.type = 'text/css';
+    themeLink.href = `/assets/layout/themes/lara/lara-${theme}/indigo/theme.css`;
+    themeLink.id = 'theme-css';
+    // Usuwamy poprzedni motyw (jeśli istnieje)
+    const existingLink = document.getElementById('theme-css');
+    if (existingLink) {
+      document.head.removeChild(existingLink);
+    }
+    // Dodajemy nowy motyw
+    document.head.appendChild(themeLink);
+  };
+  // Załaduj motyw na starcie (synchronizowane z localStorage)
+  useEffect(() => {
+    // Pobierz zapisany motyw z localStorage lub ustaw domyślny
+    const savedTheme = localStorage.getItem('app-theme') || 'light';
+    changeTheme(savedTheme);
+  }, []);
+  // Monitoruj zmiany w Reduxie i zmieniaj motyw w czasie rzeczywistym
+  useEffect(() => {
+    if (currentMotyw) {
+      localStorage.setItem('app-theme', currentMotyw); // Zapisz nowy motyw do localStorage
+      changeTheme(currentMotyw); // Zmień motyw
+    }
+  }, [currentMotyw]);
+  // Inicjalizacja Redux motywu
+  useEffect(() => {
+    dispatch(motywActions.loadCurrentMotywFromLocalStore());
+  }, [dispatch]);
 
   return (
     <>

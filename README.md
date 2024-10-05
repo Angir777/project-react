@@ -50,3 +50,6 @@ I w disc serve -s
 
 1. Zamienić TailwindCSS na Boostrapa w komponentach
 2. Zrobić formularz logowania
+
+## KOMPILOWANIE MOTYWU SCSS DO CSS
+npx sass --watch src/assets/layout/themes/lara/:public/assets/layout/themes/lara/

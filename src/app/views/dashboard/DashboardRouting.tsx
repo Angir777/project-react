@@ -4,11 +4,15 @@ import { RequirePermission } from '../../core/auth/RequirePermission';
 import { RequireAuth } from '../../core/auth/RequireAuth';
 import { DashboardLayout } from '../../layout/dashboard/DashboardLayout';
 import { HOME_ROUTES } from './home/routes';
+import { SETTINGS_ROUTES } from './settings/routes';
 // import {ROLES_ROUTES} from "./roles/routes";
 // import {USERS_ROUTES} from "./users/routes";
 // import {CURRENT_USER_ROUTES} from "./current-user/routes";
 
-const DASHBOARD_ROUTES: RouteElement[] = [...HOME_ROUTES];
+const DASHBOARD_ROUTES: RouteElement[] = [
+  ...HOME_ROUTES, 
+  ...SETTINGS_ROUTES
+];
 
 const DashboardRouting = () => {
   return (

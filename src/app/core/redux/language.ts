@@ -1,21 +1,22 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { APP_STORAGE_KEY, APP_DEFAULT_LANG } from '../../../envrionment';
 
-interface ConfigSliceState {
+interface LanguageSliceState {
   currentLanguage: string;
 }
 
-const initialState: ConfigSliceState = {
-  currentLanguage: 'pl',
+const initialState: LanguageSliceState = {
+  currentLanguage: APP_DEFAULT_LANG ?? 'pl',
 };
 
-const configSlice = createSlice({
-  name: 'config',
+const languageSlice = createSlice({
+  name: 'language',
   initialState: initialState,
   reducers: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     changeLanguage(state, action: PayloadAction<any>) {
-      state.currentLanguage = action.payload;
       localStorage.setItem(`${APP_STORAGE_KEY}-currentLanguage`, action.payload);
+      state.currentLanguage = action.payload;
     },
     loadCurrentLanguageFromLocalStore(state) {
       const currentLang = localStorage.getItem(`${APP_STORAGE_KEY}-currentLanguage`);
@@ -28,5 +29,5 @@ const configSlice = createSlice({
   },
 });
 
-export const configActions = configSlice.actions;
-export default configSlice.reducer;
+export const languageActions = languageSlice.actions;
+export default languageSlice.reducer;

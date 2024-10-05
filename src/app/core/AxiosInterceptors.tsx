@@ -9,7 +9,7 @@ import { PropsWithChildren } from 'react';
 export const AxiosInterceptors = ({ children }: PropsWithChildren<any>) => {
   const dispatch = setGlobalState();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const currentLanguage = getGlobalState((state: any) => state.config.currentLanguage);
+  const currentLanguage = getGlobalState((state: any) => state.language.currentLanguage);
   const navigate = useNavigate();
 
   axios.interceptors.request.use(

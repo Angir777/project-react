@@ -9,12 +9,22 @@
     }
   },
 
+  "navHeader": {
+    "motyw": "Motyw",
+    "settings": "Ustawienia",
+    "logout": "Wyloguj"
+  },
+
   "validation": {
     "required": "Pole jest wymagane.",
     "email": "E-mail nie jest poprawny.",
     "minLength": "Wprowadzona wartość powinna być dłuższa niż {{min}} znaków.",
     "maxLength": "Wprowadzona wartość powinna być krótsza niż {{max}} znaków.",
     "passwordMustMatch": "Hasło i jego powtórzenie nie są takie same."
+  },
+
+  "language":{
+    "selectLanguage": "Wybierz język"
   },
 
   "login": {

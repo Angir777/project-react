@@ -56,32 +56,34 @@ function App() {
     themeLink.rel = 'stylesheet';
     themeLink.type = 'text/css';
     themeLink.href = `/assets/layout/themes/lara/lara-${theme}/indigo/theme.css`;
-    themeLink.id = 'theme-css';
-    // Usuwamy poprzedni motyw (jeśli istnieje)
-    const existingLink = document.getElementById('theme-css');
-    if (existingLink) {
-      document.head.removeChild(existingLink);
+    themeLink.id = `theme-${theme}-css`;
+    // Ustawimy nowy motyw i usuwamy poprzedni motyw (jeśli istnieje)
+    if (theme == 'light') {
+      // Dodajemy nowy motyw
+      document.head.appendChild(themeLink);
+      // Usuwamy stary motyw
+      const existingLink = document.getElementById('theme-dark-css');
+      if (existingLink) {
+        document.head.removeChild(existingLink);
+      }
+    } else {
+      // Dodajemy nowy motyw
+      document.head.appendChild(themeLink);
+      // Usuwamy stary motyw
+      const existingLink = document.getElementById('theme-light-css');
+      if (existingLink) {
+        document.head.removeChild(existingLink);
+      }
     }
-    // Dodajemy nowy motyw
-    document.head.appendChild(themeLink);
   };
-  // Załaduj motyw na starcie (synchronizowane z localStorage)
-  useEffect(() => {
-    // Pobierz zapisany motyw z localStorage lub ustaw domyślny
-    const savedTheme = localStorage.getItem('app-theme') || 'light';
-    changeTheme(savedTheme);
-  }, []);
-  // Monitoruj zmiany w Reduxie i zmieniaj motyw w czasie rzeczywistym
-  useEffect(() => {
-    if (currentMotyw) {
-      localStorage.setItem('app-theme', currentMotyw); // Zapisz nowy motyw do localStorage
-      changeTheme(currentMotyw); // Zmień motyw
-    }
-  }, [currentMotyw]);
   // Inicjalizacja Redux motywu
   useEffect(() => {
     dispatch(motywActions.loadCurrentMotywFromLocalStore());
   }, [dispatch]);
+  // Monitorujemy zmiany w Reduxie i zmieniamy motyw w czasie rzeczywistym
+  useEffect(() => {
+    changeTheme(currentMotyw);
+  }, [currentMotyw]);
 
   return (
     <>

@@ -9,12 +9,22 @@
     }
   },
 
+  "navHeader": {
+    "motyw": "Theme",
+    "settings": "Settings",
+    "logout": "Log out"
+  },
+
   "validation": {
     "required": "This field is required.",
     "email": "The email address is not valid.",
     "minLength": "The value entered should be longer than {{min}} characters.",
     "maxLength": "The value entered should be shorter than {{max}} characters.",
     "passwordMustMatch": "The password and its confirmation do not match."
+  },
+
+  "language":{
+    "selectLanguage": "Select language"
   },
 
   "login": {

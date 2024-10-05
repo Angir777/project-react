@@ -46,10 +46,6 @@ I w disc serve -s
 3. Routing, core logowania, redux do stanów globalnych
 4. Widoki
 
-## TODO:
-
-1. Zamienić TailwindCSS na Boostrapa w komponentach
-2. Zrobić formularz logowania
-
-## KOMPILOWANIE MOTYWU SCSS DO CSS
+## Kompilowanie plików motywu z SCSS do CSS by zmiana motywu działała
 npx sass --watch src/assets/layout/themes/lara/:public/assets/layout/themes/lara/
+Pliki od fontów należy przenieść 2x do katalogu 'public/assets/layout/themes/lara/lara-MOTYW/indigo'

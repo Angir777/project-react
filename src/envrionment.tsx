@@ -11,4 +11,4 @@ export const APP_IS_REGISTER_ENABLED = import.meta.env.VITE_APP_IS_REGISTER_ENAB
 export const APP_DEFAULT_MOTYW = import.meta.env.VITE_APP_DEFAULT_MOTYW;
 
 export const APP_DEFAULT_LANG = import.meta.env.VITE_APP_DEFAULT_LANG;
-export const APP_LANGUAGE_CHANGE_ENABLE = import.meta.env.VITE_APP_LANGUAGE_CHANGE_ENABLE === "true";
+export const APP_LANGUAGE_CHANGE_ENABLE = import.meta.env.VITE_APP_LANGUAGE_CHANGE_ENABLE === 'true';

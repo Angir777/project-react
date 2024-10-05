@@ -43,10 +43,10 @@ const Header: FC = () => {
 
   // Pobranie aktualnego motywu
   const currentMotyw = useSelector((state: RootState) => state.motyw.currentMotyw);
+
   // Zmiana motywu
   const changeMotyw = () => {
     const newMotyw = currentMotyw == 'light' ? 'dark' : 'light'; // Sprawdzenie aktualnego motywu
-    console.log('newMotyw: ' + newMotyw);
     dispatch(motywActions.changeMotyw(newMotyw)); // Zmieniamy motyw na nowy
   };
 

@@ -3,9 +3,9 @@ import authReducer from './auth';
 import toastReducer from './toast';
 import languageReducer from './language';
 import motywReducer from './motyw';
+import mainMenuReducer from './mainMenu';
 
 import layoutReducer from './layout';
-import leftMenuReducer from './leftMenu';
 
 // TODO: Tutaj pytanie czy będzie potrzebne layoutReducer i leftMenuReducer
 export const store = configureStore({
@@ -14,9 +14,9 @@ export const store = configureStore({
     toast: toastReducer,
     language: languageReducer,
     motyw: motywReducer,
+    mainMenu: mainMenuReducer,
 
     layout: layoutReducer,
-    leftMenu: leftMenuReducer,
   },
 });
 

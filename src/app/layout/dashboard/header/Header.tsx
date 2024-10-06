@@ -5,13 +5,14 @@ import { Tooltip } from 'primereact/tooltip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faCircleHalfStroke, faGear, faArrowRightFromBracket, faUser } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'react-i18next';
-import { setGlobalState } from '../../../core/redux/hooks/reduxHooks';
+import { getGlobalState, setGlobalState } from '../../../core/redux/hooks/reduxHooks';
 import { authActions } from '../../../core/redux/auth';
 import LanguageDropdown from '../../../components/LanguageDropdown';
 import './Header.scss';
 import { RootState } from '../../../core/redux';
 import { motywActions } from '../../../core/redux/motyw';
 import { useSelector } from 'react-redux';
+import { mainMenuActions } from '../../../core/redux/mainMenu';
 
 const Header: FC = () => {
   const dispatch = setGlobalState();
@@ -56,6 +57,12 @@ const Header: FC = () => {
     navigate('/login', { replace: true });
   };
 
+  // Zmiana widoczności bocznego menu
+  const currentMenuState = getGlobalState((state: RootState) => state.mainMenu.currentMainMenu);
+  const changeMainMenu = () => {
+    dispatch(mainMenuActions.setMainMenuState(!currentMenuState));
+  };
+
   return (
     <div className="layout-topbar">
       {/* Logo */}
@@ -65,7 +72,8 @@ const Header: FC = () => {
       </Link>
 
       {/* Ikona menu w sidebar */}
-      <button type="button" className="p-link layout-menu-button layout-topbar-button">
+      <button id="main-menu-icon" type="button" className="p-link layout-menu-button layout-topbar-button" 
+        onClick={() => changeMainMenu()}>
         <i className="pi pi-bars" />
         <FontAwesomeIcon icon={faBars} />
       </button>

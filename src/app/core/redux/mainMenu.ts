@@ -20,7 +20,6 @@ const mainMenuSlice = createSlice({
     },
     getMainMenuState(state) {
       const currentMenuState = localStorage.getItem(`${APP_STORAGE_KEY}-currentMainMenu`);
-      console.log({"getMainMenuState": currentMenuState});
       if (currentMenuState !== null) {
         state.currentMainMenu = JSON.parse(currentMenuState) as boolean;
       } else {

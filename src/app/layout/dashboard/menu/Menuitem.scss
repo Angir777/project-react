@@ -1,0 +1,11 @@
+li.root > a {
+  font-size: .857rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--surface-900);
+  margin: .75rem 0;
+}
+
+.active-menuitem a {
+  color: var(--indigo-400)!important;
+}

@@ -17,7 +17,6 @@ const LanguageDropdown: FC = () => {
   // Ustawienie nowo wybranego języka
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const languageChange = (language: any) => {
-    console.log(language);
     dispatch(languageActions.changeLanguage(language));
   };
   

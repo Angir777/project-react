@@ -17,10 +17,15 @@ export const DashboardLayout = () => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const mainMenu = document.getElementById('main-menu-icon');
+      const submenu = document.querySelector('.layout-menu');
       const mediaQuery = window.matchMedia('(max-width: 991px)');
 
       // Sprawdzenie, czy kliknięto poza elementem wywołującym boczne menu
-      if (!mainMenu?.contains(event.target as Node) && mediaQuery.matches) {
+      if (
+        !mainMenu?.contains(event.target as Node) && 
+        !submenu?.contains(event.target as Node) && // Sprawdzenie kliknięcia w submenu
+        mediaQuery.matches
+      ) {
         dispatch(mainMenuActions.setMainMenuState(false));
       }
     };

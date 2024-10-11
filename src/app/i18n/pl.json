@@ -27,6 +27,14 @@
     "selectLanguage": "Wybierz język"
   },
 
+  "pageTitle": {
+    "homePage": "Start",
+    "dashboard": "Dashboard",
+    "userManagement": "Zarządzanie użytkownikami",
+    "users": "Użytkownicy",
+    "roles": "Role"
+  },
+
   "login": {
     "title": "Logowanie",
     "form": {

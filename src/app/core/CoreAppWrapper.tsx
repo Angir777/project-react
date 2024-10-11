@@ -55,7 +55,7 @@ export const CoreAppWrapper = ({ children }: PropsWithChildren<any>) => {
       dispatch(languageActions.loadCurrentLanguageFromLocalStore());
     } else {
       changeLanguage(currentLanguage).then(() => {
-        console.log('Language changed: ' + currentLanguage);
+        // console.log('Language changed: ' + currentLanguage);
       });
     }
   }, [currentLanguage, dispatch, i18n]);

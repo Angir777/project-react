@@ -1,5 +1,8 @@
 // import { NavItem } from "../models/NavItem";
 
+import { PermissionModes } from "../constants/permission-modes.const";
+import { NavItem } from "../interfaces/nav-item.interface";
+
 // Funkcja sprawdzająca czy zalogowany użytkownik posiada dane uprawnienie
 export const hasPermissions = (userPermissions: string[], requiredPermissions: string[]) => {
   if (requiredPermissions != null && requiredPermissions.length > 0) {
@@ -19,26 +22,52 @@ export const hasPermissions = (userPermissions: string[], requiredPermissions: s
   }
 };
 
-// export const confrontNavbarWithPermissions = (userPermissions: string[] = [], navbar: NavItem[]) => {
-//     const newNavbar: NavItem[] = [];
-//     navbar.map(item => {
-//         if (_.isNil(item.permissions) || item.permissions.length < 1) {
-//             if (!_.isNil(item.items) && item.items.length > 0) {
-//                 item.items = confrontNavbarWithPermissions(userPermissions, item.items);
-//             }
-//             newNavbar.push(item);
-//         } else {
-//             let hasPermission = hasPermissions(userPermissions, item.permissions);
+export const checkNavbarWithPermissions = (userPermissions: string[] = [], navbar: NavItem[]) => {
+  const newNavbar: NavItem[] = [];
+  navbar.map(item => {
+    if (item.permissions === null || item.permissions.length < 1) {
+      if (item.items !== null && item.items && item.items.length > 0) {
+        item.items = checkNavbarWithPermissions(userPermissions, item.items);
+      }
+      newNavbar.push(item);
+    } else {
+      const hasPermission = hasPermissions(userPermissions, item.permissions);
+      if (hasPermission) {
+        if (item.items !== null && item.items) {
+          item.items = checkNavbarWithPermissions(userPermissions, item.items);
+        }
+        newNavbar.push(item);
+      }
+    }
+    return item;
+  });
+  return newNavbar;
+};
 
-//             if (hasPermission) {
-//                 if (!_.isNil(item.items)) {
-//                     item.items = confrontNavbarWithPermissions(userPermissions, item.items);
-//                 }
-//                 newNavbar.push(item);
-//             }
-//         }
+export const checkPermission = (itemPermissions: string[] | undefined, userPermissions: string[], permissionMode: string | undefined) => {
+  if (itemPermissions == null || itemPermissions.length < 1) {
+    return true;
+  }
 
-//         return item;
-//     });
-//     return newNavbar;
-// }
+  switch (permissionMode) {
+    case PermissionModes.AT_LEAST_ONE: {
+      return itemPermissions.some((ai) => userPermissions.includes(ai));
+    }
+
+    case PermissionModes.ALL: {
+      return itemPermissions.every((ai) => userPermissions.includes(ai));
+    }
+
+    case PermissionModes.EXCEPT_AT_LEAST_ONE: {
+      return !itemPermissions.some((ai) => userPermissions.includes(ai));
+    }
+
+    case PermissionModes.EXCEPT_ALL: {
+      return !itemPermissions.every((ai) => userPermissions.includes(ai));
+    }
+
+    default: {
+      return false;
+    }
+  }
+};

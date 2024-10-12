@@ -10,18 +10,18 @@ import { setGlobalState } from '../../../core/redux/hooks/reduxHooks';
 import { mainMenuActions } from '../../../core/redux/mainMenu';
 
 interface MenuItemProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   item: any;
   root?: boolean;
   index: number;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const MenuItem: React.FC<MenuItemProps> = ({ item, root = false, index }) => {
   const dispatch = setGlobalState();
   const { t } = useTranslation();
   const [active, setActive] = useState(false);
   const location = useLocation();
-
-  // dispatch(mainMenuActions.setMainMenuState(false));
 
   library.add(fas);
 
@@ -31,6 +31,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ item, root = false, index }) => {
     }
   }, [location]);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const isChildActive = (items: any[]): boolean => {
     return items.some((child) => {
       if (child.to === location.pathname) {
@@ -54,13 +55,6 @@ const MenuItem: React.FC<MenuItemProps> = ({ item, root = false, index }) => {
   };
 
   const handleClick = (event: React.MouseEvent) => {
-
-    // // Ignorowanie kliknięć na elementy, które mają klasę 'root'
-    // const target = event.target as HTMLElement;
-    // if (target.closest('.root')) {
-    //   return; // Nie wykonuj żadnych innych akcji
-    // }
-
     // Zmiana aktywności submenu tylko w przypadku kliknięcia w elementy z submenu
     if (item.items) {
       event.preventDefault(); // Zapobiegaj domyślnemu zachowaniu linku
@@ -88,15 +82,24 @@ const MenuItem: React.FC<MenuItemProps> = ({ item, root = false, index }) => {
   return (
     <li className={`menu-item ${root ? 'root' : ''} ${active ? 'active-menuitem' : ''}`}>
       {!item.to || item.items ? (
-        <a href={item.url || '#'} target={item.target} onClick={handleClick}>
-          {item.icon && <FontAwesomeIcon icon={['fas', ('fa-' + item.icon) as IconName]} size={'xs'} />}
-          <span className="layout-menuitem-text ms-1">{t(item.label)}</span>
-          {item.to && (
-            <i className="pi pi-fw layout-submenu-toggler">
-              <FontAwesomeIcon icon={['fas', 'fa-angle-down' as IconName]} size={'xs'} />
-            </i>
+        <>
+          {!item.to && (
+            <strong>
+              {t(item.label)}
+            </strong>
           )}
-        </a>
+          {item.to && item.items ? (
+            <a href={item.url || '#'} target={item.target} onClick={handleClick}>
+              {item.icon && <FontAwesomeIcon icon={['fas', ('fa-' + item.icon) as IconName]} size={'xs'} />}
+              <span className="layout-menuitem-text ms-1">{t(item.label)}</span>
+              {item.to && (
+                <i className="pi pi-fw layout-submenu-toggler">
+                  <FontAwesomeIcon icon={['fas', 'fa-angle-down' as IconName]} size={'xs'} />
+                </i>
+              )}
+            </a>
+          ) : null}
+        </>
       ) : (
         <Link to={item.to} onClick={handleClick}>
           {item.icon && <FontAwesomeIcon icon={['fas', ('fa-' + item.icon) as IconName]} size="xs" />}

@@ -9,3 +9,11 @@ li.root > a {
 .active-menuitem a {
   color: var(--indigo-400)!important;
 }
+
+.menu-separator {
+  height: 1px;
+  margin: 10px 0;
+  background-image: linear-gradient(to right, transparent, #dbdbdb, transparent);
+  border: none;
+  width: 100%;
+}

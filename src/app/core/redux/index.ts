@@ -5,9 +5,6 @@ import languageReducer from './language';
 import motywReducer from './motyw';
 import mainMenuReducer from './mainMenu';
 
-import layoutReducer from './layout';
-
-// TODO: Tutaj pytanie czy będzie potrzebne layoutReducer i leftMenuReducer
 export const store = configureStore({
   reducer: {
     auth: authReducer,
@@ -15,8 +12,6 @@ export const store = configureStore({
     language: languageReducer,
     motyw: motywReducer,
     mainMenu: mainMenuReducer,
-
-    layout: layoutReducer,
   },
 });
 

@@ -5,6 +5,7 @@ import { RootState } from '../../core/redux';
 import { getGlobalState, setGlobalState } from '../../core/redux/hooks/reduxHooks';
 import { useEffect } from 'react';
 import { mainMenuActions } from '../../core/redux/mainMenu';
+import Footer from './footer/Footer';
 
 export const DashboardLayout = () => {
   const dispatch = setGlobalState();
@@ -21,11 +22,7 @@ export const DashboardLayout = () => {
       const mediaQuery = window.matchMedia('(max-width: 991px)');
 
       // Sprawdzenie, czy kliknięto poza elementem wywołującym boczne menu
-      if (
-        !mainMenu?.contains(event.target as Node) && 
-        !submenu?.contains(event.target as Node) && // Sprawdzenie kliknięcia w submenu
-        mediaQuery.matches
-      ) {
+      if (!mainMenu?.contains(event.target as Node) && !submenu?.contains(event.target as Node) && mediaQuery.matches) {
         dispatch(mainMenuActions.setMainMenuState(false));
       }
     };
@@ -44,15 +41,13 @@ export const DashboardLayout = () => {
       className={`layout-wrapper layout-static p-ripple-disabled ${!currentMenuState ? 'layout-static-inactive' : ''} ${currentMenuState ? 'layout-mobile-active' : ''}`}>
       <Header />
       <div className="layout-sidebar">
-        {/* TODO: Menu do wygenerowania */}
         <Sidebar />
       </div>
       <div className="layout-main-container">
         <div className="layout-main">
-          {/* TODO: Widok ról i użytkowników */}
           <Outlet />
         </div>
-        {/* TODO: Footer */}
+        <Footer />
       </div>
     </div>
   );

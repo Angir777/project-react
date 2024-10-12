@@ -22,12 +22,12 @@ const Menu: FC = () => {
         },
       ],
     },
-    {
-      separator: true,
-      label: '',
-      permissions: [],
-      permissionsMode: '',
-    },
+    // {
+    //   separator: true,
+    //   label: '',
+    //   permissions: [],
+    //   permissionsMode: '',
+    // },
     {
       label: 'pageTitle.userManagement',
       permissions: ['USER_MANAGE', 'USER_ACCESS', 'ROLE_MANAGE', 'ROLE_ACCESS'],
@@ -46,30 +46,6 @@ const Menu: FC = () => {
           to: '/roles',
           permissions: ['ROLE_MANAGE', 'ROLE_ACCESS'],
           permissionsMode: PermissionModes.AT_LEAST_ONE,
-        },
-      ],
-    },
-    {
-      label: 'MENU 1',
-      permissions: ['USER'],
-      permissionsMode: PermissionModes.AT_LEAST_ONE,
-      items: [
-        {
-          label: 'MENU 2',
-          icon: 'user-cog',
-          to: '/dashboard/',
-          permissions: ['USER'],
-          permissionsMode: PermissionModes.AT_LEAST_ONE,
-          // Dodajemy dzieci do elementu 'Profile'
-          items: [
-            {
-              label: 'Settings',
-              icon: 'info-circle',
-              to: '/dashboard/settings',
-              permissions: ['USER'],
-              permissionsMode: PermissionModes.AT_LEAST_ONE,
-            },
-          ],
         },
       ],
     },

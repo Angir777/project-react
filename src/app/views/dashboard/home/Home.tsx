@@ -28,6 +28,7 @@ const Home: FC = () => {
                   <span className="block xl:inline">{t('aboutApp.title')}</span>
                 </h3>
                 <p className="mt-3 text-base text-gray-500 sm:mt-5 md:mt-5 md:text-base lg:mx-0">{t('aboutApp.description')}</p>
+                TODO: HOME + ROLES + USERS :)
               </div>
             </main>
           </div>

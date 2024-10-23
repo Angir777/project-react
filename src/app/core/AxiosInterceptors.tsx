@@ -19,7 +19,7 @@ export const AxiosInterceptors = ({ children }: PropsWithChildren<any>) => {
       const storageData = localStorage.getItem(`${APP_STORAGE_KEY}-currentUser`);
       if (storageData != null) {
         const currentUser = JSON.parse(storageData);
-        authHeader = { Authorization: `Bearer ${currentUser.token.accessToken}` };
+        authHeader = { Authorization: `Bearer ${currentUser.token}` };
       }
 
       config.headers = {

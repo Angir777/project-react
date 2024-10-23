@@ -26,6 +26,16 @@
   font-size: 0.675rem!important;
 }
 
+// Usunięcie padding'u w card od prime react'a
+.p-card .p-card-content {
+  padding: 0rem 0;
+}
+
+// swal2
+.swal2-title {
+  font-size: 1.3em;
+}
+
 // Loader
 .mat-table-custom-loading-shade {
   position: absolute;

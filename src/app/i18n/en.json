@@ -2,6 +2,13 @@
   "appName": "Project EN",
   "appVersion": "App Version:",
 
+  "global": {
+    "buttons": {
+      "yes": "Yes",
+      "no": "No"
+    }
+  },
+
   "toast": {
     "summary": {
       "success": "Success",
@@ -136,5 +143,40 @@
         "cantResetPassword": "There was an error resetting the password. Please try again."
       }
     }
+  },
+
+  "settings": {
+    "title": "Settings",
+    "form": {
+      "oldPassword": "Current Password",
+      "password": "Password",
+      "passwordConfirmation": "Confirm Password"
+    },
+    "buttons": {
+      "access": "Access",
+      "account": "Account",
+      "changePassword": "Change Password",
+      "deleteAccount": "Delete Account",
+      "confirm": "Confirm"
+    },
+    "messages": {
+      "questions": {
+        "areYouShureToDeleteAccountText": "Are you sure you want to delete your account now? This action is irreversible!"
+      },
+      "success": {
+        "passwordChangeSuccess": "The password has been successfully changed!",
+        "deletedYourAccountTitle": "Your account has been successfully deleted! You will be logged out from the application.",
+        "deletedYourAccountText": "We hope you'll return to us someday... Goodbye!"
+      },
+      "errors": {
+        "wrongOldPasswordText": "The current password provided is incorrect!",
+        "anotherErrorText": "There was an issue with changing the password. Please try again.",
+        "cantDeleteSuperAdminAccountText": "The super admin account cannot be deleted!",
+        "anotherDeleteErrorText": "There was an issue with deleting the account. Please try again.",
+        "cantChangePassword": "There was an error while changing the password. Please try again.",
+        "wrongOldPassword": "The current password provided is incorrect!"
+      }
+    }
   }
+
 }

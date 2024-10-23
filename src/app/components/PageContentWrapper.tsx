@@ -1,13 +1,11 @@
+import { Card } from 'primereact/card';
 import { PropsWithChildren } from 'react';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const PageContentWrapper = ({ children }: PropsWithChildren<any>) => {
   return (
-    <div className="pb-4">
-      <div className="w-full sm:px-6 lg:px-8">
-        <div className="bg-white overflow-auto shadow-sm sm:rounded-lg">
-          {children}
-        </div>
-      </div>
-    </div>
+    <Card>
+      {children}
+    </Card>
   );
 };

@@ -2,6 +2,13 @@
   "appName": "Project PL",
   "appVersion": "Wersja aplikacji:",
 
+  "global": {
+    "buttons": {
+      "yes": "Tak",
+      "no": "Nie"
+    }
+  },
+
   "toast": {
     "summary": {
       "success": "Sukces",
@@ -136,5 +143,40 @@
         "cantResetPassword": "Wystapił błąd podczas resetowania hasła. Spróbuj ponownie."
       }
     }
+  },
+
+  "settings": {
+    "title": "Ustawienia",
+    "form": {
+      "oldPassword": "Obecne hasło",
+      "password": "Hasło",
+      "passwordConfirmation": "Powtórz hasło"
+    },
+    "buttons": {
+      "access": "Dostęp",
+      "account": "Konto",
+      "changePassword": "Zmiana hasła",
+      "deleteAccount": "Usunięcie konta",
+      "confirm": "Potwierdzam"
+    },
+    "messages": {
+      "questions": {
+        "areYouShureToDeleteAccountText": "Czy na pewno chcesz usunąć teraz swoje konto? Ta operacja jest nieodwracalna!"
+      },
+      "success": {
+        "passwordChangeSuccess": "Hasło zostało pomyślnie zmienione!",
+        "deletedYourAccountTitle": "Twoje konto zostało usunięte pomyślnie! Nastąpi wylogowanie z aplikacji.",
+        "deletedYourAccountText": "Mamy nadzieje że jeszcze kiedyś do nas wrócisz.. Cześć!"
+      },
+      "errors": {
+        "wrongOldPasswordText": "Podano nieprawidłowe aktualne hasło!",
+        "anotherErrorText": "Wystąpił problem ze zmianą hasła. Spróbuj ponownie.",
+        "cantDeleteSuperAdminAccountText": "Nie można usunąć konta super administratora!",
+        "anotherDeleteErrorText": "Wystapił problem podczas usuwania konta. Spróbuj ponownie.",
+        "cantChangePassword": "Wystapił błąd podczas zmiany hasła. Spróbuj ponownie.",
+        "wrongOldPassword": "Podano błędne aktualne hasło!"
+      }
+    }
   }
+    
 }

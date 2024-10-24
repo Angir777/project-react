@@ -4,7 +4,7 @@ import { PageContentWrapper, PageHeading } from '../../../components';
 import { TabView, TabPanel } from 'primereact/tabview';
 import { setPageTitle } from '../../../utils/page-title.utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faSave, faSpinner, faTrash } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
 import * as yup from 'yup';
 import { setGlobalState } from '../../../core/redux/hooks/reduxHooks';
@@ -144,13 +144,13 @@ const Settings: FC = () => {
   return (
     <>
       <PageHeading title={t('settings.title')} />
-      
+
       <PageContentWrapper>
         <TabView>
           <TabPanel header={t('settings.buttons.access')}>
             <div className="row">
               <div className="col-12">
-                <p className="m-0 mb-2">{t('settings.buttons.changePassword')}</p>
+                <h5 className="m-0 mb-2">{t('settings.buttons.changePassword')}</h5>
               </div>
               <div className="col-12">
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -199,8 +199,9 @@ const Settings: FC = () => {
                   </div>
 
                   <div className="mt-4">
-                    <button type="submit" className="btn btn-success" disabled={isChangingPassword}>
-                      {!isChangingPassword ? <span>{t('settings.buttons.confirm')}</span> : <FontAwesomeIcon icon={faSpinner} spin />}
+                    <button type="submit" className="btn btn-success btn-sm" disabled={isChangingPassword}>
+                      {!isChangingPassword ? <FontAwesomeIcon icon={faSave} /> : <FontAwesomeIcon icon={faSpinner} spin />}
+                      <span className="ms-2">{t('settings.buttons.confirm')}</span>
                     </button>
                   </div>
                 </form>
@@ -210,9 +211,10 @@ const Settings: FC = () => {
           <TabPanel header={t('settings.buttons.account')}>
             <div className="row">
               <div className="col-12">
-                <p className="m-0 mb-2">{t('settings.buttons.deleteAccount')}</p>
-                <button type="button" className="btn btn-danger" disabled={isDeletingAccount} onClick={() => deleteAccount()}>
-                  {!isDeletingAccount ? <span>{t('settings.buttons.confirm')}</span> : <FontAwesomeIcon icon={faSpinner} spin />}
+                <h5 className="m-0 mb-4">{t('settings.buttons.deleteAccount')}</h5>
+                <button type="button" className="btn btn-danger btn-sm" disabled={isDeletingAccount} onClick={() => deleteAccount()}>
+                  {!isDeletingAccount ? <FontAwesomeIcon icon={faTrash} /> : <FontAwesomeIcon icon={faSpinner} spin />}
+                  <span className="ms-2">{t('settings.buttons.confirm')}</span>
                 </button>
               </div>
             </div>

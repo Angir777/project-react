@@ -1,23 +1,18 @@
 import { FC, useEffect } from "react";
-import { toastActions } from "../../core/redux/toast";
-import { useTranslation } from "react-i18next";
-import { setGlobalState } from "../../core/redux/hooks/reduxHooks";
+import { setPageTitle } from "../../utils/page-title.utils";
+import './ErrorPage.scss';
 
 const Page403: FC = () => {
-  const dispatch = setGlobalState();
-  const { t } = useTranslation();
-
   useEffect(() => {
-    const toast = () => {
-      dispatch(toastActions.showToast({ severity: 'error', summary: 'Error', detail: t('login.messages.noPermissions') }));
-    };
-
-    toast();
-  }, []);
+    // Ustawienie title strony
+    setPageTitle('403');
+  });
 
   return (
     <>
-      <div>403</div>
+      <div className="error-page">
+        <div className="error-text">403</div>
+      </div>
     </>
   );
 };

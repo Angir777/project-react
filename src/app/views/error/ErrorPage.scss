@@ -1,0 +1,29 @@
+.error-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--surface-ground); /* Szarawe tło */
+}
+
+.error-page .error-text {
+  font-size: 10rem;
+  color: var(--surface-900); /* Biały tekst */
+  text-shadow: 0px 0px 10px var(--surface-0), 0px 0px 20px var(--surface-900); /* Efekt neonowego połysku */
+  animation: flicker 1.5s infinite alternate; /* Migotanie */
+}
+
+@keyframes flicker {
+  0%, 100% {
+      opacity: 1;
+      text-shadow: 0px 0px 10px var(--surface-0), 0px 0px 20px var(--surface-900);
+  }
+  50% {
+      opacity: 0.6;
+      text-shadow: 0px 0px 5px var(--surface-0), 0px 0px 10px var(--surface-900);
+  }
+  70% {
+      opacity: 0.8;
+      text-shadow: 0px 0px 8px var(--surface-0), 0px 0px 15px var(--surface-900);
+  }
+}

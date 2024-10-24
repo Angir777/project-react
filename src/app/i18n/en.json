@@ -145,6 +145,10 @@
     }
   },
 
+  "home": {
+    "title": "Dashboard"
+  },
+
   "settings": {
     "title": "Settings",
     "form": {
@@ -177,6 +181,14 @@
         "wrongOldPassword": "The current password provided is incorrect!"
       }
     }
+  },
+
+  "users": {
+    "title": "Users"
+  },
+
+  "roles": {
+    "title": "Roles"
   }
 
 }

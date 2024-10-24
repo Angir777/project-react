@@ -36,14 +36,14 @@ const Menu: FC = () => {
         {
           label: 'pageTitle.users',
           icon: 'user',
-          to: '/users',
+          to: '/dashboard/users',
           permissions: ['USER_MANAGE', 'USER_ACCESS'],
           permissionsMode: PermissionModes.AT_LEAST_ONE,
         },
         {
           label: 'pageTitle.roles',
           icon: 'shield',
-          to: '/roles',
+          to: '/dashboard/roles',
           permissions: ['ROLE_MANAGE', 'ROLE_ACCESS'],
           permissionsMode: PermissionModes.AT_LEAST_ONE,
         },

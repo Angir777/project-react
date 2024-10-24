@@ -145,6 +145,10 @@
     }
   },
 
+  "home": {
+    "title": "Dashboard"
+  },
+
   "settings": {
     "title": "Ustawienia",
     "form": {
@@ -177,6 +181,14 @@
         "wrongOldPassword": "Podano błędne aktualne hasło!"
       }
     }
+  },
+
+  "users": {
+    "title": "Użytkownicy"
+  },
+
+  "roles": {
+    "title": "Role"
   }
     
 }

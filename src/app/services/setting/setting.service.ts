@@ -2,6 +2,8 @@ import axios, { AxiosResponse } from 'axios';
 import { APP_API_URL } from './../../../envrionment';
 import { ChangePasswordInterface } from '../../interfaces/change-password.interface';
 
+const resourceUrl = `${APP_API_URL}/account`;
+
 /**
  * Zmiana hasła przez użytkownika.
  *
@@ -14,7 +16,7 @@ const changePassword = (data: ChangePasswordInterface): Promise<AxiosResponse<Ch
     password: data.password,
     password_confirmation: data.password_confirmation,
   };
-  return axios.patch<ChangePasswordInterface>(`${APP_API_URL}/account/change-password`, body);
+  return axios.patch<ChangePasswordInterface>(`${resourceUrl}/change-password`, body);
 };
 
 /**
@@ -23,7 +25,7 @@ const changePassword = (data: ChangePasswordInterface): Promise<AxiosResponse<Ch
  * @return {*}  {Promise<AxiosResponse<any>>}
  */
 const deleteAccount = () => {
-  return axios.delete(`${APP_API_URL}/account/dalete-account`);
+  return axios.delete(`${resourceUrl}/dalete-account`);
 };
 
 const SettingService = {

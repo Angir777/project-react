@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { PageContentWrapper, PageHeading } from '../../../components';
 import { setPageTitle } from '../../../utils/page-title.utils';
 
-const Users: FC = () => {
+const UpdateUser: FC = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -18,11 +18,11 @@ const Users: FC = () => {
       <PageContentWrapper>
         <div className="row">
           <div className="col-12">
-            ...
+          UpdateUser
           </div>
         </div>
       </PageContentWrapper>
     </>
   );
 };
-export default Users;
+export default UpdateUser;

@@ -6,6 +6,8 @@ import { RegisterInterface } from '../../interfaces/register.interface';
 import { PasswordResetInterface } from '../../interfaces/password-reset.interface';
 import { FinishResetPasswordInterface } from '../../interfaces/finish-reset-password.interface';
 
+const resourceUrl = `${APP_API_URL}/auth`;
+
 /**
  * Logowanie.
  *
@@ -13,7 +15,7 @@ import { FinishResetPasswordInterface } from '../../interfaces/finish-reset-pass
  * @return {*}  {Promise<AxiosResponse<AuthUser>>}
  */
 const login = (data: LoginInterface): Promise<AxiosResponse<AuthUser>> => {
-  return axios.post<AuthUser>(`${APP_API_URL}/auth/login`, data);
+  return axios.post<AuthUser>(`${resourceUrl}/login`, data);
 };
 
 /**
@@ -22,7 +24,7 @@ const login = (data: LoginInterface): Promise<AxiosResponse<AuthUser>> => {
  * @return {*}  {Promise<AxiosResponse<AuthUser>>}
  */
 const logout = (): Promise<AxiosResponse<AuthUser>> => {
-  return axios.get<AuthUser>(`${APP_API_URL}/auth/logout`);
+  return axios.get<AuthUser>(`${resourceUrl}/logout`);
 };
 
 /**
@@ -32,7 +34,7 @@ const logout = (): Promise<AxiosResponse<AuthUser>> => {
  * @return {*}  {Promise<AxiosResponse<AuthUser>>}
  */
 const register = (data: RegisterInterface): Promise<AxiosResponse<AuthUser>> => {
-  return axios.post<AuthUser>(`${APP_API_URL}/auth/register`, data);
+  return axios.post<AuthUser>(`${resourceUrl}/register`, data);
 };
 
 /**
@@ -42,7 +44,7 @@ const register = (data: RegisterInterface): Promise<AxiosResponse<AuthUser>> => 
  * @return {*}  {Promise<AxiosResponse<AuthUser>>}
  */
 const confirmAccount = (code: string): Promise<AxiosResponse<AuthUser>> => {
-  return axios.get<AuthUser>(`${APP_API_URL}/auth/confirm-account/${code}`);
+  return axios.get<AuthUser>(`${resourceUrl}/confirm-account/${code}`);
 };
 
 /**
@@ -52,7 +54,7 @@ const confirmAccount = (code: string): Promise<AxiosResponse<AuthUser>> => {
  * @return {*}  {Promise<AxiosResponse<string>>}
  */
 const sendResetPasswordEmail = (data: PasswordResetInterface): Promise<AxiosResponse<string>> => {
-  return axios.post<string>(`${APP_API_URL}/auth/send-reset-password-email`, data);
+  return axios.post<string>(`${resourceUrl}/send-reset-password-email`, data);
 };
 
 /**
@@ -62,7 +64,7 @@ const sendResetPasswordEmail = (data: PasswordResetInterface): Promise<AxiosResp
  * @return {*}  {Promise<AxiosResponse<AuthUser>>}
  */
 const resetPassword = (data: FinishResetPasswordInterface): Promise<AxiosResponse<AuthUser>> => {
-  return axios.post<AuthUser>(`${APP_API_URL}/auth/reset-password`, data);
+  return axios.post<AuthUser>(`${resourceUrl}/reset-password`, data);
 };
 
 const AuthService = {

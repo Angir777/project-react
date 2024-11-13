@@ -5,7 +5,21 @@
   "global": {
     "buttons": {
       "yes": "Tak",
-      "no": "Nie"
+      "no": "Nie",
+      "edit": "Edycja",
+      "delete": "Usunięcie"
+    },
+    "table": {
+      "saveTableStatus": "Zapamiętaj stan tabeli",
+      "itemsPerPage": "Ilość wpisów na strone",
+      "firstPageLabel": "Pierwsza strona",
+      "lastPageLabel": "Ostatnia strona",
+      "nextPageLabel": "Następna",
+      "previousPageLabel": "Poprzednia",
+      "ofPage": "z",
+      "filter": "Filtruj",
+      "actions": "Akcje",
+      "id": "ID"
     }
   },
 
@@ -184,7 +198,33 @@
   },
 
   "users": {
-    "title": "Użytkownicy"
+    "title": "Użytkownicy",
+    "table": {
+      "name":"Nazwa użytkownika",
+      "email": "E-mail",
+      "roles": "Role",
+      "confirmed": "Konto potwierdzone"
+    },
+    "buttons": {
+      "new": "Dodaj użytkownika",
+      "deleted": "Usunięci użytkownicy"
+    },
+    "roles": {
+      "USER": "Użytkownik",
+      "ADMIN": "Administrator",
+      "SUPER_ADMIN": "Super administrator"
+    },
+    "messages": {
+      "questions": {
+        "areYouShureToDeleteAccountText": "Czy na pewno chcesz usunąć wybranego użytkownika?"
+      },
+      "success": {
+        "deletedAccountSuccess": "Wybrany użytkownik został usunięty."
+      },
+      "errors": {
+        "cantDeleteAccount": "Nie można usunąć wybranego użytkownika!"
+      }
+    }
   },
 
   "roles": {

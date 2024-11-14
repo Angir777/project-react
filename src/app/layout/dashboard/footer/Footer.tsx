@@ -10,7 +10,7 @@ const Footer: FC = () => {
   const currentMotyw = useSelector((state: RootState) => state.motyw.currentMotyw);
 
   return (
-    <div className="layout-footer">
+    <div className="layout-footer mt-4">
       <img src={`/images/logo-${currentMotyw !== 'light' ? 'white' : 'dark'}.svg`} alt="Logo" height="20" className="mr-2" />
       {t('appName')} by
       <span className="font-medium ms-2">PrimeReact</span>

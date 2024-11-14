@@ -4,7 +4,7 @@ import { PageContentWrapper, PageHeading } from '../../../components';
 import { setPageTitle } from '../../../utils/page-title.utils';
 import { HasPermission } from '../../../core/auth/HasPermission';
 import { Link } from 'react-router-dom';
-import { faAdd, faEdit, faSpinner, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faAdd, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import UserService from '../../../services/user/user.service';
 import { User } from '../../../models/user/User';
@@ -14,11 +14,11 @@ import { Button } from 'primereact/button';
 import { Dropdown } from 'primereact/dropdown';
 import { InputSwitch } from 'primereact/inputswitch';
 import { Tooltip } from 'primereact/tooltip';
-import './Users.scss';
 import Swal from 'sweetalert2';
 import { setGlobalState } from '../../../core/redux/hooks/reduxHooks';
 import { toastActions } from '../../../core/redux/toast';
 import { TableDataInterface } from '../../../interfaces/table-data.interface';
+import './Users.scss';
 
 // Klucz w localStorage dla tabeli 'Użytkownicy'
 const TABLE_STATE_KEY = 'usersTableState';
@@ -43,21 +43,8 @@ const UsersList: FC = () => {
   };
 
   // ---------------------------------------------------------------------------
-
-  // Podstawowe zmienne dla tabeli
-  const [isLoading, setIsLoading] = useState(false);
-  const [tableData, setTableData] = useState<TableDataInterface | null>(null);
-
-  // Ikony paginacji
-  const paginatorLeft = <Button type="button" icon="pi pi-refresh" text />;
-  const paginatorRight = <Button type="button" icon="pi pi-download" text />;
-
-  // Flaga określająca czy ustawienia dla danej tabeli sa zapisywane
-  const [saveTableStatus, setSaveTableStatus] = useState<boolean>(() => {
-    // Pobieramy wartość z localStorage lub ustawiamy domyślnie na false
-    const savedStatus = localStorage.getItem(TABLE_STATE_KEY + '_saveStatus');
-    return savedStatus ? JSON.parse(savedStatus) : false;
-  });
+  // USTAWIENIA KONKRETNEJ TABELI
+  // ---------------------------------------------------------------------------
 
   // Kolumny tabeli obsługiwane przez filtry
   const defaultTableFilters = {
@@ -67,12 +54,12 @@ const UsersList: FC = () => {
     roles: { value: null, matchMode: 'startsWith' },
     confirmed: { value: null, matchMode: 'startsWith' },
   };
+
   // Ładowanie ustawień tabeli
   const loadTableSettings = () => {
     const savedTableSettings = localStorage.getItem(TABLE_STATE_KEY);
     if (savedTableSettings) {
       const parsedSettings = JSON.parse(savedTableSettings);
-      console.log({ parsedSettings: parsedSettings });
       // Wartości zapisane w localstorage
       return {
         first: parsedSettings.first,
@@ -96,62 +83,6 @@ const UsersList: FC = () => {
   };
   const [lazyState, setLazyState] = useState(loadTableSettings);
 
-  // ---------------------------------------------------------------------------
-
-  // Table header - zapamiętywanie stanu tabeli
-  const headerBodyTemplate = () => {
-    return (
-      <div className="d-flex justify-content-end">
-        <InputSwitch
-          checked={saveTableStatus}
-          onChange={handleSaveTableStatusChange}
-          className="small-input-switch"
-          tooltip={t('global.table.saveTableStatus')}
-          tooltipOptions={{ position: 'top' }}
-        />
-      </div>
-    );
-  };
-
-  // Obsługa przełącznika zapisywania ustawień tabeli
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleSaveTableStatusChange = (e: any) => {
-    const status = e.value;
-    setSaveTableStatus(status);
-    console.log(status);
-    if (status) {
-      // Zapis ustawienia flagi do localstorage
-      localStorage.setItem(TABLE_STATE_KEY + '_saveStatus', JSON.stringify(true));
-      // saveTableSettings();
-    } else {
-      // Wyczyszczenie flagi z localstorage
-      localStorage.removeItem(TABLE_STATE_KEY + '_saveStatus');
-      clearTableSettings();
-    }
-  };
-
-  // Funkcja czyszcząca ustawienia z localStorage
-  const clearTableSettings = useCallback(() => {
-    console.log('Clear');
-    localStorage.removeItem(TABLE_STATE_KEY);
-  }, []);
-
-  // Zapisuje stan tabeli do localStorage za każdym razem, gdy `lazyState` lub `saveTableStatus` zmieni się
-  useEffect(() => {
-    console.log({ saveTableStatus: saveTableStatus });
-    if (saveTableStatus) {
-      const stateToSave = lazyState;
-
-      console.log({
-        'Zapisano w localstorage': stateToSave,
-      });
-
-      localStorage.setItem(TABLE_STATE_KEY, JSON.stringify(stateToSave));
-    }
-  }, [lazyState, saveTableStatus]);
-
-  // ---------------------------------------------------------------------------
-
   // Pobranie danych dla tabeli
   const getTableData = useCallback(async () => {
     setIsLoading(true);
@@ -161,31 +92,19 @@ const UsersList: FC = () => {
 
       if (saveTableStatus) {
         const parsedSettings = loadTableSettings();
-        console.log({
-          'Odczytane zapisane wartości': parsedSettings,
-        });
         queryParams = {
           sort: prepareSortParams(parsedSettings.sortField, parsedSettings.sortOrder),
           page: parsedSettings.page,
           pageSize: parsedSettings.rows,
           ...prepareFilterParams(parsedSettings.filters),
         };
-        console.log({
-          queryParams: queryParams,
-        });
       } else {
-        console.log({
-          'Domyślne wartości': 'TAK',
-        });
         queryParams = {
           sort: prepareSortParams(lazyState.sortField, lazyState.sortOrder),
           page: lazyState.page,
           pageSize: lazyState.rows,
           ...prepareFilterParams(lazyState.filters),
         };
-        console.log({
-          queryParams: queryParams,
-        });
       }
 
       const response = await UserService.query(queryParams);
@@ -198,19 +117,6 @@ const UsersList: FC = () => {
 
     setIsLoading(false);
   }, [lazyState]);
-
-  // Funkcja odświeżająca dane tabelki
-  const refreshTable = () => {
-    getTableData();
-  };
-
-  // Wywołanie pobrania danych przy każdej zmianie lazyState
-  useEffect(() => {
-    console.log('Przeładowanie lazyState i całej tabeli.');
-    getTableData();
-  }, [lazyState, getTableData]);
-
-  // ---------------------------------------------------------------------------
 
   // Actions - akcje na tabelce
   const actionsBodyTemplate = (row: User) => {
@@ -228,7 +134,7 @@ const UsersList: FC = () => {
 
                 {/* Usunięcie */}
                 <button className="btn btn-danger btn-sm mb-1" id={`delete-tooltip-${row.id}`} onClick={() => deleteUser(row)}>
-                  {row.isDeleting ? <FontAwesomeIcon icon={faSpinner} spin /> : <FontAwesomeIcon icon={faTrash} />}
+                  <FontAwesomeIcon icon={faTrash} />
                 </button>
                 <Tooltip target={`#delete-tooltip-${row.id}`} content={t('global.buttons.delete')} />
               </>
@@ -246,7 +152,7 @@ const UsersList: FC = () => {
 
                 {/* Usunięcie */}
                 <button className="btn btn-danger btn-sm mb-1" id={`delete-tooltip-${row.id}`} onClick={() => deleteUser(row)}>
-                  {row.isDeleting ? <FontAwesomeIcon icon={faSpinner} spin /> : <FontAwesomeIcon icon={faTrash} />}
+                  <FontAwesomeIcon icon={faTrash} />
                 </button>
                 <Tooltip target={`#delete-tooltip-${row.id}`} content={t('global.buttons.delete')} />
               </>
@@ -260,17 +166,16 @@ const UsersList: FC = () => {
   // Usunięcie użytkownika
   const deleteUser = useCallback(
     async (row: User) => {
-      console.log(row);
       const result = await Swal.fire({
         icon: 'question',
-        title: t('users.messages.questions.areYouShureToDeleteAccountText', {}),
+        title: t('users.messages.questions.areYouSureToDeleteAccountText', {}),
         showCancelButton: true,
         showConfirmButton: true,
         cancelButtonText: t('global.buttons.no'),
         confirmButtonText: t('global.buttons.yes'),
       });
       if (result.value && row.id) {
-        row.isDeleting = true;
+        setIsLoading(true);
 
         try {
           await UserService.remove(row.id);
@@ -295,13 +200,13 @@ const UsersList: FC = () => {
           );
         }
 
-        row.isDeleting = false;
+        setIsLoading(false);
       }
     },
     [t]
   );
 
-  // Konto potwierdzone - zamiana wartości z bazy danych na tłumaczenia
+  // Kolumna 'Role' - zamiana wartości z bazy danych na tłumaczenia
   const rolesBodyTemplate = (row: User) => {
     return (
       <>
@@ -314,7 +219,7 @@ const UsersList: FC = () => {
     );
   };
 
-  // Konto potwierdzone - zamiana wartości z bazy danych na tłumaczenia
+  // Kolumna 'Konto potwierdzone' - zamiana wartości z bazy danych na tłumaczenia
   const confirmedBodyTemplate = (row: User) => {
     return row.confirmed ? t('global.buttons.yes') : t('global.buttons.no');
   };
@@ -363,6 +268,79 @@ const UsersList: FC = () => {
     );
   };
 
+  // ---------------------------------------------------------------------------
+  // STAŁE ELEMENTY TABELI
+  // ---------------------------------------------------------------------------
+
+  // Podstawowe zmienne dla tabeli
+  const [isLoading, setIsLoading] = useState(false);
+  const [tableData, setTableData] = useState<TableDataInterface | null>(null);
+
+  // Ikony paginacji
+  const paginatorLeft = <Button type="button" icon="pi pi-refresh" text />;
+  const paginatorRight = <Button type="button" icon="pi pi-download" text />;
+
+  // Flaga określająca czy ustawienia dla danej tabeli sa zapisywane
+  const [saveTableStatus, setSaveTableStatus] = useState<boolean>(() => {
+    // Pobieramy wartość z localStorage lub ustawiamy domyślnie na false
+    const savedStatus = localStorage.getItem(TABLE_STATE_KEY + '_saveStatus');
+    return savedStatus ? JSON.parse(savedStatus) : false;
+  });
+
+  // Table header - zapamiętywanie stanu tabeli
+  const headerBodyTemplate = () => {
+    return (
+      <div className="d-flex justify-content-end">
+        <InputSwitch
+          checked={saveTableStatus}
+          onChange={handleSaveTableStatusChange}
+          className="small-input-switch"
+          tooltip={t('global.table.saveTableStatus')}
+          tooltipOptions={{ position: 'top' }}
+        />
+      </div>
+    );
+  };
+
+  // Obsługa przełącznika zapisywania ustawień tabeli
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleSaveTableStatusChange = (e: any) => {
+    const status = e.value;
+    setSaveTableStatus(status);
+    if (status) {
+      // Zapis ustawienia flagi do localstorage
+      localStorage.setItem(TABLE_STATE_KEY + '_saveStatus', JSON.stringify(true));
+      // saveTableSettings();
+    } else {
+      // Wyczyszczenie flagi z localstorage
+      localStorage.removeItem(TABLE_STATE_KEY + '_saveStatus');
+      clearTableSettings();
+    }
+  };
+
+  // Funkcja czyszcząca ustawienia z localStorage
+  const clearTableSettings = useCallback(() => {
+    localStorage.removeItem(TABLE_STATE_KEY);
+  }, []);
+
+  // Zapisuje stan tabeli do localStorage za każdym razem, gdy `lazyState` lub `saveTableStatus` zmieni się
+  useEffect(() => {
+    if (saveTableStatus) {
+      const stateToSave = lazyState;
+      localStorage.setItem(TABLE_STATE_KEY, JSON.stringify(stateToSave));
+    }
+  }, [lazyState, saveTableStatus]);
+
+  // Funkcja odświeżająca dane tabelki
+  const refreshTable = () => {
+    getTableData();
+  };
+
+  // Wywołanie pobrania danych przy każdej zmianie lazyState
+  useEffect(() => {
+    getTableData();
+  }, [lazyState, getTableData]);
+
   // Funkcja do przygotowania parametru sortowania
   const prepareSortParams = (sortField: string, sortOrder: SortOrder) => {
     return sortOrder === 1 ? sortField : `-${sortField}`;
@@ -387,7 +365,6 @@ const UsersList: FC = () => {
   // Zdarzenie paginacji
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onPage = (event: any) => {
-    console.log('Zdarzenie paginacji');
     setLazyState((prevState) => ({
       ...prevState,
       first: event.first,
@@ -399,7 +376,6 @@ const UsersList: FC = () => {
   // Zdarzenie sortowania
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onSort = (event: any) => {
-    console.log('Zdarzenie sortowania');
     setLazyState((prevState) => ({
       ...prevState,
       sortField: event.sortField,
@@ -410,12 +386,15 @@ const UsersList: FC = () => {
   // Zdarzenie filtrowania
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onFilter = (event: any) => {
-    console.log('Zdarzenie filtrowania');
     setLazyState((prevState) => ({
       ...prevState,
       filters: event.filters,
     }));
   };
+
+  // ---------------------------------------------------------------------------
+  // RENDEROWANY WIDOK
+  // ---------------------------------------------------------------------------
 
   return (
     <>
@@ -440,6 +419,7 @@ const UsersList: FC = () => {
           </>
         }
       />
+      
       <PageContentWrapper>
         <div className="row">
           <div className="col-12">
@@ -466,7 +446,10 @@ const UsersList: FC = () => {
               paginatorRight={paginatorRight}
               size="small"
               header={headerBodyTemplate}>
-              <Column header={t('global.table.actions')} style={{ width: '10%' }} body={(rowData) => actionsBodyTemplate(rowData)}></Column>
+              <Column 
+                header={t('global.table.actions')} 
+                style={{ width: '10%' }} 
+                body={(rowData) => actionsBodyTemplate(rowData)}></Column>
               <Column
                 field="id"
                 header={t('global.table.id')}

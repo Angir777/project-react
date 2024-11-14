@@ -1,13 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from 'axios';
 import { APP_API_URL } from './../../../envrionment';
-import { prepareRequestParams } from '../../utils/request-params.utils';
 
 const resourceUrl = `${APP_API_URL}/user`;
 
-const query = (req: any) => {
-  const params = prepareRequestParams(req);
+// ---------------------------------------------------------------------------
+
+const query = (params: any) => {
   return axios.get(`${resourceUrl}`, {
+    params,
+  });
+};
+
+const queryDeleted = (params: any) => {
+  return axios.get(`${resourceUrl}/deleted`, {
     params,
   });
 };
@@ -32,16 +38,26 @@ const update = (data: any) => {
   });
 };
 
+// ---------------------------------------------------------------------------
+
 const remove = (id: number) => {
   return axios.delete(`${resourceUrl}/${id}`);
 };
 
+const restore = (id: number) => {
+  return axios.post(`${resourceUrl}/${id}/restore`);
+};
+
+// ---------------------------------------------------------------------------
+
 const UserService = {
   query,
+  queryDeleted,
   getAll,
   getById,
   create,
   update,
   remove,
+  restore,
 };
 export default UserService;

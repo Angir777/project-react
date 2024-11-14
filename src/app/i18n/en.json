@@ -165,7 +165,7 @@
     },
     "messages": {
       "questions": {
-        "areYouShureToDeleteAccountText": "Are you sure you want to delete your account now? This action is irreversible!"
+        "areYouSureToDeleteAccountText": "Are you sure you want to delete your account now? This action is irreversible!"
       },
       "success": {
         "passwordChangeSuccess": "The password has been successfully changed!",

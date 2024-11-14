@@ -12,6 +12,4 @@ export class User extends BaseModel {
 
   permissions: Permission[] = [];
   roles: Role[] = [];
-
-  isRestoring?: boolean = false;
 }

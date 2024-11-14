@@ -7,7 +7,8 @@
       "yes": "Tak",
       "no": "Nie",
       "edit": "Edycja",
-      "delete": "Usunięcie"
+      "delete": "Usunięcie",
+      "back": "Powrót"
     },
     "table": {
       "saveTableStatus": "Zapamiętaj stan tabeli",
@@ -44,7 +45,7 @@
     "passwordMustMatch": "Hasło i jego powtórzenie nie są takie same."
   },
 
-  "language":{
+  "language": {
     "selectLanguage": "Wybierz język"
   },
 
@@ -179,7 +180,7 @@
     },
     "messages": {
       "questions": {
-        "areYouShureToDeleteAccountText": "Czy na pewno chcesz usunąć teraz swoje konto? Ta operacja jest nieodwracalna!"
+        "areYouSureToDeleteAccountText": "Czy na pewno chcesz usunąć teraz swoje konto? Ta operacja jest nieodwracalna!"
       },
       "success": {
         "passwordChangeSuccess": "Hasło zostało pomyślnie zmienione!",
@@ -200,14 +201,16 @@
   "users": {
     "title": "Użytkownicy",
     "table": {
-      "name":"Nazwa użytkownika",
+      "name": "Nazwa użytkownika",
       "email": "E-mail",
       "roles": "Role",
-      "confirmed": "Konto potwierdzone"
+      "confirmed": "Konto potwierdzone",
+      "deletedAt": "Data usunięcia"
     },
     "buttons": {
-      "new": "Dodaj użytkownika",
-      "deleted": "Usunięci użytkownicy"
+      "new": "Dodaj",
+      "deleted": "Usunięci",
+      "restore": "Przywróć użytkownika"
     },
     "roles": {
       "USER": "Użytkownik",
@@ -216,13 +219,16 @@
     },
     "messages": {
       "questions": {
-        "areYouShureToDeleteAccountText": "Czy na pewno chcesz usunąć wybranego użytkownika?"
+        "areYouSureToDeleteAccountText": "Czy na pewno chcesz usunąć wybranego użytkownika?",
+        "areYouSureToRestoreAccountText": "Czy na pewno chcesz przywrócić użytkownika {{email}}?"
       },
       "success": {
-        "deletedAccountSuccess": "Wybrany użytkownik został usunięty."
+        "deletedAccountSuccess": "Wybrany użytkownik został usunięty.",
+        "restoredAccountSuccess": "Użytkownik przywrócony pomyślnie."
       },
       "errors": {
-        "cantDeleteAccount": "Nie można usunąć wybranego użytkownika!"
+        "cantDeleteAccount": "Nie udało się usunąć wybranego użytkownika!",
+        "cantRestoreAccount": "Nie udało się przywrócić użytkownika!"
       }
     }
   },
@@ -230,5 +236,4 @@
   "roles": {
     "title": "Role"
   }
-    
 }

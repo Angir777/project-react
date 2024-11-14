@@ -106,7 +106,7 @@ const Settings: FC = () => {
     const result = await Swal.fire({
       icon: 'question',
       iconColor: '#ff3d41',
-      title: t('settings.messages.questions.areYouShureToDeleteAccountText', {}),
+      title: t('settings.messages.questions.areYouSureToDeleteAccountText', {}),
       showCancelButton: true,
       showConfirmButton: true,
       cancelButtonText: t('global.buttons.no'),

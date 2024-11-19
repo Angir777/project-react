@@ -234,6 +234,24 @@
   },
 
   "roles": {
-    "title": "Role"
+    "title": "Role",
+    "table": {
+      "name": "Nazwa użytkownika",
+      "guardName": "Guard"
+    },
+    "buttons": {
+      "new": "Dodaj"
+    },
+    "messages": {
+      "questions": {
+        "areYouSureToDeleteRole": "Czy na pewno chcesz usunąć wybraną rolę?"
+      },
+      "success": {
+        "deletedRoleSuccess": "Wybrana rola została usunięta."
+      },
+      "errors": {
+        "cantDeleteRole": "Nie udało się usunąć wybranej roli!"
+      }
+    }
   }
 }

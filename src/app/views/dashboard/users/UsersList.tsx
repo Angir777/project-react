@@ -18,7 +18,6 @@ import Swal from 'sweetalert2';
 import { setGlobalState } from '../../../core/redux/hooks/reduxHooks';
 import { toastActions } from '../../../core/redux/toast';
 import { TableDataInterface } from '../../../interfaces/table-data.interface';
-import './Users.scss';
 
 // Klucz w localStorage dla tabeli 'Użytkownicy'
 const TABLE_STATE_KEY = 'usersTableState';

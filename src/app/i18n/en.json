@@ -1,11 +1,26 @@
 {
-  "appName": "Project EN",
-  "appVersion": "App Version:",
+  "appName": "Project PL",
+  "appVersion": "Application Version:",
 
   "global": {
     "buttons": {
       "yes": "Yes",
-      "no": "No"
+      "no": "No",
+      "edit": "Edit",
+      "delete": "Delete",
+      "back": "Back"
+    },
+    "table": {
+      "saveTableStatus": "Save table state",
+      "itemsPerPage": "Items per page",
+      "firstPageLabel": "First page",
+      "lastPageLabel": "Last page",
+      "nextPageLabel": "Next",
+      "previousPageLabel": "Previous",
+      "ofPage": "of",
+      "filter": "Filter",
+      "actions": "Actions",
+      "id": "ID"
     }
   },
 
@@ -19,25 +34,25 @@
   "navHeader": {
     "motyw": "Theme",
     "settings": "Settings",
-    "logout": "Log out"
+    "logout": "Logout"
   },
 
   "validation": {
     "required": "This field is required.",
-    "email": "The email address is not valid.",
-    "minLength": "The value entered should be longer than {{min}} characters.",
-    "maxLength": "The value entered should be shorter than {{max}} characters.",
-    "passwordMustMatch": "The password and its confirmation do not match."
+    "email": "Email is not valid.",
+    "minLength": "The entered value must be longer than {{min}} characters.",
+    "maxLength": "The entered value must be shorter than {{max}} characters.",
+    "passwordMustMatch": "Password and its confirmation do not match."
   },
 
-  "language":{
-    "selectLanguage": "Select language"
+  "language": {
+    "selectLanguage": "Select Language"
   },
 
   "pageTitle": {
-    "homePage": "Start",
+    "homePage": "Home",
     "dashboard": "Dashboard",
-    "userManagement": "User management",
+    "userManagement": "User Management",
     "users": "Users",
     "roles": "Roles"
   },
@@ -47,12 +62,12 @@
     "form": {
       "email": "Email",
       "password": "Password",
-      "rememberMe": "Remember me"
+      "rememberMe": "Remember Me"
     },
     "buttons": {
-      "forgotPassword": "Forgot password",
+      "forgotPassword": "Forgot Password",
       "logIn": "Log In",
-      "registration": "Register"
+      "registration": "Registration"
     },
     "messages": {
       "success": {
@@ -71,72 +86,72 @@
       "name": "Username",
       "email": "Email",
       "password": "Password",
-      "passwordConfirmation": "Confirm password",
+      "passwordConfirmation": "Confirm Password",
       "acceptanceRegulations": "I accept the terms and conditions"
     },
     "buttons": {
       "iHaveAccount": "I already have an account",
-      "register": "Confirm"
+      "register": "Register"
     },
     "messages": {
       "success": {
-        "accountCreatedNeedConfirmation": "Account created successfully, an activation link has been sent to your email."
+        "accountCreatedNeedConfirmation": "Account created successfully, an activation link has been sent to your email address."
       },
       "errors": {
-        "cantCreateAccount": "Failed to create the account."
+        "cantCreateAccount": "Could not create account."
       }
     }
   },
 
   "accountConfirmation": {
-    "loading": "Checking your account...",
+    "loading": "Checking account...",
     "messages": {
       "success": {
-        "accountConfirmationSuccessText": "Your account has been confirmed! Log in and enjoy the service!"
+        "accountConfirmationSuccessText": "Your account has been confirmed! Log in and fully enjoy the service!"
       },
       "errors": {
         "codeInvalidText": "Invalid confirmation code!",
-        "alreadyConfirmedText": "The account has already been confirmed!",
+        "alreadyConfirmedText": "Account has already been confirmed!",
         "anotherErrorText": "There was a problem confirming the account. Please try again."
       }
     }
   },
 
   "forgotPassword": {
-    "title": "Reset Password",
+    "title": "Password Reset",
     "form": {
       "email": "Email"
     },
     "buttons": {
-      "resetPassword": "Send password reset link",
+      "resetPassword": "Send reset password link",
       "goBackToLogIn": "I remember my password"
     },
     "messages": {
       "success": {
-        "sendResetLinkSuccess": "The password reset link has been successfully sent."
+        "sendResetLinkSuccess": "The reset link has been successfully sent to your email."
       },
       "errors": {
-        "userNotFoundText": "No user found with the provided email address.",
-        "tokenExistsText": "A password reset link has already been sent to this email. Please check your inbox.",
+        "userNotFoundText": "User with the given email address not found.",
+        "tokenExistsText": "A password reset link has already been sent to the provided email address. Check your inbox.",
         "anotherErrorText": "There was a problem resetting the password. Please try again."
       }
     }
   },
 
   "resetPassword": {
-    "title": "Reset Password",
+    "title": "Password Reset",
     "form": {
       "email": "Email",
       "password": "Password",
-      "passwordConfirmation": "Confirm password"
+      "passwordConfirmation": "Confirm Password"
     },
     "buttons": {
-      "resetPassword": "Change password",
-      "goBackToLogIn": "Go back to login"
+      "resetPassword": "Change Password",
+      "goBackToLogIn": "Back to Login"
     },
     "messages": {
       "success": {
-        "passwordResetSuccess": "Password reset successfully."
+        "passwordResetSuccess": "Password successfully reset."
       },
       "errors": {
         "tokenInvalid": "Cannot reset the password. Invalid token.",
@@ -152,43 +167,91 @@
   "settings": {
     "title": "Settings",
     "form": {
-      "oldPassword": "Current Password",
+      "oldPassword": "Current password",
       "password": "Password",
-      "passwordConfirmation": "Confirm Password"
+      "passwordConfirmation": "Confirm password"
     },
     "buttons": {
       "access": "Access",
       "account": "Account",
-      "changePassword": "Change Password",
-      "deleteAccount": "Delete Account",
+      "changePassword": "Change password",
+      "deleteAccount": "Delete account",
       "confirm": "Confirm"
     },
     "messages": {
       "questions": {
-        "areYouSureToDeleteAccountText": "Are you sure you want to delete your account now? This action is irreversible!"
+        "areYouSureToDeleteAccountText": "Are you sure you want to delete your account? This action is irreversible!"
       },
       "success": {
-        "passwordChangeSuccess": "The password has been successfully changed!",
-        "deletedYourAccountTitle": "Your account has been successfully deleted! You will be logged out from the application.",
-        "deletedYourAccountText": "We hope you'll return to us someday... Goodbye!"
+        "passwordChangeSuccess": "Password has been successfully changed!",
+        "deletedYourAccountTitle": "Your account has been successfully deleted! You will be logged out.",
+        "deletedYourAccountText": "We hope you return someday... Goodbye!"
       },
       "errors": {
-        "wrongOldPasswordText": "The current password provided is incorrect!",
-        "anotherErrorText": "There was an issue with changing the password. Please try again.",
-        "cantDeleteSuperAdminAccountText": "The super admin account cannot be deleted!",
-        "anotherDeleteErrorText": "There was an issue with deleting the account. Please try again.",
-        "cantChangePassword": "There was an error while changing the password. Please try again.",
-        "wrongOldPassword": "The current password provided is incorrect!"
+        "wrongOldPasswordText": "Incorrect current password!",
+        "anotherErrorText": "There was a problem changing the password. Please try again.",
+        "cantDeleteSuperAdminAccountText": "Cannot delete the super admin account!",
+        "anotherDeleteErrorText": "There was a problem deleting the account. Please try again.",
+        "cantChangePassword": "There was an error changing the password. Please try again.",
+        "wrongOldPassword": "Incorrect current password!"
       }
     }
   },
 
   "users": {
-    "title": "Users"
+    "title": "Users",
+    "table": {
+      "name": "Username",
+      "email": "Email",
+      "roles": "Roles",
+      "confirmed": "Account confirmed",
+      "deletedAt": "Deleted at"
+    },
+    "buttons": {
+      "new": "Add",
+      "deleted": "Deleted",
+      "restore": "Restore user"
+    },
+    "roles": {
+      "USER": "User",
+      "ADMIN": "Administrator",
+      "SUPER_ADMIN": "Super administrator"
+    },
+    "messages": {
+      "questions": {
+        "areYouSureToDeleteAccountText": "Are you sure you want to delete the selected user?",
+        "areYouSureToRestoreAccountText": "Are you sure you want to restore the user {{email}}?"
+      },
+      "success": {
+        "deletedAccountSuccess": "The selected user has been deleted.",
+        "restoredAccountSuccess": "User restored successfully."
+      },
+      "errors": {
+        "cantDeleteAccount": "Could not delete the selected user!",
+        "cantRestoreAccount": "Could not restore the user!"
+      }
+    }
   },
 
   "roles": {
-    "title": "Roles"
+    "title": "Roles",
+    "table": {
+      "name": "Role name",
+      "guardName": "Guard"
+    },
+    "buttons": {
+      "new": "Add"
+    },
+    "messages": {
+      "questions": {
+        "areYouSureToDeleteRole": "Are you sure you want to delete the selected role?"
+      },
+      "success": {
+        "deletedRoleSuccess": "The selected role has been deleted."
+      },
+      "errors": {
+        "cantDeleteRole": "Could not delete the selected role!"
+      }
+    }
   }
-
 }

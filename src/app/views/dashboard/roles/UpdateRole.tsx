@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { PageContentWrapper, PageHeading } from '../../../components';
 import { setPageTitle } from '../../../utils/page-title.utils';
 
-const Roles: FC = () => {
+const UpdateRole: FC = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -25,4 +25,4 @@ const Roles: FC = () => {
     </>
   );
 };
-export default Roles;
+export default UpdateRole;

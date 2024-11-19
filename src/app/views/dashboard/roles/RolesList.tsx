@@ -2,43 +2,33 @@ import { FC, useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PageContentWrapper, PageHeading } from '../../../components';
 import { setPageTitle } from '../../../utils/page-title.utils';
-import { Button } from 'primereact/button';
-import { DataTable, SortOrder } from 'primereact/datatable';
-import { setGlobalState } from '../../../core/redux/hooks/reduxHooks';
-import { TableDataInterface } from '../../../interfaces/table-data.interface';
-import { InputSwitch } from 'primereact/inputswitch';
-import UserService from '../../../services/user/user.service';
-import { faArrowLeftLong, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Tooltip } from 'primereact/tooltip';
 import { HasPermission } from '../../../core/auth/HasPermission';
+import { Link } from 'react-router-dom';
+import { faAdd, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { User } from '../../../models/user/User';
-import { toastActions } from '../../../core/redux/toast';
+import { DataTable, SortOrder } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import { Button } from 'primereact/button';
+import { InputSwitch } from 'primereact/inputswitch';
+import { Tooltip } from 'primereact/tooltip';
 import Swal from 'sweetalert2';
-import { formatDate, goBack } from '../../../helpers/functions.helpers';
+import { setGlobalState } from '../../../core/redux/hooks/reduxHooks';
+import { toastActions } from '../../../core/redux/toast';
+import { TableDataInterface } from '../../../interfaces/table-data.interface';
+import RoleService from '../../../services/role/role.service';
 
 // Klucz w localStorage dla tabeli 'Użytkownicy'
-const TABLE_STATE_KEY = 'usersDeletedTableState';
+const TABLE_STATE_KEY = 'rolesTableState';
 
-const DeleteUsersList: FC = () => {
+const RolesList: FC = () => {
   const dispatch = setGlobalState();
   const { t } = useTranslation();
 
   // Ustawienie title strony
   useEffect(() => {
-    setPageTitle(t('users.title'));
+    setPageTitle(t('roles.title'));
   }, [t]);
-
-  // Sprawdza czy dany użytkownik posiada rolę 'SUPER_ADMIN'
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const isSuperAdmin = (roles: any) => {
-    if (roles.indexOf('SUPER_ADMIN') !== -1) {
-      return true;
-    } else {
-      return false;
-    }
-  };
 
   // ---------------------------------------------------------------------------
   // USTAWIENIA KONKRETNEJ TABELI
@@ -48,9 +38,9 @@ const DeleteUsersList: FC = () => {
   const defaultTableFilters = {
     id: { value: null, matchMode: 'startsWith' },
     name: { value: null, matchMode: 'startsWith' },
-    email: { value: null, matchMode: 'startsWith' },
-    deletedAt: { value: null, matchMode: 'startsWith' },
+    guardName: { value: null, matchMode: 'startsWith' },
   };
+
   // Ładowanie ustawień tabeli
   const loadTableSettings = () => {
     const savedTableSettings = localStorage.getItem(TABLE_STATE_KEY);
@@ -103,7 +93,7 @@ const DeleteUsersList: FC = () => {
         };
       }
 
-      const response = await UserService.queryDeleted(queryParams);
+      const response = await RoleService.query(queryParams);
 
       setTableData(response.data);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -118,41 +108,35 @@ const DeleteUsersList: FC = () => {
   const actionsBodyTemplate = (row: User) => {
     return (
       <>
-        {isSuperAdmin(row.roles) ? (
+        <HasPermission permissions={['ROLE_MANAGE']}>
           <>
-            <HasPermission permissions={['SUPER_ADMIN', 'USER_MANAGE']}>
+            {/* Edycja */}
+            <Link to={`${row.id}/edit`} className="btn btn-primary btn-sm me-1 mb-1" id={`edit-tooltip-${row.id}`}>
+              <FontAwesomeIcon icon={faEdit} />
+            </Link>
+            <Tooltip target={`#edit-tooltip-${row.id}`} content={t('global.buttons.edit')} />
+
+            {/* Usunięcie */}
+            {row.name !== 'SUPER_ADMIN' && (
               <>
-                {/* Przywrócenie */}
-                <button className="btn btn-warning btn-sm mb-1" id={`restore-tooltip-${row.id}`} onClick={() => restoreUser(row)}>
+                <button className="btn btn-danger btn-sm mb-1" id={`delete-tooltip-${row.id}`} onClick={() => deleteRole(row)}>
                   <FontAwesomeIcon icon={faTrash} />
                 </button>
-                <Tooltip target={`#restore-tooltip-${row.id}`} content={t('users.buttons.restore')} />
+                <Tooltip target={`#delete-tooltip-${row.id}`} content={t('global.buttons.delete')} />
               </>
-            </HasPermission>
+            )}
           </>
-        ) : (
-          <>
-            <HasPermission permissions={['USER_MANAGE']}>
-              <>
-                {/* Przywrócenie */}
-                <button className="btn btn-warning btn-sm mb-1" id={`restore-tooltip-${row.id}`} onClick={() => restoreUser(row)}>
-                  <FontAwesomeIcon icon={faTrash} />
-                </button>
-                <Tooltip target={`#restore-tooltip-${row.id}`} content={t('users.buttons.restore')} />
-              </>
-            </HasPermission>
-          </>
-        )}
+        </HasPermission>
       </>
     );
   };
 
-  // Przywrócenie użytkownika
-  const restoreUser = useCallback(
+  // Usunięcie użytkownika
+  const deleteRole = useCallback(
     async (row: User) => {
       const result = await Swal.fire({
         icon: 'question',
-        title: t('users.messages.questions.areYouSureToRestoreAccountText', { email: `${row.email}` }),
+        title: t('roles.messages.questions.areYouSureToDeleteRole', {}),
         showCancelButton: true,
         showConfirmButton: true,
         cancelButtonText: t('global.buttons.no'),
@@ -162,24 +146,24 @@ const DeleteUsersList: FC = () => {
         setIsLoading(true);
 
         try {
-          await UserService.restore(row.id);
+          await RoleService.remove(row.id);
 
           dispatch(
             toastActions.showToast({
               severity: 'success',
               summary: t('toast.summary.success'),
-              detail: t('users.messages.success.restoredAccountSuccess'),
+              detail: t('roles.messages.success.deletedRoleSuccess'),
             })
           );
 
-          // Odświeżenie tabeli po przywróceniu użytkownika
+          // Odświeżenie tabeli po usunięciu użytkownika
           refreshTable();
         } catch {
           dispatch(
             toastActions.showToast({
               severity: 'error',
               summary: t('toast.summary.error'),
-              detail: t('users.messages.errors.cantRestoreAccount'),
+              detail: t('roles.messages.errors.cantDeleteRole'),
             })
           );
         }
@@ -189,11 +173,6 @@ const DeleteUsersList: FC = () => {
     },
     [t]
   );
-
-  // Kolumna 'Data usuniecia' - formatowanie wyświetlanej daty
-  const deletedAtBodyTemplate = (row: User) => {
-    return row.deletedAt ? formatDate(row.deletedAt) : null;
-  };
 
   // ---------------------------------------------------------------------------
   // STAŁE ELEMENTY TABELI
@@ -326,17 +305,21 @@ const DeleteUsersList: FC = () => {
   return (
     <>
       <PageHeading
-        title={t('users.title')}
+        title={t('roles.title')}
         actionButtons={
           <>
-            <button onClick={goBack} className="btn btn-secondary btn-sm ms-2">
-              <FontAwesomeIcon icon={faArrowLeftLong} />
-              <span className="ms-2">{t('global.buttons.back')}</span>
-            </button>
+            <HasPermission permissions={['ROLE_MANAGE']}>
+              <Link to={'new'}>
+                <button className="btn btn-success btn-sm">
+                  <FontAwesomeIcon icon={faAdd} />
+                  <span className="ms-2">{t('roles.buttons.new')}</span>
+                </button>
+              </Link>
+            </HasPermission>
           </>
         }
       />
-
+      
       <PageContentWrapper>
         <div className="row">
           <div className="col-12">
@@ -375,35 +358,25 @@ const DeleteUsersList: FC = () => {
                 showClearButton={false}
                 showFilterMenu={false}
                 filterPlaceholder={t('global.table.filter')}
-                style={{ width: '20%' }}></Column>
+                style={{ width: '30%' }}></Column>
               <Column
                 field="name"
-                header={t('users.table.name')}
+                header={t('roles.table.name')}
                 sortable
                 filter
                 showClearButton={false}
                 showFilterMenu={false}
                 filterPlaceholder={t('global.table.filter')}
-                style={{ width: '25%' }}></Column>
+                style={{ width: '30%' }}></Column>
               <Column
-                field="email"
-                header={t('users.table.email')}
+                field="guardName"
+                header={t('roles.table.guardName')}
                 sortable
                 filter
                 showClearButton={false}
                 showFilterMenu={false}
                 filterPlaceholder={t('global.table.filter')}
-                style={{ width: '25%' }}></Column>
-              <Column
-                field="deletedAt"
-                header={t('users.table.deletedAt')}
-                sortable
-                filter
-                showClearButton={false}
-                showFilterMenu={false}
-                filterPlaceholder={t('global.table.filter')}
-                style={{ width: '20%' }}
-                body={(rowData) => deletedAtBodyTemplate(rowData)}></Column>
+                style={{ width: '30%' }}></Column>
             </DataTable>
           </div>
         </div>
@@ -411,4 +384,5 @@ const DeleteUsersList: FC = () => {
     </>
   );
 };
-export default DeleteUsersList;
+
+export default RolesList;

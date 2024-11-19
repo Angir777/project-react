@@ -36,6 +36,11 @@
   font-size: 1.3em;
 }
 
+// Zeskalowanie switch'a
+.small-input-switch {
+  transform: scale(0.6); /* Zmniejsza przełącznik o 30% */
+}
+
 // Loader
 .mat-table-custom-loading-shade {
   position: absolute;

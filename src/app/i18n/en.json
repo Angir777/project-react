@@ -8,7 +8,9 @@
       "no": "No",
       "edit": "Edit",
       "delete": "Delete",
-      "back": "Back"
+      "back": "Back",
+      "cancel": "Cancel",
+      "save": "Save"
     },
     "table": {
       "saveTableStatus": "Save table state",
@@ -235,6 +237,13 @@
 
   "roles": {
     "title": "Roles",
+    "addTitle": "New role",
+    "editTitle": "Edit role '{{name}}'",
+    "form": {
+      "name": "Name",
+      "guardName": "Guard",
+      "permissionGroups": "Permissions"
+    },
     "table": {
       "name": "Role name",
       "guardName": "Guard"
@@ -247,10 +256,18 @@
         "areYouSureToDeleteRole": "Are you sure you want to delete the selected role?"
       },
       "success": {
-        "deletedRoleSuccess": "The selected role has been deleted."
+        "deletedRoleSuccess": "The selected role has been deleted.",
+        "createdRoleSuccess": "The role has been created.",
+        "updatedRoleSuccess": "The role has been updated."
       },
-      "errors": {
-        "cantDeleteRole": "Could not delete the selected role!"
+      "error": {
+        "cantDeleteRole": "Failed to delete the selected role!",
+        "noAccess": "Access denied!",
+        "noPermissions": "Insufficient permissions!",
+        "cantGetData": "Failed to load data!",
+        "cantCreatedRole": "The role has not been created!",
+        "cantUpdatedRole": "The role has not been updated!",
+        "needPermissions": "Permissions must be selected!"
       }
     }
   }

@@ -10,7 +10,7 @@
   z-index: 0;
 }
 
-// Tło blur 
+// Tło blur
 .light-blur-bg {
   background-color: var(--surface-50);
   opacity: 0.9;
@@ -23,7 +23,7 @@
 // Rozmiar inputów
 .p-inputtext.p-inputtext-sm,
 .p-inputtext-sm .p-inputtext {
-  font-size: 0.675rem!important;
+  font-size: 0.675rem !important;
 }
 
 // Usunięcie padding'u w card od prime react'a
@@ -39,6 +39,12 @@
 // Zeskalowanie switch'a
 .small-input-switch {
   transform: scale(0.6); /* Zmniejsza przełącznik o 30% */
+}
+
+// Zmiana styli dla switch'a
+.p-inputswitch.p-highlight .p-inputswitch-slider:before {
+  background: #ffffff;
+  box-shadow: 0px 1px 8px #b1b1b1;
 }
 
 // Loader
@@ -81,7 +87,7 @@
   margin: 0 auto;
   width: 15%;
   height: 15%;
-  background-color: var(--surface-900)!important;
+  background-color: var(--surface-900) !important;
   border-radius: 100%;
   -webkit-animation: sk-circleBounceDelay 1.2s infinite ease-in-out both;
   animation: sk-circleBounceDelay 1.2s infinite ease-in-out both;
@@ -209,7 +215,9 @@
 }
 
 @-webkit-keyframes sk-circleBounceDelay {
-  0%, 80%, 100% {
+  0%,
+  80%,
+  100% {
     -webkit-transform: scale(0);
     transform: scale(0);
   }
@@ -220,7 +228,9 @@
 }
 
 @keyframes sk-circleBounceDelay {
-  0%, 80%, 100% {
+  0%,
+  80%,
+  100% {
     -webkit-transform: scale(0);
     transform: scale(0);
   }
@@ -229,4 +239,3 @@
     transform: scale(1);
   }
 }
-

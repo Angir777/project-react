@@ -8,7 +8,9 @@
       "no": "Nie",
       "edit": "Edycja",
       "delete": "Usunięcie",
-      "back": "Powrót"
+      "back": "Powrót",
+      "cancel": "Anuluj",
+      "save": "Zapisz"
     },
     "table": {
       "saveTableStatus": "Zapamiętaj stan tabeli",
@@ -235,6 +237,13 @@
 
   "roles": {
     "title": "Role",
+    "addTitle": "Nowa rola",
+    "editTitle": "Edycja roli '{{name}}'",
+    "form": {
+      "name": "Nazwa",
+      "guardName": "Guard",
+      "permissionGroups": "Uprawnienia"
+    },
     "table": {
       "name": "Nazwa użytkownika",
       "guardName": "Guard"
@@ -247,10 +256,18 @@
         "areYouSureToDeleteRole": "Czy na pewno chcesz usunąć wybraną rolę?"
       },
       "success": {
-        "deletedRoleSuccess": "Wybrana rola została usunięta."
+        "deletedRoleSuccess": "Wybrana rola została usunięta.",
+        "createdRoleSuccess": "Rola została utworzona.",
+        "updatedRoleSuccess": "Rola została zaktualizowana."
       },
-      "errors": {
-        "cantDeleteRole": "Nie udało się usunąć wybranej roli!"
+      "error": {
+        "cantDeleteRole": "Nie udało się usunąć wybranej roli!",
+        "noAccess": "Brak uprawnień!",
+        "noPermissions": "Brak uprawnień!",
+        "cantGetData": "Nie udało się załadować danych!",
+        "cantCreatedRole": "Rola nie została utworzona!",
+        "cantUpdatedRole": "Rola nie została zaktualizowana!",
+        "needPermissions": "Należy wybrać uprawnienia!"
       }
     }
   }

@@ -11,39 +11,41 @@ import { RootState } from '../core/redux';
 const LanguageDropdown: FC = () => {
   const dispatch = setGlobalState();
   const { t } = useTranslation();
-  
+
   // Pobranie aktualnego języka
   const currentLanguage = getGlobalState((state: RootState) => state.language.currentLanguage);
+
   // Ustawienie nowo wybranego języka
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const languageChange = (language: any) => {
     dispatch(languageActions.changeLanguage(language));
   };
-  
+
   // Dostepne języki w aplikacji
   const languages: LanguageInterface[] = [
-    {name: 'PL', value: 'pl'},
-    {name: 'EN', value: 'en'},
+    { name: 'PL', value: 'pl' },
+    { name: 'EN', value: 'en' },
   ];
 
   // Zmiana języka
   const renderLanguageDropdown = () => {
     if (APP_LANGUAGE_CHANGE_ENABLE) {
-      return <Dropdown 
-        className='w-100'
-        value={currentLanguage} 
-        onChange={(e) => languageChange(e.value)} 
-        options={languages} 
-        optionLabel="name" 
-        placeholder={t('language.selectLanguage')}/>;
-    } 
+      return (
+        <Dropdown
+          className="w-100"
+          value={currentLanguage}
+          onChange={(e) => languageChange(e.value)}
+          options={languages}
+          optionLabel="name"
+          placeholder={t('language.selectLanguage')}
+        />
+      );
+    }
   };
 
   return (
     <>
-      <div className='languageSelect'>
-        {renderLanguageDropdown()}
-      </div>
+      <div className="languageSelect">{renderLanguageDropdown()}</div>
     </>
   );
 };

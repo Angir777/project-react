@@ -1,4 +1,4 @@
-import { User } from "../models/user/User";
+import { User } from '../models/user/User';
 
 /**
  * Interfejs określający "kształt" wymaganych danych na tabeli.

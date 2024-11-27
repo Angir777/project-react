@@ -45,7 +45,7 @@ const Register: FC = () => {
     handleSubmit,
     setValue,
     watch,
-    formState: { errors }
+    formState: { errors },
   } = useForm<RegisterInterface>({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -67,10 +67,10 @@ const Register: FC = () => {
       if (!data.confirmed) {
         // Konto zostało utworzone pomyślnie, na adres email został wysłany link aktywacyjny.
         dispatch(
-          toastActions.showToast({ 
-            severity: 'success', 
-            summary: t('toast.summary.success'), 
-            detail: t('register.messages.success.accountCreatedNeedConfirmation') 
+          toastActions.showToast({
+            severity: 'success',
+            summary: t('toast.summary.success'),
+            detail: t('register.messages.success.accountCreatedNeedConfirmation'),
           })
         );
         navigate('/login', { replace: true });
@@ -90,10 +90,10 @@ const Register: FC = () => {
 
       // Witaj, {{name}}!
       dispatch(
-        toastActions.showToast({ 
-          severity: 'success', 
-          summary: t('toast.summary.success'), 
-          detail: t('login.messages.success.loginSuccess', { name: `${currentUser.name}` }) 
+        toastActions.showToast({
+          severity: 'success',
+          summary: t('toast.summary.success'),
+          detail: t('login.messages.success.loginSuccess', { name: `${currentUser.name}` }),
         })
       );
 
@@ -105,10 +105,10 @@ const Register: FC = () => {
     } catch {
       // Nie udało się utworzyć konta.
       dispatch(
-        toastActions.showToast({ 
-          severity: 'error', 
-          summary: t('toast.summary.error'), 
-          detail: t('register.messages.error.cantCreateAccount') 
+        toastActions.showToast({
+          severity: 'error',
+          summary: t('toast.summary.error'),
+          detail: t('register.messages.error.cantCreateAccount'),
         })
       );
     }

@@ -19,7 +19,7 @@ const Home: FC = () => {
         <div className="row">
           <div className="col-12">
             <h5 className="m-0 mb-2">{t('appName')}</h5>
-            <p>TODO: ROLES + USERS</p>
+            <p>TODO: USERS</p>
           </div>
         </div>
       </PageContentWrapper>

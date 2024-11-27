@@ -5,9 +5,7 @@ export const PageHeading = ({ title, actionButtons }: any) => {
       <div>
         <h1 className="display-6">{title}</h1>
       </div>
-      <div>
-        {actionButtons}
-      </div>
+      <div>{actionButtons}</div>
     </div>
   );
 };

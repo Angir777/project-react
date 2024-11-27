@@ -4,9 +4,9 @@ import { RouteElement } from '../../../models/auth/RouteElement';
 const Home = React.lazy(() => import('./Home'));
 
 export const HOME_ROUTES: RouteElement[] = [
-    {
-        path: '/home',
-        element: Home,
-        permissions: ['USER']
-    },
+  {
+    path: '/home',
+    element: Home,
+    permissions: ['USER'],
+  },
 ];

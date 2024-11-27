@@ -6,14 +6,9 @@ import { DashboardLayout } from '../../layout/dashboard/DashboardLayout';
 import { HOME_ROUTES } from './home/routes';
 import { SETTINGS_ROUTES } from './settings/routes';
 import { USERS_ROUTES } from './users/routes';
-import {ROLES_ROUTES} from "./roles/routes";
+import { ROLES_ROUTES } from './roles/routes';
 
-const DASHBOARD_ROUTES: RouteElement[] = [
-  ...HOME_ROUTES, 
-  ...SETTINGS_ROUTES,
-  ...USERS_ROUTES,
-  ...ROLES_ROUTES
-];
+const DASHBOARD_ROUTES: RouteElement[] = [...HOME_ROUTES, ...SETTINGS_ROUTES, ...USERS_ROUTES, ...ROLES_ROUTES];
 
 const DashboardRouting = () => {
   return (
@@ -23,14 +18,7 @@ const DashboardRouting = () => {
           <Route path="/" element={<Navigate to="home" />} />
 
           {DASHBOARD_ROUTES.map((dr) => (
-            <Route 
-              key={dr.path} 
-              path={dr.path} 
-              element={<RequirePermission 
-                element={<dr.element />} 
-                permissions={dr.permissions} />
-              } 
-            />
+            <Route key={dr.path} path={dr.path} element={<RequirePermission element={<dr.element />} permissions={dr.permissions} />} />
           ))}
         </Route>
       </Routes>

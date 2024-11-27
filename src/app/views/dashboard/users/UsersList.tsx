@@ -109,7 +109,7 @@ const UsersList: FC = () => {
       const response = await UserService.query(queryParams);
 
       setTableData(response.data);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.error('ERROR:', error);
     }
@@ -418,7 +418,7 @@ const UsersList: FC = () => {
           </>
         }
       />
-      
+
       <PageContentWrapper>
         <div className="row">
           <div className="col-12">
@@ -445,10 +445,7 @@ const UsersList: FC = () => {
               paginatorRight={paginatorRight}
               size="small"
               header={headerBodyTemplate}>
-              <Column 
-                header={t('global.table.actions')} 
-                style={{ width: '10%' }} 
-                body={(rowData) => actionsBodyTemplate(rowData)}></Column>
+              <Column header={t('global.table.actions')} style={{ width: '10%' }} body={(rowData) => actionsBodyTemplate(rowData)}></Column>
               <Column
                 field="id"
                 header={t('global.table.id')}

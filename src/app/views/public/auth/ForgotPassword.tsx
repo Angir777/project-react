@@ -26,29 +26,29 @@ const ForgotPassword: FC = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm<ForgotPasswordInterface>({
     resolver: yupResolver(schema),
   });
 
   const onSubmit = async (formData: ForgotPasswordInterface) => {
     setIsSendingEmail(true);
-    
+
     try {
       await AuthService.sendResetPasswordEmail({
         ...formData,
-        'gatewayUrl': APP_RESET_PASSWORD_REDIRECT_URL,
+        gatewayUrl: APP_RESET_PASSWORD_REDIRECT_URL,
       });
 
       // Wiadomość email z linkiem została wysłana pomyślnie.
       dispatch(
-        toastActions.showToast({ 
-          severity: 'success', 
-          summary: t('toast.summary.success'), 
-          detail: t('forgotPassword.messages.success.sendResetLinkSuccess') 
+        toastActions.showToast({
+          severity: 'success',
+          summary: t('toast.summary.success'),
+          detail: t('forgotPassword.messages.success.sendResetLinkSuccess'),
         })
       );
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       if (error.response?.data?.error === 'USER_NOT_FOUND') {
         // Nie odnaleziono użytkownika o podanym adresie e-mail.
@@ -120,7 +120,6 @@ const ForgotPassword: FC = () => {
                 {t('forgotPassword.buttons.goBackToLogIn')}
               </Link>
             </div>
-
           </div>
         </div>
       </div>

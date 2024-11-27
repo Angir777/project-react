@@ -17,9 +17,7 @@ const UpdateUser: FC = () => {
 
       <PageContentWrapper>
         <div className="row">
-          <div className="col-12">
-          UpdateUser
-          </div>
+          <div className="col-12">UpdateUser</div>
         </div>
       </PageContentWrapper>
     </>

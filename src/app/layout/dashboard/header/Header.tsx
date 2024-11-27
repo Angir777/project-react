@@ -72,8 +72,7 @@ const Header: FC = () => {
       </Link>
 
       {/* Ikona menu w sidebar */}
-      <button id="main-menu-icon" type="button" className="p-link layout-menu-button layout-topbar-button" 
-        onClick={() => changeMainMenu()}>
+      <button id="main-menu-icon" type="button" className="p-link layout-menu-button layout-topbar-button" onClick={() => changeMainMenu()}>
         <i className="pi pi-bars" />
         <FontAwesomeIcon icon={faBars} />
       </button>

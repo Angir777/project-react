@@ -16,7 +16,6 @@ const AccountConfirmation: FC = () => {
 
   useEffect(() => {
     const confirmAccount = async () => {
-      
       if (hasExecuted.current) return;
       hasExecuted.current = true; // Ustawiamy flagę na true po pierwszym wykonaniu
 
@@ -79,7 +78,6 @@ const AccountConfirmation: FC = () => {
     };
 
     confirmAccount();
-    
   }, [code, currentUser, dispatch, navigate, t]);
 
   if (isLoading) {

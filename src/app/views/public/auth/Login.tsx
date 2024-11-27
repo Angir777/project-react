@@ -70,24 +70,25 @@ const Login: FC = () => {
 
       // Witaj, {{name}}!
       dispatch(
-        toastActions.showToast({ 
-          severity: 'success', 
-          summary: t('toast.summary.success'), 
-          detail: t('login.messages.success.loginSuccess', { name: `${currentUser.name}` }) })
+        toastActions.showToast({
+          severity: 'success',
+          summary: t('toast.summary.success'),
+          detail: t('login.messages.success.loginSuccess', { name: `${currentUser.name}` }),
+        })
       );
 
       // Ustawienie zalogowania
       dispatch(authActions.login(currentUser));
-      
+
       // Przekierowanie na dashboard
       navigate('/dashboard/home', { replace: true });
     } catch {
       // Błędny login lub hasło.
       dispatch(
-        toastActions.showToast({ 
-          severity: 'error', 
-          summary: t('toast.summary.error'), 
-          detail: t('login.messages.errors.wrongEmailOrPassword') 
+        toastActions.showToast({
+          severity: 'error',
+          summary: t('toast.summary.error'),
+          detail: t('login.messages.errors.wrongEmailOrPassword'),
         })
       );
     }
@@ -107,7 +108,12 @@ const Login: FC = () => {
               <div>
                 <div className="field p-fluid">
                   <label htmlFor="email-address">{t('login.form.email')}*</label>
-                  <InputText id="email" {...register('email')} className={`${errors.email ? 'p-invalid' : ''} p-inputtext-sm`} placeholder={t('login.email')} />
+                  <InputText
+                    id="email"
+                    {...register('email')}
+                    className={`${errors.email ? 'p-invalid' : ''} p-inputtext-sm`}
+                    placeholder={t('login.email')}
+                  />
                   {errors.email && <small className="p-error">{t(errors.email.message || '')}</small>}
                 </div>
 
@@ -128,11 +134,7 @@ const Login: FC = () => {
 
               <div className="mt-3 d-flex align-items-center justify-content-between">
                 <div className="d-flex align-items-center mb-2">
-                  <Checkbox
-                    inputId="remember"
-                    checked={!!watch('remember')}
-                    onChange={(e) => setValue('remember', e.checked)}
-                  />
+                  <Checkbox inputId="remember" checked={!!watch('remember')} onChange={(e) => setValue('remember', e.checked)} />
                   <label htmlFor="remember" className="ms-2">
                     {t('login.form.rememberMe')}
                   </label>
@@ -161,7 +163,10 @@ const Login: FC = () => {
             )}
           </div>
           <div className="col-12 mt-3 text-center">
-            <small>{t('appVersion')}{APP_VERSION}</small>
+            <small>
+              {t('appVersion')}
+              {APP_VERSION}
+            </small>
           </div>
         </div>
       </div>

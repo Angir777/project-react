@@ -39,7 +39,7 @@ const ResetPassword: FC = () => {
     setValue,
     watch,
     formState: { errors },
-    reset
+    reset,
   } = useForm<FinishResetPasswordInterface>({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -67,7 +67,7 @@ const ResetPassword: FC = () => {
       );
 
       navigate('/login', { replace: true });
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       if (error.response?.data?.error === 'TOKEN_INVALID') {
         // Nie poprawny kod potwierdzenia!

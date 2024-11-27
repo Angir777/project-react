@@ -6,6 +6,9 @@ const resourceUrl = `${APP_API_URL}/role`;
 
 // ---------------------------------------------------------------------------
 
+/**
+ * Pobranie uprawnień
+ */
 const getPermissions = () => {
   return axios.get(`${resourceUrl}/get-permissions`);
 };

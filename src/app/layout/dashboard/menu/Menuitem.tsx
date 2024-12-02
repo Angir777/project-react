@@ -80,10 +80,10 @@ const MenuItem: React.FC<MenuItemProps> = ({ item, root = false, index }) => {
   };
 
   return (
-    <li className={`menu-item ${root ? 'root' : ''} ${active ? 'active-menuitem' : ''}`}>
+    <li className={`menu-item ${root ? 'root mb-1' : ''} ${active ? 'active-menuitem' : ''}`}>
       {!item.to || item.items ? (
         <>
-          {!item.to && <strong>{t(item.label)}</strong>}
+          {!item.to && <strong className="text-uppercase">{t(item.label)}</strong>}
           {item.to && item.items ? (
             <a href={item.url || '#'} target={item.target} onClick={handleClick}>
               {item.icon && <FontAwesomeIcon icon={['fas', ('fa-' + item.icon) as IconName]} size={'xs'} />}

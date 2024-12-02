@@ -37,6 +37,30 @@
   padding: 0rem 0;
 }
 
+// Poprawienie rozmiaru czcionki w tab od prime react'a
+.p-tabview .p-tabview-nav li {
+  font-size: 14px;
+}
+
+// Poprawienie koloru przycisku success
+.btn-success {
+  color: #ffffff!important;
+  background: #22c55e!important;
+  border: 1px solid #22c55e!important;
+}
+.btn-success:hover {
+  background: #16a34a!important;
+  color: #ffffff!important;
+  border-color: #16a34a!important;
+}
+
+// Jasniejszy hr
+.hr-light {
+  border-top: solid var(--surface-border);
+  border-width: 1px 0 0 0;
+  margin: 1rem 0;
+}
+
 // swal2
 .swal2-title {
   font-size: 1.3em;
@@ -51,6 +75,17 @@
 .p-inputswitch.p-highlight .p-inputswitch-slider:before {
   background: #ffffff;
   box-shadow: 0px 1px 8px #b1b1b1;
+}
+
+// Poprawienie styli od menu
+.layout-menu {
+  li {
+    font-size: 14px;
+  }
+}
+
+.languageSelect .p-dropdown {
+  border: none;
 }
 
 // Loader

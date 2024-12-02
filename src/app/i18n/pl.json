@@ -52,8 +52,8 @@
   },
 
   "pageTitle": {
-    "homePage": "Start",
-    "dashboard": "Dashboard",
+    "homePage": "Strona główna",
+    "dashboard": "Strona główna",
     "userManagement": "Zarządzanie użytkownikami",
     "users": "Użytkownicy",
     "roles": "Role"
@@ -163,7 +163,8 @@
   },
 
   "home": {
-    "title": "Dashboard"
+    "title": "Dashboard",
+    "hello": "Cześć"
   },
 
   "settings": {
@@ -204,6 +205,7 @@
     "title": "Użytkownicy",
     "addTitle": "Nowy użytkownik",
     "editTitle": "Edycja użytkownika '{{name}}'",
+    "deletedTitle": "Usunięci użytkownicy",
     "form": {
       "name": "Nazwa użytkownika",
       "email": "E-mail",

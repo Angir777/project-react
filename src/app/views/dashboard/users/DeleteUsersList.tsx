@@ -27,7 +27,7 @@ const DeleteUsersList: FC = () => {
 
   // Ustawienie title strony
   useEffect(() => {
-    setPageTitle(t('users.title'));
+    setPageTitle(t('users.deletedTitle'));
   }, [t]);
 
   // Sprawdza czy dany użytkownik posiada rolę 'SUPER_ADMIN'
@@ -326,7 +326,7 @@ const DeleteUsersList: FC = () => {
   return (
     <>
       <PageHeading
-        title={t('users.title')}
+        title={t('users.deletedTitle')}
         actionButtons={
           <>
             <button onClick={goBack} className="btn btn-secondary btn-sm ms-2">

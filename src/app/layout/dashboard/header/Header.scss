@@ -1,5 +1,22 @@
+.layout-topbar .layout-topbar-menu .layout-topbar-button span {
+  font-size: 14px;
+}
+
+// Separator
+.vertical-separator {
+  margin-top: 10px;
+  width: 1px;
+  height: 24px;
+  background-color: var(--surface-200);
+  margin-left: 15px;
+}
+
 @media (max-width: 991px) {
-    #language-dropdown {
-      margin-bottom: 1rem;
-    }
+  .vertical-separator {
+    margin-top: 0px;
+    width: 100%;
+    height: 1px;
+    margin-left: 0;
+    margin: 10px 0px 10px 0px;
   }
+}

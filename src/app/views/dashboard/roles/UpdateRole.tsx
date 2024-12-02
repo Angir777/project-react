@@ -308,6 +308,10 @@ const UpdateRole: FC = () => {
                   </div>
                 </div>
 
+                <div className="row">
+                  <hr className="hr-light" />
+                </div>
+
                 <div className="row mb-2">
                   <div className="col-12 mb-3">
                     <label className="label">{t('roles.form.permissionGroups')}*</label>
@@ -316,7 +320,7 @@ const UpdateRole: FC = () => {
                     <Loader />
                   ) : permissionGroups?.length > 0 ? (
                     permissionGroups.map((permissionGroup: PermissionGroup, groupIndex: number) => (
-                      <div key={groupIndex} className="col-12 col-md-4">
+                      <div key={groupIndex} className="col-12 col-sm-6 col-md-4">
                         <strong>{permissionGroup.name}</strong>
                         {permissionGroup.permissions?.map((permission: Permission, permIndex: number) => (
                           <div key={permIndex} className="form-group d-flex mt-3">
@@ -340,7 +344,7 @@ const UpdateRole: FC = () => {
                   )}
                 </div>
 
-                <div className="mt-4">
+                <div className="mt-4 d-flex justify-content-end">
                   <button type="submit" className="btn btn-success btn-sm ms-2" disabled={isSaving}>
                     {!isSaving ? <FontAwesomeIcon icon={faSave} /> : <FontAwesomeIcon icon={faSpinner} spin />}
                     <span className="ms-2">{t('global.buttons.save')}</span>

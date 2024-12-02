@@ -53,7 +53,7 @@
 
   "pageTitle": {
     "homePage": "Home",
-    "dashboard": "Dashboard",
+    "dashboard": "Home",
     "userManagement": "User Management",
     "users": "Users",
     "roles": "Roles"
@@ -163,7 +163,8 @@
   },
 
   "home": {
-    "title": "Dashboard"
+    "title": "Dashboard",
+    "hello": "Hello"
   },
 
   "settings": {
@@ -204,6 +205,7 @@
     "title": "Users",
     "addTitle": "New User",
     "editTitle": "Edit User '{{name}}'",
+    "deletedTitle": "Deleted users",
     "form": {
       "name": "Username",
       "email": "Email",

@@ -23,6 +23,9 @@ const Header: FC = () => {
   const [isOpenHeaderMenu, setIsOpenHeaderMenu] = useState(false);
   // Dodanie nasłuchiwania kliknięć poza menu by automatycznie schować menu
   useEffect(() => {
+    console.log("tu");
+    console.log(isOpenHeaderMenu);
+
     const handleClickOutside = (event: MouseEvent) => {
       const headerMenu = document.getElementById('header-menu-icon');
       const languageDropdown = document.getElementById('language-dropdown');
@@ -86,34 +89,36 @@ const Header: FC = () => {
         <FontAwesomeIcon icon={faUser} />
       </button>
 
-      <div className={classNames('layout-topbar-menu', { 'layout-topbar-menu-mobile-active': isOpenHeaderMenu })}>
-        {/* Język */}
-        <div id="language-dropdown">
-          <LanguageDropdown />
-        </div>
+      <div className={classNames('layout-topbar-menu', { 'layout-topbar-menu-mobile-active d-flex align-items-center': isOpenHeaderMenu })}>
+        {/* <div className="d-flex align-items-center"> */}
+          {/* Język */}
+          <div id="language-dropdown">
+            <LanguageDropdown />
+          </div>
 
-        {/* Motyw */}
-        <button id="motyw" type="button" className="p-link layout-topbar-button" onClick={changeMotyw}>
-          <FontAwesomeIcon icon={faCircleHalfStroke} />
-          <span className="ms-2">{t('navHeader.motyw')}</span>
-        </button>
-        <Tooltip target="#motyw" content={t('navHeader.motyw')} position="bottom" />
+          <span className="vertical-separator"></span>
 
-        {/* Ustawienia */}
-        <Link to="/dashboard/settings">
-          <button id="settings" type="button" className="p-link layout-topbar-button">
+          {/* Motyw */}
+          <button id="motyw" type="button" className="p-link layout-topbar-button" onClick={changeMotyw}>
+            <FontAwesomeIcon icon={faCircleHalfStroke} />
+            <span className="ms-2">{t('navHeader.motyw')}</span>
+          </button>
+          <Tooltip target="#motyw" content={t('navHeader.motyw')} position="bottom" />
+
+          {/* Ustawienia */}
+          <button id="settings" type="button" className="p-link layout-topbar-button" onClick={() => navigate('/dashboard/settings')}>
             <FontAwesomeIcon icon={faGear} />
             <span className="ms-2">{t('navHeader.settings')}</span>
           </button>
           <Tooltip target="#settings" content={t('navHeader.settings')} position="bottom" />
-        </Link>
 
-        {/* Wyloguj */}
-        <button id="logout" type="button" className="p-link layout-topbar-button" onClick={logout}>
-          <FontAwesomeIcon icon={faArrowRightFromBracket} />
-          <span className="ms-2">{t('navHeader.logout')}</span>
-        </button>
-        <Tooltip target="#logout" content={t('navHeader.logout')} position="bottom" />
+          {/* Wyloguj */}
+          <button id="logout" type="button" className="p-link layout-topbar-button" onClick={logout}>
+            <FontAwesomeIcon icon={faArrowRightFromBracket} />
+            <span className="ms-2">{t('navHeader.logout')}</span>
+          </button>
+          <Tooltip target="#logout" content={t('navHeader.logout')} position="bottom" />
+        {/* </div> */}
       </div>
     </div>
   );

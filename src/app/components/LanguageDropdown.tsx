@@ -7,6 +7,8 @@ import './LanguageDropdown.scss';
 import { getGlobalState, setGlobalState } from '../core/redux/hooks/reduxHooks';
 import { languageActions } from '../core/redux/language';
 import { RootState } from '../core/redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEarthEurope } from '@fortawesome/free-solid-svg-icons';
 
 const LanguageDropdown: FC = () => {
   const dispatch = setGlobalState();
@@ -31,14 +33,17 @@ const LanguageDropdown: FC = () => {
   const renderLanguageDropdown = () => {
     if (APP_LANGUAGE_CHANGE_ENABLE) {
       return (
-        <Dropdown
-          className="w-100"
-          value={currentLanguage}
-          onChange={(e) => languageChange(e.value)}
-          options={languages}
-          optionLabel="name"
-          placeholder={t('language.selectLanguage')}
-        />
+        <div className="d-flex align-items-center">
+          <FontAwesomeIcon icon={faEarthEurope} className="me-2" />
+          <Dropdown
+            className="w-100"
+            value={currentLanguage}
+            onChange={(e) => languageChange(e.value)}
+            options={languages}
+            optionLabel="name"
+            placeholder={t('language.selectLanguage')}
+          />
+        </div>
       );
     }
   };

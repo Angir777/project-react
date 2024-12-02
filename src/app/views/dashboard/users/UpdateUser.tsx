@@ -129,7 +129,7 @@ const UpdateUser: FC = () => {
           toastActions.showToast({
             severity: 'error',
             summary: t('toast.summary.error'),
-            detail: t('users.messages.error.noPermissions'),
+            detail: t('users.messages.errors.noPermissions'),
           })
         );
         navigate('/dashboard/users', { replace: true });
@@ -343,15 +343,19 @@ const UpdateUser: FC = () => {
                     </div>
                   </div>
                   <div className="col-4">
-                    <div className="mt-3 d-flex align-items-center justify-content-between">
-                      <div className="d-flex align-items-center mb-2">
+                    <div className="field p-fluid">
+                      <label htmlFor="confirmed">
+                        {t('users.form.confirmed')}
+                      </label>
+                      <div>
                         <Checkbox inputId="confirmed" checked={!!watch('confirmed')} onChange={(e) => setValue('confirmed', e.checked || false)} />
-                        <label htmlFor="confirmed" className="ms-2">
-                          {t('users.form.confirmed')}
-                        </label>
                       </div>
                     </div>
                   </div>
+                </div>
+
+                <div className="row">
+                  <hr className="hr-light" />
                 </div>
 
                 <div className="row mb-2">
@@ -380,7 +384,7 @@ const UpdateUser: FC = () => {
                   )}
                 </div>
 
-                <div className="mt-4">
+                <div className="mt-4 d-flex justify-content-end">
                   <button type="submit" className="btn btn-success btn-sm ms-2" disabled={isSaving}>
                     {!isSaving ? <FontAwesomeIcon icon={faSave} /> : <FontAwesomeIcon icon={faSpinner} spin />}
                     <span className="ms-2">{t('global.buttons.save')}</span>

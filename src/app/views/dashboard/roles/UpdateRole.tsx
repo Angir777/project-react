@@ -34,10 +34,11 @@ const UpdateRole: FC = () => {
   const { id } = useParams();
 
   const [isSaving, setIsSaving] = useState(false);
+  
   const [isLoadingPermissions, setIsLoadingPermissions] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-
   const [permissionGroups, setPermissionGroups] = useState<PermissionGroup[]>([]);
+
+  const [isLoading, setIsLoading] = useState(false);
   const [role, setRole] = useState<Role | null>(null);
 
   const {
@@ -309,7 +310,7 @@ const UpdateRole: FC = () => {
 
                 <div className="row mb-2">
                   <div className="col-12 mb-3">
-                    <label className="label">{t('roles.form.permissionGroups')}</label>
+                    <label className="label">{t('roles.form.permissionGroups')}*</label>
                   </div>
                   {isLoadingPermissions ? (
                     <Loader />

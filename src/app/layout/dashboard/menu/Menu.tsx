@@ -80,7 +80,7 @@ const Menu: FC = () => {
   }, [permissions, prepareNav]);
 
   return (
-    <ul className="layout-menu">
+    <ul className="layout-menu mt-2">
       {availableNavigation.map((item, i) => {
         return !item?.separator ? <Menuitem item={item} root={true} index={i} key={item.label} /> : <li className="menu-separator" key={i}></li>;
       })}

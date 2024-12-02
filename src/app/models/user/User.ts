@@ -1,6 +1,5 @@
 import { Permission } from '../auth/Permission';
 import { BaseModel } from '../BaseModel';
-import { Role } from '../role/Role';
 
 /**
  * Model użytkownika.
@@ -11,5 +10,6 @@ export class User extends BaseModel {
   name: string | null = null;
 
   permissions: Permission[] = [];
-  roles: Role[] = [];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  roles: any[] = [];
 }

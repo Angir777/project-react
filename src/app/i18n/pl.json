@@ -1,5 +1,5 @@
 {
-  "appName": "Project PL",
+  "appName": "Project React PL",
   "appVersion": "Wersja aplikacji:",
 
   "global": {
@@ -202,6 +202,14 @@
 
   "users": {
     "title": "Użytkownicy",
+    "addTitle": "Nowy użytkownik",
+    "editTitle": "Edycja użytkownika '{{name}}'",
+    "form": {
+      "name": "Nazwa użytkownika",
+      "email": "E-mail",
+      "confirmed": "Konto potwierdzone",
+      "roles": "Role"
+    },
     "table": {
       "name": "Nazwa użytkownika",
       "email": "E-mail",
@@ -230,7 +238,9 @@
       },
       "errors": {
         "cantDeleteAccount": "Nie udało się usunąć wybranego użytkownika!",
-        "cantRestoreAccount": "Nie udało się przywrócić użytkownika!"
+        "cantRestoreAccount": "Nie udało się przywrócić użytkownika!",
+        "noRoles": "Brak dodanych ról",
+        "noPermissions": "Brak uprawnień!"
       }
     }
   },

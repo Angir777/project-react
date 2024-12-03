@@ -17,7 +17,7 @@ Project React is an advanced web application built with React. This project demo
 
 ## Technologies
 
-- **Angular**: [https://react.dev/](https://react.dev/)
+- **React**: [https://react.dev/](https://react.dev/)
 - **TypeScript**: [https://www.typescriptlang.org/](https://www.typescriptlang.org/)
 - **Redux**: [https://redux.js.org/](https://redux.js.org/)
 - **Bootstrap**: [https://getbootstrap.com/](https://getbootstrap.com/)

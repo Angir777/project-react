@@ -1,51 +1,84 @@
-# React + TypeScript + Vite
+# Project React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Project](https://github.com/Angir777/project-react/blob/main/screen.jpg)
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Project React is an advanced web application built with React. This project demonstrates skills in creating modern, dynamic frontend applications using the latest technologies and best practices.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Interactive UI**: A modern user interface built with and PrimeReact.
+- **Responsiveness**: Optimized components for various devices using Bootstrap.
+- **Form Handling and Validation**: Advanced forms with validation.
+- **Translations**: Multi-language support.
+- **Permission Management**: Dynamic user permissions management.
+- **API Integration**: Communication with APIs using HttpClient.
 
-- Configure the top-level `parserOptions` property like this:
+## Technologies
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- **Angular**: [https://react.dev/](https://react.dev/)
+- **TypeScript**: [https://www.typescriptlang.org/](https://www.typescriptlang.org/)
+- **Redux**: [https://redux.js.org/](https://redux.js.org/)
+- **Bootstrap**: [https://getbootstrap.com/](https://getbootstrap.com/)
+- **PrimeReact**: [https://primereact.org/](https://primereact.org/)
+- **i18next**: [https://www.i18next.com/](https://www.i18next.com/)
+- **SweetAlert2**: [https://sweetalert2.github.io/](https://sweetalert2.github.io/)
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Installation
 
-## Wtyczki:
+1. **Clone the repository**
 
-Generate React CLI: npx generate-react-cli component Box
+    ```bash
+    git clone https://github.com/Angir777/project-react.git
+    ```
 
-https://dev.to/tsamaya/eslint-and-prettier-configuration-for-react-project-2gij
+2. **Navigate to the project directory**
 
-Prosty server do testowania:
-npm install -g serve
-I w disc serve -s
+    ```bash
+    cd project-react
+    ```
 
-## Projekt:
+3. **Install dependencies**
 
-1. Instalacja poprzez Vite: npm create vite@latest
-2. Podstawowa konfiguracja projektu pod eslinta i prettiera + budowanie aplikacji prod i dev
-3. Routing, core logowania, redux do stanów globalnych
-4. Widoki
+    ```bash
+    npm install
+    ```
 
-## Kompilowanie plików motywu z SCSS do CSS by zmiana motywu działała
-npx sass --watch src/assets/layout/themes/lara/:public/assets/layout/themes/lara/
-Pliki od fontów należy przenieść 2x do katalogu 'public/assets/layout/themes/lara/lara-MOTYW/indigo'
+4. **Run the application**
+
+    ```bash
+    npm start
+    ```
+
+    The application will be available at [http://localhost:5174/](http://localhost:5174/).
+
+## Scripts
+
+- **Start**: Launches the development server and runs the application in development mode.
+  
+    ```bash
+    npm start
+    ```
+
+- **Build**: Creates a production build of the application.
+  
+    ```bash
+    npm run build
+    ```
+
+- **Build-Dev**: Creates a build of the application in development mode and runs additional scripts post-build.
+  
+    ```bash
+    npm run build:dev
+    ```
+
+- **Lint**: Checks the code for linting issues.
+  
+    ```bash
+    npm run lint
+    ```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

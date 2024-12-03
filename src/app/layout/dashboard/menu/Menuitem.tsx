@@ -17,7 +17,7 @@ interface MenuItemProps {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const MenuItem: React.FC<MenuItemProps> = ({ item, root = false, index }) => {
+const MenuItem: React.FC<MenuItemProps> = ({ item, root = false }) => {
   const dispatch = setGlobalState();
   const { t } = useTranslation();
   const [active, setActive] = useState(false);

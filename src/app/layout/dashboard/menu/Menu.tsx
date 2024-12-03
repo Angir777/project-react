@@ -68,7 +68,7 @@ const Menu: FC = () => {
 
   const prepareNav = useCallback(() => {
     if (permissions !== null && model !== null) {
-      const userPermissions: string[] = permissions ? permissions.map((p) => p.name) : [];
+      const userPermissions: string[] = permissions ? permissions.map((p) => p.name as string).filter((name) => name !== null) : [];
       const filteredNavigation = filterNavItems(model, userPermissions);
 
       setAvailableNavigation(filteredNavigation);

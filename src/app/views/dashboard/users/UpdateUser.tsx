@@ -363,7 +363,7 @@ const UpdateUser: FC = () => {
                     <label className="label">{t('users.form.roles')}*</label>
                   </div>
                   {isLoadingRoles ? (
-                    <Loader />
+                    <></>
                   ) : roles.length > 0 ? (
                     roles.map((role, index) => (
                       <div key={role.id} className="d-flex align-items-center mb-2">

@@ -324,7 +324,6 @@ const UpdateRole: FC = () => {
                         <strong>{permissionGroup.name}</strong>
                         {permissionGroup.permissions?.map((permission: Permission, permIndex: number) => (
                           <div key={permIndex} className="form-group d-flex mt-3">
-                            <span className="w-100 me-2">{permission.name}</span>
                             <InputSwitch
                               checked={permission.isSelected ?? false}
                               onChange={(e) => {
@@ -333,6 +332,7 @@ const UpdateRole: FC = () => {
                                 setPermissionGroups(updatedPermissionGroups);
                               }}
                             />
+                            <label htmlFor={`permission-${permission.id}`} className="ms-2">{permission.name}</label>
                           </div>
                         ))}
                       </div>

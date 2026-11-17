@@ -1,11 +1,8 @@
 # Basic APP (React)
 
-Frontend panelu administracyjnego z logowaniem, kontem użytkownika oraz
-zarządzaniem użytkownikami, rolami i uprawnieniami. Aplikacja współpracuje z API (Laravel)
-i jest dostępna w trzech językach: polskim, angielskim i hiszpańskim.
+Frontend panelu administracyjnego z logowaniem, kontem użytkownika oraz zarządzaniem użytkownikami, rolami i uprawnieniami. Aplikacja współpracuje z API (Laravel) i jest dostępna w trzech językach: polskim, angielskim i hiszpańskim.
 
-Projekt jest portem aplikacji `basic-app-angular` – struktura, widoki, wygląd i zachowanie
-odpowiadają wersji Angular, która pozostaje źródłem prawdy.
+Projekt jest portem aplikacji `basic-app-angular` – struktura, widoki, wygląd i zachowanie odpowiadają wersji Angular.
 
 ## Spis treści
 
@@ -93,7 +90,7 @@ z Angulara.
 
 ```text
 src/
-├── main.tsx           # bootstrap: store, router, i18n, React Query (Angular: main.ts + app.config.ts)
+├── main.tsx           # store, router, i18n, React Query
 ├── environments/      # konfiguracja środowisk (wybierana trybem Vite)
 ├── styles/            # Tailwind, tokeny shadcn i style własne (custom.css)
 └── app/
@@ -173,4 +170,3 @@ w `package.json`, a skrypt używa składni CommonJS (`require`).
 ## TODO
 
 - Dodać automatyczne przeładowywanie uprawnień co X czasu.
-- Dodać testy jednostkowe (Vitest) i e2e (Cypress) jak w projekcie Angular.

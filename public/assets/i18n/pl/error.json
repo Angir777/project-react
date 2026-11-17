@@ -1,0 +1,16 @@
+{
+  "error": {
+    "pageTitle": {
+      "error": "BŁĄD"
+    },
+    "texts": {
+      "info": "Nie możemy znaleźć strony, której szukasz!",
+      "chunkLoad": "Nie udało się załadować tej strony. Aplikacja mogła zostać zaktualizowana lub serwer jest niedostępny. Odśwież stronę, aby spróbować ponownie.",
+      "unexpected": "Wystąpił nieoczekiwany błąd. Odśwież stronę lub wróć do strony głównej."
+    },
+    "buttons": {
+      "backToDashboard": "Powrót do strony głównej",
+      "reload": "Odśwież stronę"
+    }
+  }
+}

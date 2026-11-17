@@ -1,0 +1,72 @@
+{
+  "user": {
+    "pageTitle": {
+      "users": "Użytkownicy",
+      "add": "Nowy użytkownik",
+      "edit": "Edycja użytkownika",
+      "display": "Podgląd użytkownika",
+      "deleted": "Usunięci użytkownicy"
+    },
+    "pageDescription": {
+      "users": "Zarządzaj użytkownikami w aplikacji."
+    },
+    "form": {
+      "firstName": "Imię",
+      "lastName": "Nazwisko",
+      "fullName": "Imię i nazwisko",
+      "email": "Email",
+      "emailVerifiedAt": "Data weryfikacji konta",
+      "emailNoVerified": "Konto nie zweryfikowane",
+      "emailVerifiedAtNo": "Tylko niezweryfikowane konta",
+      "emailVerifiedAtYes": "Tylko zweryfikowane konta",
+      "deletedAt": "Data usunięcia konta",
+      "role": "Role",
+      "permission": "Uprawnienia",
+      "confirmed": "Konto potwierdzone",
+      "notConfirmed": "Konto aktualnie jest niepotwierdzone."
+    },
+    "message": {
+      "question": {
+        "areYouSureYouWantDelete": "Czy na pewno chcesz usunąć użytkownika '{{name}}'?",
+        "areYouSureYouWantRestore": "Czy na pewno chcesz przywrócić użytkownika '{{name}}'?"
+      },
+      "info": {
+        "noRolesAssigned": "Nie znaleziono roli."
+      },
+      "success": {
+        "createdUpdatedSuccessfully": "Użytkownik dodany/zaktualizowany pomyślnie!",
+        "deletedSuccessfully": "Użytkownik '{{name}}' został usunięty!",
+        "restoredSuccessfully": "Użytkownik '{{name}}' został przywrócony!"
+      },
+      "error": {
+        "cantCreateUpdate": "Nie udało się utworzyć/zaktualizować użytkownika!",
+        "cantDeleted": "Nie udało się usunąć użytkownika '{{name}}'!",
+        "cantRestored": "Nie udało się przywrócić użytkownika '{{name}}'!",
+        "selectMinOneRole": "Wybierz minimum jedną rolę!"
+      }
+    },
+    "roleTable": {
+      "assigned": "Przypisane",
+      "state": "Stan",
+      "name": "Nazwa roli",
+      "permissions": "Uprawnienia",
+      "searchRole": "Wyszukaj rolę.."
+    },
+    "history": {
+      "firstName": "Imię",
+      "lastName": "Nazwisko",
+      "email": "Email",
+      "roles": "Role",
+      "confirmed": "Konto potwierdzone",
+      "emailVerifiedAt": "Data weryfikacji konta",
+      "deletedAt": "Data usunięcia konta",
+      "historyComment": "Komentarz",
+      "comment": {
+        "COMMENT_CHANGE_SETTINGS": "Zmiana ustawień",
+        "COMMENT_DELETE_AVATAR": "Usunięcie awatara",
+        "COMMENT_STORE_AVATAR": "Dodanie awatara",
+        "COMMENT_CHANGE_PASSWORD": "Zmiana hasła"
+      }
+    }
+  }
+}

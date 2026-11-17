@@ -1,0 +1,61 @@
+{
+  "account": {
+    "pageTitle": {
+      "account": "My Account"
+    },
+    "pageDescription": "Your account settings.",
+    "tabsTitle": {
+      "details": "Account",
+      "password": "Authorization",
+      "settings": "Settings",
+      "billing": "Billing"
+    },
+    "detailsTab": {
+      "basicData": "Basic information",
+      "avatar": "Avatar",
+      "changeAvatar": "Change your avatar",
+      "avatarFormat": "JPG, JPEG, PNG, WEBP, GIF",
+      "dangerZone": "Delete account",
+      "deleteAccountDescription": "After clicking the 'DELETE ACCOUNT' button, your account will be automatically deleted and cannot be restored.",
+      "deleteAccount": "DELETE ACCOUNT",
+      "accountVerification": "Account activation",
+      "resendConfirmationDescription": "Resend the activation link to the provided email address.",
+      "resendConfirmationEmail": "Send email",
+      "accountConfirmed": "Account confirmed.",
+      "accountNotConfirmed": "Account not confirmed."
+    },
+    "passwordTab": {
+      "title": "Change password",
+      "oldPassword": "Current password",
+      "newPassword": "New password",
+      "passwordConfirmation": "Repeat new password"
+    },
+    "settingsTab": {
+      "title": "Application settings"
+    },
+    "message": {
+      "info": {
+        "cantResendingConfirmationEmailConfirmed": "The account has already been confirmed."
+      },
+      "success": {
+        "updatedSuccessfully": "Information updated!",
+        "deletedSuccessfully": "Account deleted!",
+        "resendingConfirmationSuccessfully": "The activation link has been sent to the provided email address!"
+      },
+      "question": {
+        "areYouSureYouWantDeleteAccount": "Are you sure you want to delete your account?"
+      },
+      "warning": {
+        "cantResendingConfirmationAgain": "The activation link has already been sent!"
+      },
+      "error": {
+        "avatarMustBeImage": "The selected avatar has an invalid format!",
+        "cantUpdate": "Failed to update the information!",
+        "cantDeleted": "Failed to delete the account!",
+        "oldPasswordIncorrect": "The current password is incorrect!",
+        "superAdminCantDeleteAccount": "A super administrator cannot delete their own account!",
+        "cantResendingConfirmation": "Failed to resend the activation link. Please try again later."
+      }
+    }
+  }
+}

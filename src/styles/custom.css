@@ -1,0 +1,87 @@
+/**
+* CUSTOM STYLES
+* Port of basic-app-angular/src/styles/custom.scss + customs/*.
+* Angular Material / ng-select overrides are not needed – those widgets are
+* rendered with shadcn/ui components styled directly with Tailwind classes.
+*/
+
+/* ---------------------------------------------------
+   Subtle form appearance animation
+   --------------------------------------------------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------------------------------------------------
+   Loader color
+   --------------------------------------------------- */
+:root {
+  --loader-color: #2f2f2f;
+}
+
+html.dark {
+  --loader-color: #f4f4f5;
+}
+
+/* ---------------------------------------------------
+   SweetAlert z-index above dialogs
+   --------------------------------------------------- */
+.swal2-container {
+  z-index: 2000 !important;
+}
+
+/* ---------------------------------------------------
+   SweetAlert buttons
+   --------------------------------------------------- */
+.swal2-confirm.swal2-confirm,
+.swal2-cancel.swal2-cancel {
+  background-color: transparent !important;
+  color: #374151 !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 0.375rem !important;
+  padding: 0.6rem 1.2rem !important;
+  font-size: 1.1rem !important;
+  line-height: 1.25rem !important;
+  box-shadow: none !important;
+  transition: background-color 150ms ease !important;
+}
+
+.swal2-confirm.swal2-confirm:hover,
+.swal2-cancel.swal2-cancel:hover {
+  background-color: #f3f4f6 !important;
+}
+
+.dark .swal2-confirm.swal2-confirm,
+.dark .swal2-cancel.swal2-cancel {
+  background-color: transparent !important;
+  color: #27272a !important;
+  border-color: #27272a !important;
+}
+
+.dark .swal2-confirm.swal2-confirm:hover,
+.dark .swal2-cancel.swal2-cancel:hover {
+  color: #f3f4f6 !important;
+  background-color: #27272a !important;
+}
+
+/* Delete account */
+.swal2-popup .swal-delete-confirm.swal-delete-confirm,
+.swal2-popup .swal-delete-cancel.swal-delete-cancel {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.swal2-popup .swal-delete-confirm.swal-delete-confirm:hover,
+.swal2-popup .swal-delete-cancel.swal-delete-cancel:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+}

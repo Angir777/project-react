@@ -1,0 +1,72 @@
+{
+  "user": {
+    "pageTitle": {
+      "users": "Users",
+      "add": "New User",
+      "edit": "Edit User",
+      "display": "User Details",
+      "deleted": "Deleted Users"
+    },
+    "pageDescription": {
+      "users": "Manage users in the application."
+    },
+    "form": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "fullName": "Full Name",
+      "email": "Email",
+      "emailVerifiedAt": "Account Verification Date",
+      "emailNoVerified": "Account Not Verified",
+      "emailVerifiedAtNo": "Unverified Accounts Only",
+      "emailVerifiedAtYes": "Verified Accounts Only",
+      "deletedAt": "Account Deletion Date",
+      "role": "Role",
+      "permission": "Permissions",
+      "confirmed": "Account Confirmed",
+      "notConfirmed": "The account is currently not confirmed."
+    },
+    "message": {
+      "question": {
+        "areYouSureYouWantDelete": "Are you sure you want to delete the user '{{name}}'?",
+        "areYouSureYouWantRestore": "Are you sure you want to restore the user '{{name}}'?"
+      },
+      "info": {
+        "noRolesAssigned": "No role found."
+      },
+      "success": {
+        "createdUpdatedSuccessfully": "User created/updated successfully!",
+        "deletedSuccessfully": "User '{{name}}' has been deleted!",
+        "restoredSuccessfully": "User '{{name}}' has been restored!"
+      },
+      "error": {
+        "cantCreateUpdate": "Failed to create/update the user!",
+        "cantDeleted": "Failed to delete user '{{name}}'!",
+        "cantRestored": "Failed to restore user '{{name}}'!",
+        "selectMinOneRole": "Choose at least one role!"
+      }
+    },
+    "roleTable": {
+      "assigned": "Assigned",
+      "state": "Status",
+      "name": "Role Name",
+      "permissions": "Permissions",
+      "searchRole": "Search for a role.."
+    },
+    "history": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "roles": "Roles",
+      "confirmed": "Account confirmed",
+      "emailVerifiedAt": "Account verification date",
+      "deletedAt": "Account deletion date",
+      "historyComment": "Comment",
+      "comment": {
+        "COMMENT_CHANGE_SETTINGS": "Settings changed",
+        "COMMENT_DELETE_AVATAR": "Avatar deleted",
+        "COMMENT_STORE_AVATAR": "Avatar added",
+        "COMMENT_CHANGE_PASSWORD": "Password changed"
+      }
+    }
+  }
+}

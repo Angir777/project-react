@@ -1,0 +1,8 @@
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "administration": "Administration",
+    "users": "Users",
+    "roles": "Roles"
+  }
+}

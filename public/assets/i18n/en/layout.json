@@ -1,0 +1,30 @@
+{
+  "layout": {
+    "header": {
+      "search": {
+        "title": "Search..."
+      },
+      "languages": {
+        "title": "Select language",
+        "pl": "Polish",
+        "en": "English",
+        "es": "Spanish"
+      },
+      "notification": {
+        "title": "Notifications",
+        "seeAll": "See all"
+      },
+      "user": {
+        "logOut": "Log out",
+        "settings": "Settings",
+        "myAccount": "My account"
+      },
+      "changes": "Changelog"
+    },
+    "footer": {
+      "copyright": "© {{year}} - All rights reserved.",
+      "madeBy": "Made with ♥"
+    }
+  },
+  "loading": "Loading..."
+}

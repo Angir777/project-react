@@ -1,0 +1,50 @@
+{
+  "role": {
+    "pageTitle": {
+      "roles": "Roles",
+      "add": "New",
+      "edit": "Edit",
+      "display": "Details"
+    },
+    "pageDescription": {
+      "roles": "Manage application roles."
+    },
+    "form": {
+      "name": "Name",
+      "guardName": "Guard",
+      "permissionsCount": "Assigned permissions",
+      "permissions": "Permissions",
+      "selected": "{{selected}} of {{total}} permissions selected.",
+      "showOnlySelected": "Show only selected permissions",
+      "other": "Other"
+    },
+    "message": {
+      "question": {
+        "areYouSureYouWantDelete": "Are you sure you want to delete the selected item?"
+      },
+      "info": {
+        "aboutSelectPermissions": "Changing permissions will log out all users assigned to the edited role."
+      },
+      "success": {
+        "createdUpdatedSuccessfully": "Role created/updated successfully!",
+        "deletedSuccessfully": "The selected item has been deleted!"
+      },
+      "error": {
+        "cantCreateUpdate": "Failed to create/update the role!",
+        "cantDeleted": "Failed to delete role '{{name}}'!",
+        "selectMinOnePermission": "At least one permission must be selected!"
+      }
+    },
+    "permissionGroups": {
+      "ACCESS": "Access",
+      "USERS": "Users",
+      "ROLES": "Roles",
+      "PERMISSIONS": "Permissions"
+    },
+    "history": {
+      "name": "Name",
+      "guardName": "Guard",
+      "permissions": "Permissions"
+    }
+  }
+}

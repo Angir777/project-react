@@ -1,0 +1,50 @@
+{
+  "role": {
+    "pageTitle": {
+      "roles": "Role",
+      "add": "Nowa rola",
+      "edit": "Edycja roli",
+      "display": "Podgląd roli"
+    },
+    "pageDescription": {
+      "roles": "Zarządzaj rolami w aplikacji."
+    },
+    "form": {
+      "name": "Nazwa",
+      "guardName": "Guard",
+      "permissionsCount": "Przypisane uprawnienia",
+      "permissions": "Uprawnienia",
+      "selected": "Wybrano {{selected}} z {{total}} uprawnień.",
+      "showOnlySelected": "Pokaż tylko aktywne uprawnienia",
+      "other": "Pozostałe"
+    },
+    "message": {
+      "question": {
+        "areYouSureYouWantDelete": "Czy na pewno chcesz usunąć rolę '{{name}}'?"
+      },
+      "info": {
+        "aboutSelectPermissions": "Zmiana uprawnień skutkuje wylogowaniem wszystkich użytkowników posiadających edytowaną rolę."
+      },
+      "success": {
+        "createdUpdatedSuccessfully": "Rola dodana/zaktualizowana pomyślnie!",
+        "deletedSuccessfully": "Rola '{{name}}' została usunięta!"
+      },
+      "error": {
+        "cantCreateUpdate": "Nie udało się utworzyć/zaktualizować roli!",
+        "cantDeleted": "Nie udało się usunąć roli '{{name}}'!",
+        "selectMinOnePermission": "Należy wybrać minimum jedno uprawnienie!"
+      }
+    },
+    "permissionGroups": {
+      "ACCESS": "Podstawowy dostęp",
+      "USERS": "Użytkownicy",
+      "ROLES": "Role",
+      "PERMISSIONS": "Uprawnienia"
+    },
+    "history": {
+      "name": "Nazwa",
+      "guardName": "Guard",
+      "permissions": "Uprawnienia"
+    }
+  }
+}

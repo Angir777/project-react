@@ -1,0 +1,191 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------
+   General text and link color in the application
+   --------------------------------------------------- */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* BRAND */
+  --color-brand-50: #eef9ff;
+  --color-brand-100: #d9f1ff;
+  --color-brand-200: #bfe8ff;
+  --color-brand-300: #93d4fe;
+  --color-brand-400: #7cc6f0;
+  --color-brand-500: #61aedc;
+  --color-brand-600: #4d94bf;
+  --color-brand-700: #3c7aa0;
+  --color-brand-800: #2e5f7d;
+  --color-brand-900: #1f4359;
+  --color-brand-950: #132c3b;
+
+  /* SURFACE */
+  --color-surface-0: #ffffff;
+  --color-surface-50: #f6fbff;
+  --color-surface-100: #edf6fb;
+
+  /* SUCCESS */
+  --color-success-50: #f0fdf4;
+  --color-success-100: #dcfce7;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+
+  /* BORDER */
+  --color-border: #dbeaf3;
+
+  /* TYPOGRAPHY */
+  --font-sans: 'Outfit', sans-serif;
+
+  /* RADIUS */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+}
+
+.dark {
+  --color-surface-0: #18181b;
+  --color-surface-50: #27272a;
+  --color-surface-100: #3f3f46;
+
+  --color-border: #3f3f46;
+}
+
+@layer base {
+  /* Links */
+  a {
+    @apply text-gray-700 dark:text-gray-400 no-underline transition-opacity;
+  }
+
+  a:hover {
+    @apply opacity-70;
+  }
+
+  /* Texts */
+  p {
+    @apply text-sm leading-relaxed;
+    @apply text-gray-700 dark:text-gray-400;
+  }
+
+  /* Labels */
+  label {
+    @apply text-sm font-medium;
+    @apply text-gray-700 dark:text-gray-400;
+  }
+
+  /* Headings */
+  h1 {
+    @apply text-2xl sm:text-3xl font-semibold tracking-tight mb-2;
+  }
+
+  h2 {
+    @apply text-xl font-semibold mb-2;
+  }
+
+  h3 {
+    @apply text-lg font-semibold mb-2;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply text-gray-800 dark:text-white/90;
+  }
+
+  /* Forms */
+  input {
+    @apply w-full;
+  }
+}
+
+@layer components {
+  .menu-item {
+    @apply relative flex items-center w-full gap-3 px-3 py-2 font-medium rounded-lg text-sm;
+  }
+
+  /* ACTIVE */
+  .menu-item-active {
+    @apply bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-white;
+  }
+
+  /* INACTIVE */
+  .menu-item-inactive {
+    @apply text-zinc-700 hover:bg-zinc-100 hover:text-zinc-900
+           dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-white;
+  }
+
+  /* ICON BASE */
+  .menu-item-icon {
+    @apply text-zinc-500 group-hover:text-zinc-900
+           dark:text-zinc-400 dark:group-hover:text-white;
+  }
+
+  /* ICON ACTIVE */
+  .menu-item-icon-active {
+    @apply text-zinc-900 dark:text-white;
+  }
+
+  .menu-item-icon-size svg {
+    @apply !size-6;
+  }
+
+  .menu-item-icon-inactive {
+    @apply text-zinc-500 group-hover:text-zinc-900
+           dark:text-zinc-400 dark:group-hover:text-white;
+  }
+
+  /* ARROW */
+  .menu-item-arrow {
+    @apply relative;
+  }
+
+  .menu-item-arrow-active {
+    @apply rotate-180 text-zinc-900 dark:text-white;
+  }
+
+  .menu-item-arrow-inactive {
+    @apply text-zinc-500 group-hover:text-zinc-900
+           dark:text-zinc-400 dark:group-hover:text-white;
+  }
+
+  /* DROPDOWN ITEM */
+  .menu-dropdown-item {
+    @apply relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium;
+  }
+
+  .menu-dropdown-item-active {
+    @apply bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-white;
+  }
+
+  .menu-dropdown-item-inactive {
+    @apply text-zinc-700 hover:bg-zinc-100 hover:text-zinc-900
+           dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-white;
+  }
+
+  .menu-dropdown-badge {
+    @apply text-green-600 dark:text-green-500 block rounded-full px-2.5 py-0.5 text-xs font-medium uppercase;
+  }
+
+  .menu-dropdown-badge-active {
+    @apply bg-green-100 dark:bg-green-500/20;
+  }
+
+  .menu-dropdown-badge-inactive {
+    @apply bg-green-50 group-hover:bg-green-100 dark:bg-green-500/15 dark:group-hover:bg-green-500/20;
+  }
+
+  .menu-dropdown-badge-pro {
+    @apply text-brand-600 dark:text-brand-500 block rounded-full px-2.5 py-0.5 text-xs font-medium uppercase;
+  }
+
+  .menu-dropdown-badge-pro-active {
+    @apply bg-brand-100 dark:bg-brand-500/20;
+  }
+
+  .menu-dropdown-badge-pro-inactive {
+    @apply bg-brand-50 group-hover:bg-brand-100 dark:bg-brand-500/15 dark:group-hover:bg-brand-500/20;
+  }
+}
+

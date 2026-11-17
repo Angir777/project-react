@@ -1,0 +1,61 @@
+{
+  "account": {
+    "pageTitle": {
+      "account": "Moje konto"
+    },
+    "pageDescription": "Ustawienia Twojego konta.",
+    "tabsTitle": {
+      "details": "Konto",
+      "password": "Autoryzacja",
+      "settings": "Ustawienia",
+      "billing": "Rozliczenia"
+    },
+    "detailsTab": {
+      "basicData": "Dane podstawowe",
+      "avatar": "Awatar",
+      "changeAvatar": "Zmień swój awatar",
+      "avatarFormat": "JPG, JPEG, PNG, WEBP, GIF",
+      "dangerZone": "Usuwanie konta",
+      "deleteAccountDescription": "Po naciśnięciu przycisku 'USUŃ KONTO' Twoje konto zostanie automatycznie usunięte i nie będzie możliwości jego przywrócenia.",
+      "deleteAccount": "USUŃ KONTO",
+      "accountVerification": "Aktywacja konta",
+      "resendConfirmationDescription": "Ponowienie wysłania linku aktywacyjnego na podany adres email.",
+      "resendConfirmationEmail": "Wyślij wiadomość",
+      "accountConfirmed": "Konto potwierdzone.",
+      "accountNotConfirmed": "Konto nie potwierdzone."
+    },
+    "passwordTab": {
+      "title": "Zmiana hasła",
+      "oldPassword": "Obecne hasło",
+      "newPassword": "Nowe hasło",
+      "passwordConfirmation": "Powtórzenie nowego hasła"
+    },
+    "settingsTab": {
+      "title": "Zmiana ustawień aplikacji"
+    },
+    "message": {
+      "info": {
+        "cantResendingConfirmationEmailConfirmed": "Konto zostało już potwierdzone."
+      },
+      "success": {
+        "updatedSuccessfully": "Dane zaktualizowane!",
+        "deletedSuccessfully": "Konto usunięte!",
+        "resendingConfirmationSuccessfully": "Link aktywacyjny został wysłany na wskazany adres email!"
+      },
+      "question": {
+        "areYouSureYouWantDeleteAccount": "Czy na pewno chcesz usunąć swoje konto?"
+      },
+      "warning": {
+        "cantResendingConfirmationAgain": "Link aktywacyjny został już wysłany!"
+      },
+      "error": {
+        "avatarMustBeImage": "Wybrany awatar ma nieprawidłowy format!",
+        "cantUpdate": "Nie udało się zaktualizować danych!",
+        "cantDeleted": "Nie udało się usunąć konta!",
+        "oldPasswordIncorrect": "Obecne hasło jest nie prawidłowe!",
+        "superAdminCantDeleteAccount": "Super administrator nie może usunąć swojego konta!",
+        "cantResendingConfirmation": "Nie udało się ponownie wysłać linku aktywacyjnego. Spróbuj ponownie później."
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "account": {
+    "pageTitle": {
+      "account": "Mi cuenta"
+    },
+    "pageDescription": "Configuración de tu cuenta.",
+    "tabsTitle": {
+      "details": "Cuenta",
+      "password": "Autorización",
+      "settings": "Configuración",
+      "billing": "Facturación"
+    },
+    "detailsTab": {
+      "basicData": "Información básica",
+      "avatar": "Avatar",
+      "changeAvatar": "Cambiar tu avatar",
+      "avatarFormat": "JPG, JPEG, PNG, WEBP, GIF",
+      "dangerZone": "Eliminar cuenta",
+      "deleteAccountDescription": "Después de hacer clic en el botón 'ELIMINAR CUENTA', tu cuenta se eliminará automáticamente y no podrá ser restaurada.",
+      "deleteAccount": "ELIMINAR CUENTA",
+      "accountVerification": "Activación de la cuenta",
+      "resendConfirmationDescription": "Volver a enviar el enlace de activación a la dirección de correo electrónico indicada.",
+      "resendConfirmationEmail": "Enviar correo electrónico",
+      "accountConfirmed": "Cuenta confirmada.",
+      "accountNotConfirmed": "Cuenta no confirmada."
+    },
+    "passwordTab": {
+      "title": "Cambiar contraseña",
+      "oldPassword": "Contraseña actual",
+      "newPassword": "Nueva contraseña",
+      "passwordConfirmation": "Repetir nueva contraseña"
+    },
+    "settingsTab": {
+      "title": "Configuración de la aplicación"
+    },
+    "message": {
+      "info": {
+        "cantResendingConfirmationEmailConfirmed": "La cuenta ya ha sido confirmada."
+      },
+      "success": {
+        "updatedSuccessfully": "¡Información actualizada!",
+        "deletedSuccessfully": "¡Cuenta eliminada!",
+        "resendingConfirmationSuccessfully": "¡El enlace de activación se ha enviado a la dirección de correo electrónico indicada!"
+      },
+      "question": {
+        "areYouSureYouWantDeleteAccount": "¿Estás seguro de que quieres eliminar tu cuenta?"
+      },
+      "warning": {
+        "cantResendingConfirmationAgain": "¡El enlace de activación ya ha sido enviado!"
+      },
+      "error": {
+        "avatarMustBeImage": "¡El avatar seleccionado tiene un formato no válido!",
+        "cantUpdate": "¡No se ha podido actualizar la información!",
+        "cantDeleted": "¡No se ha podido eliminar la cuenta!",
+        "oldPasswordIncorrect": "¡La contraseña actual no es correcta!",
+        "superAdminCantDeleteAccount": "¡Un superadministrador no puede eliminar su propia cuenta!",
+        "cantResendingConfirmation": "No se ha podido volver a enviar el enlace de activación. Inténtalo de nuevo más tarde."
+      }
+    }
+  }
+}

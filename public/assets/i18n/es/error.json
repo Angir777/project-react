@@ -1,0 +1,16 @@
+{
+  "error": {
+    "pageTitle": {
+      "error": "ERROR"
+    },
+    "texts": {
+      "info": "¡No podemos encontrar la página que estás buscando!",
+      "chunkLoad": "No se pudo cargar esta página. Es posible que la aplicación se haya actualizado o que el servidor no esté disponible. Recarga la página para intentarlo de nuevo.",
+      "unexpected": "Se ha producido un error inesperado. Recarga la página o vuelve a la página principal."
+    },
+    "buttons": {
+      "backToDashboard": "Volver a la página principal",
+      "reload": "Recargar página"
+    }
+  }
+}

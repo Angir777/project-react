@@ -1,0 +1,72 @@
+{
+  "user": {
+    "pageTitle": {
+      "users": "Usuarios",
+      "add": "Nuevo usuario",
+      "edit": "Editar usuario",
+      "display": "Detalles del usuario",
+      "deleted": "Usuarios eliminados"
+    },
+    "pageDescription": {
+      "users": "Gestiona los usuarios de la aplicación."
+    },
+    "form": {
+      "firstName": "Nombre",
+      "lastName": "Apellidos",
+      "fullName": "Nombre completo",
+      "email": "Correo electrónico",
+      "emailVerifiedAt": "Fecha de verificación de la cuenta",
+      "emailNoVerified": "Cuenta no verificada",
+      "emailVerifiedAtNo": "Solo cuentas no verificadas",
+      "emailVerifiedAtYes": "Solo cuentas verificadas",
+      "deletedAt": "Fecha de eliminación de la cuenta",
+      "role": "Rol",
+      "permission": "Permisos",
+      "confirmed": "Cuenta confirmada",
+      "notConfirmed": "La cuenta no está confirmada actualmente."
+    },
+    "message": {
+      "question": {
+        "areYouSureYouWantDelete": "¿Estás seguro de que quieres eliminar al usuario '{{name}}'?",
+        "areYouSureYouWantRestore": "¿Estás seguro de que quieres restaurar al usuario '{{name}}'?"
+      },
+      "info": {
+        "noRolesAssigned": "No se encontró ningún rol."
+      },
+      "success": {
+        "createdUpdatedSuccessfully": "¡Usuario creado/actualizado correctamente!",
+        "deletedSuccessfully": "¡El usuario '{{name}}' ha sido eliminado!",
+        "restoredSuccessfully": "¡El usuario '{{name}}' ha sido restaurado!"
+      },
+      "error": {
+        "cantCreateUpdate": "¡No se pudo crear/actualizar el usuario!",
+        "cantDeleted": "¡No se pudo eliminar al usuario '{{name}}'!",
+        "cantRestored": "¡No se pudo restaurar al usuario '{{name}}'!",
+        "selectMinOneRole": "¡Elige al menos un rol!"
+      }
+    },
+    "roleTable": {
+      "assigned": "Asignado",
+      "state": "Estado",
+      "name": "Nombre del rol",
+      "permissions": "Permisos",
+      "searchRole": "Buscar un rol.."
+    },
+    "history": {
+      "firstName": "Nombre",
+      "lastName": "Apellidos",
+      "email": "Correo electrónico",
+      "roles": "Roles",
+      "confirmed": "Cuenta confirmada",
+      "emailVerifiedAt": "Fecha de verificación de la cuenta",
+      "deletedAt": "Fecha de eliminación de la cuenta",
+      "historyComment": "Comentario",
+      "comment": {
+        "COMMENT_CHANGE_SETTINGS": "Cambio de configuración",
+        "COMMENT_DELETE_AVATAR": "Eliminación del avatar",
+        "COMMENT_STORE_AVATAR": "Adición del avatar",
+        "COMMENT_CHANGE_PASSWORD": "Cambio de contraseña"
+      }
+    }
+  }
+}

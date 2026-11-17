@@ -1,0 +1,134 @@
+{
+  "main": {
+    "appName": "DAILO APP",
+    "global": {
+      "lp": "N.º",
+      "actions": "Acciones",
+      "id": "ID",
+      "firstName": "Nombre",
+      "lastName": "Apellidos",
+      "email": "Correo electrónico",
+      "localAccount": "Cuenta local",
+      "createdAt": "Creado",
+      "updatedAt": "Última actualización",
+      "deletedAt": "Fecha de eliminación",
+      "all": "Todo",
+      "yes": "Sí",
+      "no": "No",
+      "true": "Sí",
+      "false": "No",
+      "showHideColumns": "Mostrar/ocultar columnas",
+      "saveState": "Recordar estado",
+      "hiddenColumnsAmount": "Columnas ocultas",
+      "expand": "Mostrar",
+      "collapse": "Ocultar",
+      "button": {
+        "save": "Guardar",
+        "select": "Seleccionar",
+        "add": "Añadir",
+        "cancel": "Cancelar",
+        "update": "Actualizar",
+        "close": "Cerrar",
+        "maximize": "Maximizar",
+        "restore": "Restaurar tamaño",
+        "goBack": "Volver",
+        "goToDashboardPage": "Volver a la página principal",
+        "delete": "Eliminar",
+        "show": "Ver",
+        "edit": "Editar",
+        "deleted": "Elementos eliminados"
+      },
+      "tooltip": {
+        "show": "Ver",
+        "edit": "Editar",
+        "delete": "Eliminar",
+        "goBack": "Volver",
+        "add": "Añadir",
+        "preview": "Vista previa",
+        "more": "Más",
+        "details": "Detalles",
+        "restore": "Restaurar",
+        "history": "Ver historial de cambios"
+      },
+      "validation": {
+        "formNotCorrect": "¡El formulario no se ha rellenado correctamente!",
+        "required": "Este campo es obligatorio",
+        "requiredTrue": "Este campo debe estar marcado",
+        "minlength": "El valor introducido debe tener más de {{minlength}} caracteres",
+        "maxlength": "El valor introducido debe tener menos de {{maxlength}} caracteres",
+        "min": "El valor introducido debe ser mayor o igual que: {{min}}",
+        "max": "El valor introducido debe ser menor o igual que: {{max}}",
+        "email": "El valor introducido debe ser una dirección de correo electrónico válida",
+        "pattern": "El valor introducido debe tener el formato {{pattern}}",
+        "fieldIsRequired": "Este campo es obligatorio",
+        "mismatch": "La contraseña repetida es diferente"
+      },
+      "message": {
+        "info": {
+          "noItems": "No se han añadido elementos.",
+          "testBanner": "Estás utilizando la versión de prueba"
+        },
+        "success": {
+          "downloadSuccessfully": "¡La descarga se ha completado correctamente!"
+        },
+        "error": {
+          "cantGetData": "¡No se han podido obtener los datos!",
+          "noAccess": "¡Acceso denegado!"
+        }
+      },
+      "toast": {
+        "success": "Éxito",
+        "error": "Error",
+        "warning": "Advertencia",
+        "info": "Información"
+      },
+      "history": {
+        "title": "Historial de cambios",
+        "tooltip": "Historial de cambios",
+        "empty": "Sin historial",
+        "headers": {
+          "createdAt": "Fecha de modificación",
+          "changedBy": "Modificado por",
+          "actionType": "Tipo de acción",
+          "ip": "Dirección IP",
+          "oldData": "Datos anteriores",
+          "newData": "Datos nuevos"
+        },
+        "actionTypes": {
+          "CREATE": "Creación",
+          "UPDATE": "Actualización",
+          "DELETE": "Eliminación",
+          "RESTORE": "Restauración",
+          "COMMENT": "Estado"
+        },
+        "message": {
+          "error": {
+            "cantLoad": "¡Error al cargar el historial!"
+          }
+        }
+      },
+      "rightsReserved": "Todos los derechos reservados."
+    },
+    "paginator": {
+      "itemsPerPage": "Elementos por página",
+      "nextPage": "Página siguiente",
+      "previousPage": "Página anterior",
+      "firstPage": "Primera página",
+      "lastPage": "Última página",
+      "of": "de"
+    },
+    "ngSelect": {
+      "nothingFound": "No se ha encontrado nada..",
+      "loading": "Cargando.."
+    },
+    "dashboard": {
+      "pageTitle": {
+        "dashboard": "Panel de control"
+      },
+      "pageDescription": {
+        "dashboard": "Te damos la bienvenida de nuevo al panel de administración."
+      },
+      "imReady": "¡Estoy listo para empezar!"
+    }
+  }
+}

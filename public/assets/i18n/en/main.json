@@ -1,0 +1,134 @@
+{
+  "main": {
+    "appName": "DAILO APP",
+    "global": {
+      "lp": "No.",
+      "actions": "Actions",
+      "id": "ID",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "localAccount": "Local account",
+      "createdAt": "Created",
+      "updatedAt": "Last updated",
+      "deletedAt": "Deletion date",
+      "all": "All",
+      "yes": "Yes",
+      "no": "No",
+      "true": "Yes",
+      "false": "No",
+      "showHideColumns": "Show/hide columns",
+      "saveState": "Remember state",
+      "hiddenColumnsAmount": "Hidden columns",
+      "expand": "Show",
+      "collapse": "Hide",
+      "button": {
+        "save": "Save",
+        "select": "Select",
+        "add": "Add",
+        "cancel": "Cancel",
+        "update": "Update",
+        "close": "Close",
+        "maximize": "Maximize",
+        "restore": "Restore size",
+        "goBack": "Back",
+        "goToDashboardPage": "Back to home page",
+        "delete": "Delete",
+        "show": "View",
+        "edit": "Edit",
+        "deleted": "Deleted items"
+      },
+      "tooltip": {
+        "show": "View",
+        "edit": "Edit",
+        "delete": "Delete",
+        "goBack": "Back",
+        "add": "Add",
+        "preview": "Preview",
+        "more": "More",
+        "details": "Details",
+        "restore": "Restore",
+        "history": "View change history"
+      },
+      "validation": {
+        "formNotCorrect": "The form has not been filled out correctly!",
+        "required": "This field is required",
+        "requiredTrue": "This field must be checked",
+        "minlength": "The entered value should be longer than {{minlength}} characters",
+        "maxlength": "The entered value should be shorter than {{maxlength}} characters",
+        "min": "The entered value should be greater than or equal to: {{min}}",
+        "max": "The entered value should be less than or equal to: {{max}}",
+        "email": "The entered value should be a valid email address",
+        "pattern": "The entered value should match the format {{pattern}}",
+        "fieldIsRequired": "This field is required",
+        "mismatch": "The repeated password is different"
+      },
+      "message": {
+        "info": {
+          "noItems": "No items have been added.",
+          "testBanner": "You are using the test version"
+        },
+        "success": {
+          "downloadSuccessfully": "Download completed successfully!"
+        },
+        "error": {
+          "cantGetData": "Failed to retrieve data!",
+          "noAccess": "Access denied!"
+        }
+      },
+      "toast": {
+        "success": "Success",
+        "error": "Error",
+        "warning": "Warning",
+        "info": "Information"
+      },
+      "history": {
+        "title": "Change history",
+        "tooltip": "Change history",
+        "empty": "No history",
+        "headers": {
+          "createdAt": "Modification date",
+          "changedBy": "Changed by",
+          "actionType": "Action type",
+          "ip": "IP address",
+          "oldData": "Old data",
+          "newData": "New data"
+        },
+        "actionTypes": {
+          "CREATE": "Creation",
+          "UPDATE": "Update",
+          "DELETE": "Deletion",
+          "RESTORE": "Restoration",
+          "COMMENT": "Status"
+        },
+        "message": {
+          "error": {
+            "cantLoad": "Error loading history!"
+          }
+        }
+      },
+      "rightsReserved": "All rights reserved."
+    },
+    "paginator": {
+      "itemsPerPage": "Items per page",
+      "nextPage": "Next page",
+      "previousPage": "Previous page",
+      "firstPage": "First page",
+      "lastPage": "Last page",
+      "of": "of"
+    },
+    "ngSelect": {
+      "nothingFound": "Nothing found..",
+      "loading": "Loading.."
+    },
+    "dashboard": {
+      "pageTitle": {
+        "dashboard": "Dashboard"
+      },
+      "pageDescription": {
+        "dashboard": "Welcome back to the administration panel."
+      },
+      "imReady": "I'm ready to get started!"
+    }
+  }
+}

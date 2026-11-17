@@ -1,0 +1,16 @@
+{
+  "error": {
+    "pageTitle": {
+      "error": "ERROR"
+    },
+    "texts": {
+      "info": "We can't find the page you're looking for!",
+      "chunkLoad": "This page could not be loaded. The application may have been updated or the server is unavailable. Reload the page to try again.",
+      "unexpected": "An unexpected error occurred. Reload the page or go back to the dashboard."
+    },
+    "buttons": {
+      "backToDashboard": "Back to dashboard page",
+      "reload": "Reload page"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "role": {
+    "pageTitle": {
+      "roles": "Roles",
+      "add": "Nuevo",
+      "edit": "Editar",
+      "display": "Detalles"
+    },
+    "pageDescription": {
+      "roles": "Administra los roles de la aplicación."
+    },
+    "form": {
+      "name": "Nombre",
+      "guardName": "Guard",
+      "permissionsCount": "Permisos asignados",
+      "permissions": "Permisos",
+      "selected": "Se han seleccionado {{selected}} de {{total}} permisos.",
+      "showOnlySelected": "Mostrar solo los permisos seleccionados",
+      "other": "Otros"
+    },
+    "message": {
+      "question": {
+        "areYouSureYouWantDelete": "¿Está seguro de que desea eliminar el elemento seleccionado?"
+      },
+      "info": {
+        "aboutSelectPermissions": "Cambiar los permisos cerrará la sesión de todos los usuarios asignados al rol editado."
+      },
+      "success": {
+        "createdUpdatedSuccessfully": "¡El rol se ha creado/actualizado correctamente!",
+        "deletedSuccessfully": "¡El elemento seleccionado ha sido eliminado!"
+      },
+      "error": {
+        "cantCreateUpdate": "¡No se pudo crear/actualizar el rol!",
+        "cantDeleted": "¡Error al eliminar el rol '{{name}}'!",
+        "selectMinOnePermission": "¡Debe seleccionar al menos un permiso!"
+      }
+    },
+    "permissionGroups": {
+      "ACCESS": "Acceso",
+      "USERS": "Usuarios",
+      "ROLES": "Roles",
+      "PERMISSIONS": "Permisos"
+    },
+    "history": {
+      "name": "Nombre",
+      "guardName": "Guardia",
+      "permissions": "Permiso"
+    }
+  }
+}

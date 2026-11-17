@@ -1,0 +1,30 @@
+{
+  "layout": {
+    "header": {
+      "search": {
+        "title": "Buscar..."
+      },
+      "languages": {
+        "title": "Seleccionar idioma",
+        "pl": "Polaco",
+        "en": "Inglés",
+        "es": "Español"
+      },
+      "notification": {
+        "title": "Notificaciones",
+        "seeAll": "Ver todas"
+      },
+      "user": {
+        "logOut": "Cerrar sesión",
+        "settings": "Configuración",
+        "myAccount": "Mi cuenta"
+      },
+      "changes": "Historial de cambios"
+    },
+    "footer": {
+      "copyright": "© {{year}} - Todos los derechos reservados.",
+      "madeBy": "Hecho con ♥"
+    }
+  },
+  "loading": "Cargando..."
+}
